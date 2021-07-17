@@ -3,29 +3,28 @@
 /* The outermost <form> element and errors container */
 .login__form {
     display: flex;
-   flex-direction: column;
-
-    /* justify-content: center; */
+    flex-direction: column;
     text-align: center;
     align-items: center;
 }
 
 .login__errors__container {
-
+    position: fixed;
 }
 
 /* The login email input and label */
 
 .login__email__container {
-
 }
 
 .login__email__label {
 
 }
 
-.login__email {
-
+.login__email, .login__password {
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
 }
 
 /* The login password input and label */
@@ -45,5 +44,12 @@
 /* The login submit button */
 
 .login__submit__button {
-
+    width: 150px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: var(--darkteal);
 }
