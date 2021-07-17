@@ -2,7 +2,12 @@
 
 /* The outermost <form> element and errors container */
 .login__form {
-    display: inline-block; 
+    display: flex;
+   flex-direction: column;
+
+    /* justify-content: center; */
+    text-align: center;
+    align-items: center;
 }
 
 .login__errors__container {
