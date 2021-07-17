@@ -11,30 +11,26 @@
     background-color: white;
     border-radius: 12px;
     box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.233);
-    height: 500px;
+    height: 370px;
     width: 500px;
 }
+
 .login__form {
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 }
+
 .login__form__heading {
     color: var(--darkteal);
 }
+
 .login__errors__container {
     position: fixed;
 }
 
-/* The login email input and label */
-
-.login__email__container {
-}
-
-.login__email__label {
-
-}
+/* The login email & password input */
 
 .login__email, .login__password {
     border-radius: 2px;
@@ -46,32 +42,19 @@
     background-color: rgb(241, 241, 241);
 }
 
-/* The login password input and label */
-
-.login__password__container {
-
-}
-
-.login__password__label {
-
-}
-
-.login__password {
-
-}
-
 /* The login submit button and text underneath */
 
 .login__submit__button {
+    margin-top: 10px;
     width: 150px;
-    height: 40px;
+    height: 45px;
     border-radius: 12px;
     border: none;
     font-weight: bold;
     font-size: 18px;
     color: white;
     background-color: var(--darkteal);
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .login__no__account {
@@ -79,12 +62,12 @@
 }
 
 .login__create__here:visited {
-    color: var(--lightcoral)
+    color: var(--darkteal)
 }
 
 .login__create__here {
     font-size: 17px;
-    color: var(--lightcoral);
+    color: var(--darkteal);
     text-decoration: none;
     font-weight: bold;
 }
