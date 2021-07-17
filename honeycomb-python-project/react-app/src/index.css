@@ -1,4 +1,7 @@
 /* Site-wide Styles go here! :) */
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 :root {
     --darkteal: #0098AB;

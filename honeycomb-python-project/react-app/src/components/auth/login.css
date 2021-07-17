@@ -36,7 +36,7 @@
     border-radius: 2px;
     text-indent: 5px;
     width: 250px;
-    height: 35px;
+    height: 45px;
     margin-bottom: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
@@ -51,7 +51,7 @@
     border-radius: 12px;
     border: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     background-color: var(--darkteal);
     /* margin-bottom: 20px; */
