@@ -1,5 +1,9 @@
 @import url('../../index.css');
 
+body {
+    background-color: #FAFAFA;
+}
+
 /* The outermost <form> element and errors container */
 .login__form__container {
     margin-top: 100px;
@@ -10,7 +14,7 @@
     margin-right: auto;
     background-color: white;
     border-radius: 12px;
-    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.233);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
     height: 370px;
     width: 500px;
 }
