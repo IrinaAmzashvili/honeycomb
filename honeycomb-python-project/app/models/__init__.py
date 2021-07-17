@@ -5,3 +5,4 @@ from .category import Category
 from .club import Club
 from .event import Event
 from .rsvp import Rsvp
+
