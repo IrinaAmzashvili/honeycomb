@@ -54,15 +54,24 @@
     font-size: 20px;
     color: white;
     background-color: var(--darkteal);
-    /* margin-bottom: 20px; */
+}
+
+.login__submit__button:hover {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--tealhover);
 }
 
 .login__no__account {
     font-size: 17px;
 }
 
+a.login__create__here:hover {
+    color: var(--tealhover);
+}
+
 .login__create__here:visited {
-    color: var(--darkteal)
+    color: var(--darkteal);
 }
 
 .login__create__here {
