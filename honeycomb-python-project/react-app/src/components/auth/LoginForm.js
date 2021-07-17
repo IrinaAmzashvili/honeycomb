@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -47,6 +48,11 @@ const LoginForm = () => {
           <input className="login__password" name='password' type='password' placeholder='Password' value={password} onChange={updatePassword}/>
         </div>
         <button className="login__submit__button" type='submit'>Login</button>
+        <p className="login__no__account">Don't have an account yet?</p>
+        <Link className="login__create__here">
+        <a className="login__create__here">Create one here</a>
+        </Link>
+
       </form>
     </div>
   );

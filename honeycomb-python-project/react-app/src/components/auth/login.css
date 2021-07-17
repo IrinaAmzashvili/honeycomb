@@ -2,11 +2,12 @@
 
 /* The outermost <form> element and errors container */
 .login__form__container {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-self: center;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
     background-color: white;
     border-radius: 12px;
     box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.233);
@@ -59,7 +60,7 @@
 
 }
 
-/* The login submit button */
+/* The login submit button and text underneath */
 
 .login__submit__button {
     width: 150px;
@@ -70,4 +71,20 @@
     font-size: 18px;
     color: white;
     background-color: var(--darkteal);
+    margin-bottom: 20px;
+}
+
+.login__no__account {
+    font-size: 17px;
+}
+
+.login__create__here:visited {
+    color: var(--lightcoral)
+}
+
+.login__create__here {
+    font-size: 17px;
+    color: var(--lightcoral);
+    text-decoration: none;
+    font-weight: bold;
 }
