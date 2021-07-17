@@ -1,2 +1,44 @@
 @import url('../../index.css');
 
+/* The outermost <form> element and errors container */
+.login__form {
+
+}
+
+.login__errors__container {
+
+}
+
+/* The login email input and label */
+
+.login__email__container {
+
+}
+
+.login__email__label {
+
+}
+
+.login__email {
+
+}
+
+/* The login password input and label */
+
+.login__password__container {
+
+}
+
+.login__password__label {
+
+}
+
+.login__password {
+
+}
+
+/* The login submit button */
+
+.login__submit__button {
+
+}
