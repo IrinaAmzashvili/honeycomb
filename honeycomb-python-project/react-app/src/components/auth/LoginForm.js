@@ -40,10 +40,12 @@ const LoginForm = () => {
       </div>
       <div className="login__email__container">
         <label className="login__email__label" htmlFor='email'>Email</label>
+        <br/>
         <input className="login__email" name='email' type='text' placeholder='Email' value={email} onChange={updateEmail}/>
       </div>
       <div className="login__password__container">
         <label className="login__password__label" htmlFor='password'>Password</label>
+        <br/>
         <input className="login__password" name='password' type='password' placeholder='Password' value={password} onChange={updatePassword}/>
         <button className="login__submit__button" type='submit'>Login</button>
       </div>

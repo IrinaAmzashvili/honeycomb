@@ -2,7 +2,7 @@
 
 /* The outermost <form> element and errors container */
 .login__form {
-
+    display: inline-block; 
 }
 
 .login__errors__container {
