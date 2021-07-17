@@ -39,7 +39,7 @@ const LoginForm = () => {
         ))}
       </div>
       <form className="login__form" onSubmit={onLogin}>
-        <h1>Sign In</h1>
+        <h1 className="login__form__heading">Sign In</h1>
         <div className="login__email__container">
           <input className="login__email" name='email' type='text' placeholder='Email' value={email} onChange={updateEmail}/>
         </div>
