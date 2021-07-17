@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .user_club import user_club
 
 
 class User(db.Model, UserMixin):
@@ -9,7 +10,17 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
+    profile_img_url = db.Column(db.String)
+    school_id = db.Column(db.Integer, db.ForeignKey(
+        'schools.id'), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    schools = db.relationship('School', back_populates='users')
+    hosted_clubs = db.relationship('Club', back_populates='host')
+    events = db.relationship('Event', back_populates='users')
+    rsvps = db.relationship('Rsvp', back_populates='users')
+    clubs = db.relationship(
+        'Club', secondary=user_club, back_populates='users')
 
     @property
     def password(self):
@@ -26,5 +37,7 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'profile_img_url': self.profile_img_url,
+            'school_id': self.school_id
         }
