@@ -1,0 +1,87 @@
+@import url('../../index.css');
+
+body {
+    background-color: #FAFAFA;
+}
+
+/* The outermost <form> element and errors container */
+
+.login__form__container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
+    height: 370px;
+    width: 500px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.login__form__heading {
+    color: var(--darkteal);
+}
+
+.login__errors__container {
+    position: fixed;
+}
+
+/* The login email & password input */
+
+.login__email, .login__password {
+    border-radius: 2px;
+    text-indent: 5px;
+    width: 250px;
+    height: 45px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: rgb(241, 241, 241);
+}
+
+/* The login submit button and text underneath */
+
+.login__submit__button {
+    margin-top: 10px;
+    width: 150px;
+    height: 45px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-color: var(--darkteal);
+}
+
+.login__submit__button:hover {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--tealhover);
+}
+
+.login__no__account {
+    font-size: 17px;
+}
+
+a.login__create__here:hover {
+    color: var(--tealhover);
+}
+
+.login__create__here:visited {
+    color: var(--darkteal);
+}
+
+.login__create__here {
+    font-size: 17px;
+    color: var(--darkteal);
+    text-decoration: none;
+    font-weight: bold;
+}
