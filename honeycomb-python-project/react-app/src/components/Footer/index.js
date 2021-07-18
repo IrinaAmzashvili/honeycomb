@@ -5,7 +5,6 @@ import styles from './Footer.module.css'
 
 function Footer() {
 
-
     return (
         <>
             <div className={styles.footer_container}>
@@ -17,12 +16,12 @@ function Footer() {
 
                     <div className={styles.git_names}>
                         <div className={styles.left}>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://github.com/Machaelmus" > <div className={styles.name}>Michael Tufo</div></NavLink>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://github.com/IrinaAmzashvili" > <div className={styles.name}>Irina Amzashvili</div></NavLink>
+                            <a style={{ textDecoration: 'none' }} href="https://github.com/Machaelmus"><div className={styles.name}>Michael Tufo</div></a>
+                            <a style={{ textDecoration: 'none' }} href="https://github.com/IrinaAmzashvili"><div className={styles.name}>Irina Amzashvili</div></a>
                         </div>
                         <div className={styles.right}>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://github.com/JanaeCui" > <div className={styles.name}>Jia Cui</div></NavLink>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://github.com/tswieser" > <div className={styles.name}>Timothy Wieser</div></NavLink>
+                            <a style={{ textDecoration: 'none' }} href="https://github.com/JanaeCui"><div className={styles.name}>Jia Cui</div></a>
+                            <a style={{ textDecoration: 'none' }} href="https://github.com/tswieser"><div className={styles.name}>Timothy Wieser</div></a>
                         </div>
 
                     </div>
@@ -36,12 +35,12 @@ function Footer() {
 
                     <div className={styles.linkedin_names}>
                         <div className={styles.left}>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://www.linkedin.com/in/michael-tufo-6b0386171/" > <div className={styles.name}>Michael Tufo</div></NavLink>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://www.linkedin.com/in/irina-amzashvili-683136211/" > <div className={styles.name}>Irina Amzashvili</div></NavLink>
+                            <a style={{ textDecoration: 'none' }} href="https://www.linkedin.com/in/michael-tufo-6b0386171/"><div className={styles.name}>Michael Tufo</div></a>
+                            <a style={{ textDecoration: 'none' }} href="https://www.linkedin.com/in/irina-amzashvili-683136211/"><div className={styles.name}>Irina Amzashvili</div></a>
                         </div>
                         <div className={styles.right}>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="/" > <div className={styles.name}>Jia Cui</div></NavLink>
-                            <NavLink style={{ textDecoration: 'none', color: "white" }} exact to="https://www.linkedin.com/in/timothy-wieser-722b86215/" > <div className={styles.name}>Timothy Wieser</div></NavLink>
+                            <a style={{ textDecoration: 'none' }} href="https://www.linkedin.com/in/cuijiajanae/"><div className={styles.name}>Jia Cui</div></a>
+                            <a style={{ textDecoration: 'none' }} href="https://www.linkedin.com/in/timothy-wieser-722b86215/"><div className={styles.name}>Timothy Wieser</div></a>
                         </div>
                     </div>
 
