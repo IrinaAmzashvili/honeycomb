@@ -30,7 +30,7 @@ body {
 }
 
 .login__form__heading {
-    color: var(--darkteal);
+    color: var(--tealTheme);
 }
 
 .login__errors__container {
@@ -60,13 +60,13 @@ body {
     font-weight: bold;
     font-size: 20px;
     color: white;
-    background-color: var(--darkteal);
+    background-color: var(--tealTheme);
 }
 
 .login__submit__button:hover {
     cursor: pointer;
     transition: all 0.3s ease 0s;
-    background-color: var(--tealhover);
+    background-color: var(--tealHover);
 }
 
 .login__no__account {
@@ -74,16 +74,16 @@ body {
 }
 
 a.login__create__here:hover {
-    color: var(--tealhover);
+    color: var(--tealHover);
 }
 
 .login__create__here:visited {
-    color: var(--darkteal);
+    color: var(--tealTheme);
 }
 
 .login__create__here {
     font-size: 17px;
-    color: var(--darkteal);
+    color: var(--tealTheme);
     text-decoration: none;
     font-weight: bold;
 }
