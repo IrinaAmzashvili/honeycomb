@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
+<<<<<<< HEAD:honeycomb-python-project/react-app/src/components/auth/SignUpForm.js
 import { signUp } from '../../store/session';
 import './signup.css';
 
+=======
+import { signUp } from '../../../store/session';
+import styles from '../Form.module.css'
+>>>>>>> main:honeycomb-python-project/react-app/src/components/auth/SignUpForm/index.js
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);

@@ -1,10 +1,2 @@
-/* Site-wide Styles go here! :) */
-* {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-:root {
-    --hoverteal: #007786; 
-    --darkteal: #0098AB;
-    --lightcoral: #FA6666;
-  }
+@import './global.css';
+@import './vars.css';
