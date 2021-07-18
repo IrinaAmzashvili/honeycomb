@@ -51,6 +51,7 @@ const SignUpForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
+      <h1 className="signup__heading">Sign up</h1>
       <div className="signup__username__container">
         <input className="signup__username" type='text' name='username' onChange={updateUsername} value={username}/>
       </div>
@@ -64,6 +65,7 @@ const SignUpForm = () => {
         <input className="signup__confirm__password" type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} required={true} />
       </div>
       <button className="signup__submit" type='submit'>Sign Up</button>
+      <p>Already have an account? <span></span></p>
     </form>
   );
 };
