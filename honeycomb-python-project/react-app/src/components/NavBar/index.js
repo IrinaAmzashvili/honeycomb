@@ -2,13 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
+  const sessionUser = useSelector(state => state.session.user)
   // to update with session user
-  const loggedIn = true;
+  // const loggedIn = true;
 
   let sessionLinks;
-  if (loggedIn) {
+  if (sessionUser) {
     sessionLinks = (
       <>
         {/* <ProfileButton /> */}

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom';
 import { signUp } from '../../../store/session';
-import styles from '../Form.module.css'
-import '../signup.css';
+// import styles from '../Form.module.css'
+import './signup.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);

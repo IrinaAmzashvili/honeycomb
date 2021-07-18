@@ -1,4 +1,6 @@
-@import url('../../index.css');
+@import url('../../../global.css');
+@import url('../../../index.css');
+@import url('../../../vars.css');
 
 body {
     background-color: #FAFAFA;

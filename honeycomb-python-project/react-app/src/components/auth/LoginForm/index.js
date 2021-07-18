@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
-import styles from '../Form.module.css'
+// import styles from '../Form.module.css'
+import './login.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -48,8 +49,8 @@ const LoginForm = () => {
           <input className="login__password" name='password' type='password' placeholder='Password' value={password} onChange={updatePassword}/>
         </div>
         <button className="login__submit__button" type='submit'>Login</button>
-        <p className="login__no__account">Don't have an account yet? <Link className="login__create__here"><span>Create one here</span></Link></p>
-        <p className="login__no__account">Login as a <Link className="login__create__here"><span>Demo user</span></Link></p>
+        <p className="login__no__account">Don't have an account yet? <Link to="/signup" className="login__create__here"><span>Create one here</span></Link></p>
+        <p className="login__no__account">Login as a <Link to="/" className="login__create__here"><span>Demo user</span></Link></p>
 
       </form>
     </div>
