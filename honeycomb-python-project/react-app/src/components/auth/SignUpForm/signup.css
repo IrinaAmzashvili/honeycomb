@@ -62,3 +62,18 @@
 .signup__login:hover {
     color: var(--tealHover)
 }
+
+a.login__create__here:hover {
+    color: var(--tealHover);
+}
+
+.login__create__here:visited {
+    color: var(--tealTheme);
+}
+
+.login__create__here {
+    font-size: 17px;
+    color: var(--tealTheme);
+    text-decoration: none;
+    font-weight: bold;
+}

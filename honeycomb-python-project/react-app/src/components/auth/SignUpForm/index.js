@@ -67,6 +67,7 @@ const SignUpForm = () => {
         </div>
         <button className="signup__submit" type='submit'>Sign Up</button>
         <p className="signup__already__have__account">Already have an account? <span><Link className="signup__login">Log In</Link></span></p>
+        <p className="login__no__account">Sign up as a <Link to="/" className="login__create__here"><span>Demo user</span></Link></p>
       </form>
     </div>
   );
