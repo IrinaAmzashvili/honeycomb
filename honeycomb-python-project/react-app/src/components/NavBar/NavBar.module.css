@@ -1,0 +1,25 @@
+@import '../../index.css';
+
+.navbar {
+    background-color: white;
+    height: 65px;
+    font-weight: 700;
+}
+
+.navbarUl {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline-start: 0;
+    align-items: center;
+}
+
+.navbarUl > * {
+    margin: 0 30px;
+    width: 180px;
+}
+
+.loginSignupDiv {
+    display: flex;
+    justify-content: space-around;
+}
