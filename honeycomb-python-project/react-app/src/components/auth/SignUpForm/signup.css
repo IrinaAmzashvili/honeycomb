@@ -1,3 +1,4 @@
+/* Entire form container */
 .signup__form__entire__container {
     display: flex;
     justify-content: center;
@@ -12,21 +13,13 @@
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
 }
 
+/* Signup heading */
+
 .signup__heading {
     color: var(--tealTheme)
 }
-.signup__form__container {
 
-}
-
-.signup__errors__container {
-    position: fixed;
-}
-
-
-.signup__password__container {
-
-}
+/* Signup inputs */
 
 .signup__username, .signup__email, .signup__password, .signup__confirm__password {
     border-radius: 2px;
@@ -37,6 +30,8 @@
     border: none;
     background-color: rgb(241, 241, 241);
 }
+
+/* Signup submit button */
 
 .signup__submit{
     margin-top: 10px;
@@ -53,6 +48,8 @@
 .signup__submit:hover {
     background-color: var(--tealHover)
 }
+
+/* Signup footer links */
 
 .signup__login {
     font-weight: bold;
