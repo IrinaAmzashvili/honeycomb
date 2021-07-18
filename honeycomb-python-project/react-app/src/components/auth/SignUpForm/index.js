@@ -54,16 +54,16 @@ const SignUpForm = () => {
         </div>
         <h1 className="signup__heading">Sign up</h1>
         <div className="signup__username__container">
-          <input className="signup__username" type='text' name='username' onChange={updateUsername} value={username}/>
+          <input placeholder="Username" className="signup__username" type='text' name='username' onChange={updateUsername} value={username}/>
         </div>
         <div className="signup__email__container">
-          <input className="signup__email" type='text' name='email' onChange={updateEmail} value={email}/>
+          <input placeholder="Email" className="signup__email" type='text' name='email' onChange={updateEmail} value={email}/>
         </div>
         <div className="signup__password__container">
-          <input className="signup__password" type='password' name='password' onChange={updatePassword} value={password}/>
+          <input placeholder="Password" className="signup__password" type='password' name='password' onChange={updatePassword} value={password}/>
         </div>
         <div className="signup__confirm__password__container">
-          <input className="signup__confirm__password" type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} required={true} />
+          <input placeholder="Confirm password" className="signup__confirm__password" type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} required={true} />
         </div>
         <button className="signup__submit" type='submit'>Sign Up</button>
         <p className="signup__already__have__account">Already have an account? <span><Link className="signup__login">Log In</Link></span></p>

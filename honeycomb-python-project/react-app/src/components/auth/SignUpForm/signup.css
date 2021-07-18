@@ -58,3 +58,7 @@
     font-weight: bold;
     color: var(--tealTheme)
 }
+
+.signup__login:hover {
+    color: var(--tealHover)
+}
