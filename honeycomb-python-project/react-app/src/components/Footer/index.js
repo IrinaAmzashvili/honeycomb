@@ -12,6 +12,7 @@ function Footer() {
 
                     <div className={styles.icon_container}>
                         <i className="fab fa-github fa-2x"></i>
+                        {/* <i className={`fab fa-github fa-2x ${styles.hubIcon}`}></i> */}
                     </div>
 
                     <div className={styles.git_names}>
