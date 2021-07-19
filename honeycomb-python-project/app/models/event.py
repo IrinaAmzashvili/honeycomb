@@ -14,7 +14,7 @@ class Event(db.Model):
 
     users = db.relationship('User', back_populates="events")
     clubs = db.relationship('Club', back_populates='events')
-    rsvps = db.relationship('Rsvp', back_populates="rsvps")
+    rsvps = db.relationship('Rsvp', back_populates="events")
 
     def to_dict(self):
         return{

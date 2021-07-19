@@ -1,7 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .user_club import user_clubs
+# from .user_club import user_clubs
 
 
 class User(db.Model, UserMixin):
@@ -19,8 +19,10 @@ class User(db.Model, UserMixin):
     hosted_clubs = db.relationship('Club', back_populates='host')
     events = db.relationship('Event', back_populates='users')
     rsvps = db.relationship('Rsvp', back_populates='users')
-    clubs = db.relationship(
-        'Club', secondary=user_clubs, back_populates='users')
+    # clubs = db.relationship(
+    #     'Club', secondary=user_clubs, back_populates='users')
+    user_clubs = db.relationship(
+        'User_club', back_populates='users')
 
     @property
     def password(self):

@@ -1,6 +1,6 @@
 from .db import db
 from .school import School
-from .user_club import user_clubs
+from .user_club import User_club
 from .club import Club
 from .user import User
 from .category import Category
