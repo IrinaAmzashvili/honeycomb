@@ -3,7 +3,7 @@
     display:flex;
     font-size:25px;
     justify-content: space-evenly;
-    height:150px;
+    height:175px;
     width:100%;
     position:absolute;
     bottom:0;
@@ -40,4 +40,5 @@ padding:10px;
     text-decoration: none;
     color:white;
     text-decoration: none;
+    font-weight: bold;
 }
