@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     profile_img_url = db.Column(db.String)
     school_id = db.Column(db.Integer, db.ForeignKey(
-        'schools.id'), nullable=False)
+        'schools.id'))
     hashed_password = db.Column(db.String(255), nullable=False)
 
     schools = db.relationship('School', back_populates='users')
