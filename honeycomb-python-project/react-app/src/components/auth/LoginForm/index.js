@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
-import styles from '../Form.module.css'
+import styles from './Login.module.css'
+// import './login.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -32,34 +34,26 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
+    <div className={styles.login__form__container}>
+      <div className={styles.login__errors__container}>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+      <form className={styles.login__form} onSubmit={onLogin}>
+        <h1 className={styles.login__form__heading}>Sign In</h1>
+        <div className={styles.login__email__container}>
+          <input className={styles.login__email} name='email' type='text' placeholder='Email' value={email} onChange={updateEmail}/>
+        </div>
+        <div className={styles.login__password__container}>
+          <input className={styles.login__password} name='password' type='password' placeholder='Password' value={password} onChange={updatePassword}/>
+        </div>
+        <button className={styles.login__submit__button} type='submit'>Login</button>
+        <p className={styles.login__no__account}>Don't have an account yet? <Link to="/signup" className={styles.login__create__here}><span>Create one here</span></Link></p>
+        <p className={styles.login__no__account}>Login as a <Link to="/" className={styles.login__create__here}><span>Demo user</span></Link></p>
+
+      </form>
+    </div>
   );
 };
 

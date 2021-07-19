@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+import SignUpForm from './components/auth/SignUpForm/index';
 import NavBar from './components/NavBar';
 import Home1 from './components/Home1'
 import Home2 from './components/Home2'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList/UsersList';
 import User from './components/User';
+import Footer from "./components/Footer"
+import ClubsPage from './components/ClubsPage'
 import { authenticate } from './store/session';
 
 function App() {
@@ -16,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -29,18 +31,22 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/signup' exact={true}>
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/clubs' exact={true} >
+          <ClubsPage />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
@@ -52,6 +58,7 @@ function App() {
           <Home2/>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,0 +1,44 @@
+.footer_container{
+    background-color:#fa6666;
+    display:flex;
+    font-size:25px;
+    justify-content: space-evenly;
+    height:175px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+
+}
+
+.github_links{
+display:flex;
+}
+
+.linkedin{
+    display:flex;
+}
+
+.icon_container{
+color:white;
+margin-top:2em;
+padding:10px;
+}
+
+.git_names {
+    display: flex;
+    margin-top:1.5em;
+}
+
+.linkedin_names{
+    display: flex;
+    margin-top:1.5em;
+}
+
+.name{
+    padding:10px;
+    padding-left:15px;
+    text-decoration: none;
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+}
