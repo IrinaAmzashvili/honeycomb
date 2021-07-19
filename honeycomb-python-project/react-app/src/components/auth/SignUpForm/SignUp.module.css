@@ -46,6 +46,7 @@
 }
 
 .signup__submit:hover {
+    cursor: pointer;
     background-color: var(--tealHover)
 }
 
