@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom';
 import { signUp } from '../../../store/session';
-// import styles from '../Form.module.css'
-import './signup.css';
+import styles from './SignUp.module.css'
+// import './signup.css';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -45,29 +45,29 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className="signup__form__entire__container">
-      <form className="signup__form__container" onSubmit={onSignUp}>
-        <div className="signup__errors__container">
+    <div className={styles.signup__form__entire__container}>
+      <form className={styles.signup__form__container} onSubmit={onSignUp}>
+        <div className={styles.signup__errors__container}>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <h1 className="signup__heading">Sign up</h1>
-        <div className="signup__username__container">
-          <input placeholder="Username" className="signup__username" type='text' name='username' onChange={updateUsername} value={username}/>
+        <h1 className={styles.signup__heading}>Sign up</h1>
+        <div className={styles.signup__username__container}>
+          <input placeholder="Username" className={styles.signup__username} type='text' name='username' onChange={updateUsername} value={username}/>
         </div>
-        <div className="signup__email__container">
-          <input placeholder="Email" className="signup__email" type='text' name='email' onChange={updateEmail} value={email}/>
+        <div className={styles.signup__email__container}>
+          <input placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={updateEmail} value={email}/>
         </div>
-        <div className="signup__password__container">
-          <input placeholder="Password" className="signup__password" type='password' name='password' onChange={updatePassword} value={password}/>
+        <div className={styles.signup__password__container}>
+          <input placeholder="Password" className={styles.signup__password} type='password' name='password' onChange={updatePassword} value={password}/>
         </div>
-        <div className="signup__confirm__password__container">
-          <input placeholder="Confirm password" className="signup__confirm__password" type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} required={true} />
+        <div className={styles.signup__confirm__password__container}>
+          <input placeholder="Confirm password" className={styles.signup__confirm__password} type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} required={true} />
         </div>
-        <button className="signup__submit" type='submit'>Sign Up</button>
-        <p className="signup__already__have__account">Already have an account? <span><Link to="/login" className="signup__login">Log In</Link></span></p>
-        <p className="login__no__account">Sign up as a <Link to="/" className="login__create__here"><span>Demo user</span></Link></p>
+        <button className={styles.signup__submit} type='submit'>Sign Up</button>
+        <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
+        <p className={styles.login__no__account}>Sign up as a <Link to="/" className={styles.login__create__here}><span>Demo user</span></Link></p>
       </form>
     </div>
   );
