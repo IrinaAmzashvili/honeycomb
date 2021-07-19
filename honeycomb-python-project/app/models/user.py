@@ -1,7 +1,8 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-# from .user_club import user_clubs
+from .user_club import user_clubs
+from .rsvp import rsvps
 
 
 class User(db.Model, UserMixin):
@@ -12,17 +13,18 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     profile_img_url = db.Column(db.String)
     school_id = db.Column(db.Integer, db.ForeignKey(
-        'schools.id'))
+        'schools.id'), nullable=False)
     hashed_password = db.Column(db.String(255), nullable=False)
 
     schools = db.relationship('School', back_populates='users')
-    hosted_clubs = db.relationship('Club', back_populates='host')
-    events = db.relationship('Event', back_populates='users')
-    rsvps = db.relationship('Rsvp', back_populates='users')
-    # clubs = db.relationship(
-    #     'Club', secondary=user_clubs, back_populates='users')
-    user_clubs = db.relationship(
-        'User_club', back_populates='users')
+    hosted_clubs = db.relationship('Club', back_populates='club_host')
+    hosted_events = db.relationship('Event', back_populates='event_host')
+    # rsvps = db.relationship('Rsvp', back_populates='users')
+    events = db.relationship('Event', secondary=rsvps, back_populates='users')
+    clubs = db.relationship(
+        'Club', secondary=user_clubs, back_populates='users')
+    # user_clubs = db.relationship(
+    #     'User_club', back_populates='users')
 
     @property
     def password(self):

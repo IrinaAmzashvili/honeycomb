@@ -1,4 +1,5 @@
 from .db import db
+from .rsvp import rsvps
 
 
 class Event(db.Model):
@@ -12,9 +13,10 @@ class Event(db.Model):
     host_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     club_id = db.Column(db.Integer, db.ForeignKey('clubs.id'), nullable=False)
 
-    users = db.relationship('User', back_populates="events")
+    event_host = db.relationship('User', back_populates="hosted_events")
     clubs = db.relationship('Club', back_populates='events')
-    rsvps = db.relationship('Rsvp', back_populates="events")
+    # rsvps = db.relationship('Rsvp', back_populates="events")
+    users = db.relationship('User', secondary=rsvps, back_populates='events')
 
     def to_dict(self):
         return{
@@ -25,4 +27,5 @@ class Event(db.Model):
             'location': self.location,
             'host_id': self.host_id,
             'club_id': self.club_id,
+            'rsvps': [rsvp.user_id for rsvp in self.users]
         }

@@ -1,5 +1,5 @@
 from .db import db
-# from .user_club import user_clubs
+from .user_club import user_clubs
 
 
 class Club(db.Model):
@@ -16,13 +16,13 @@ class Club(db.Model):
         'schools.id'), nullable=False)
 
     categories = db.relationship('Category', back_populates="clubs")
-    host = db.relationship('User', back_populates="hosted_clubs")
+    club_host = db.relationship('User', back_populates="hosted_clubs")
     schools = db.relationship('School', back_populates="clubs")
     events = db.relationship('Event', back_populates="clubs")
-    # users = db.relationship('User', secondary=user_clubs,
-    #                         back_populates="clubs")
+    users = db.relationship('User', secondary=user_clubs,
+                            back_populates="clubs")
 
-    user_clubs = db.relationship('User_club', back_populates="clubs")
+    # user_clubs = db.relationship('User_club', back_populates="clubs")
 
     def to_dict(self):
         return{
