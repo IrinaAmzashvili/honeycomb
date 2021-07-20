@@ -52,6 +52,7 @@ export const getSingleClub = (id) => async (dispatch) => {
 //reducer
 
 const initialState = { singleClub: null };
+// const initialState = { singleClub: null };
 
 const clubsReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -74,6 +75,10 @@ const clubsReducer = (state = initialState, action) => {
         // return {
         //     ...action.payload
         // }
+            // return {
+            //     ...state,
+            //     [action.club.id]: action.club,
+            // }
         default:
             return state;
     }

@@ -1,11 +1,11 @@
 .club_button{
     margin-top: 10px;
-    width: 150px;
-    height: 35px;
+    width: 173px;
+    height: 53px;
     border-radius: 12px;
     border: none;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     background-color: var(--tealTheme);
 }

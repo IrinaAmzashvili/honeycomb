@@ -7,6 +7,7 @@ const IndividualClub = () => {
     const sessionUser = useSelector(state => state.session.user)
     const {id} = useParams();
     const club = useSelector(state => state.clubs.singleClub)
+    // const club = useSelector(state => state.club)
     const dispatch = useDispatch()
 
     useEffect(() => {

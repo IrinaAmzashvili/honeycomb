@@ -5,7 +5,7 @@ import './index.css';
 import App from './App';
 import { ModalProvider } from "./context/Modal";
 import configureStore from './store';
-import { BrowserRouter } from "react-router-dom";
+
 const store = configureStore();
 
 ReactDOM.render(

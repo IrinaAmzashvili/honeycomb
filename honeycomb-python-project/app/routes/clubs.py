@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import club
 from flask import Blueprint
-from ..models import db, Club
+from ..models import db, Club, School
 from flask_login import current_user
 from app.forms import ClubForm
 
@@ -10,8 +10,7 @@ club_route = Blueprint('clubs', __name__, url_prefix='')
 
 @club_route.route('/clubs')
 def get_clubs():
-    allClubs = Club.query.filter(
-        current_user.school_id == Club.school_id).all()
+    allClubs = Club.query.filter(current_user.school_id == Club.school_id).all()
     return {'clubs': [club.to_dict() for club in allClubs]}
 
 
@@ -33,7 +32,7 @@ def post_club():
         return club.to_dict()
     return{'errors': 'Failed to submit club form'}
 
-    
+
 @club_route.route('/clubs/<int:id>', methods=['GET'])
 def get_one_club(id):
     oneClub = Club.query.get(id)

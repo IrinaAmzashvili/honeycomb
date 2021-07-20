@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../Home1/Home1.module.css'
-import homeImg from "../../images/homeImg.png"
+import homeImg2 from "../../images/homeImg2.png"
 import navBar1 from '../../images/navBar1.png';
 
 const Home1 = () =>{
@@ -16,7 +16,7 @@ const Home1 = () =>{
                 <button className={styles.startButton}>Get started!</button>
             </div>
             <div className={styles.picture}>
-                <img src={homeImg}></img>
+                <img src={homeImg2}></img>
             </div>
         </div>
         <div className={styles.bottomBar}></div>
