@@ -1,9 +1,15 @@
-const GET_CLUBS = 'clubs/GET_CLUBS';
-
 //action creators
+const GET_CLUBS = 'clubs/GET_CLUBS';
+const GET_ONE_CLUB = 'clubs/GET_ONE_CLUB';
+
 const loadClubs = (clubs) => ({
     type: GET_CLUBS,
     clubs
+})
+
+const getOneClub = (club) => ({
+    type: GET_ONE_CLUB,
+    club
 })
 
 //thunks
@@ -15,10 +21,18 @@ export const getClubs = () => async (dispatch) => {
     }
 }
 
+export const getSingleClub = (id) => async (dispatch) => {
+    console.log('INSIDE THE THUNK FEHSLBHJSADBJFADSBFBDSAHJBFJADKSBDJBFJADKSBJAS')
+    const oneClub = await fetch(`/clubs/${id}`)
+    const club = await oneClub.json()
+    if(oneClub.ok) {
+        dispatch(getOneClub(club))
+    }
+}
 
 //reducer
 
-const initialState = {};
+const initialState = {singleClub: null};
 
 const clubsReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -28,6 +42,13 @@ const clubsReducer = (state = initialState, action) => {
                 allClubs[club.id] = club
             })
             return allClubs;
+        case GET_ONE_CLUB:
+            const oneClub = Object.assign({}, state);
+            oneClub.singleClub = action.club;
+            return oneClub; 
+            // return {
+            //     ...action.payload
+            // }
         default:
             return state;
     }
