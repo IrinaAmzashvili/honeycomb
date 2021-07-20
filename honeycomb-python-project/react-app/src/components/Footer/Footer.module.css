@@ -3,11 +3,11 @@
     display:flex;
     font-size:25px;
     justify-content: space-evenly;
-    height:175px;
+    height:166px;
     width:100%;
-    position:absolute;
+    /* position:absolute; */
+    /* position:relative; */
     bottom:0;
-
 }
 
 .github_links{

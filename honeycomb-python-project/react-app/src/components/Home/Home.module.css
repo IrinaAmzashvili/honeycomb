@@ -6,10 +6,13 @@
     width: 100%;
     display: block;
 }
+.mostOuterDiv{
+    position: relative;
+    overflow:hidden;
+}
 .outerContainer{
     width: 100%;
     height: 100%;
-    background-color: #FAFAFA;
     /* background-color: black; */
     padding: 144px;
     display: grid;
@@ -17,7 +20,7 @@
     grid-template-areas:
     "text picture";
     position: relative;
-    z-index: -20000;
+    z-index: 20000;
     overflow:hidden;
 
 }
@@ -46,6 +49,7 @@
     margin-top: 10px;
     grid-area: picture;
     width: fit-content;
+    z-index: 1;
 }
 
 .startButton{
@@ -58,12 +62,20 @@
     font-size: 25px;
     color: #FFFFFF;
     margin-top: 80px;
+
 }
+
+.startButton:hover{
+    background-color: #016f7e;
+}
+
 .homeBackground{
     position: absolute;
-    margin-top: 100px;
+    top:0;
+    margin-top: 150px;
     overflow:hidden;
-    z-index: -1000;
+
+
 }
 .topBar{
     position: absolute;
