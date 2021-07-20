@@ -11,6 +11,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .routes.clubs import club_route
 from .api.schools import school_route
+from .api.event_routes import event_route
 
 from .seeds import seed_commands
 
@@ -36,9 +37,9 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(club_route)
 app.register_blueprint(school_route)
+app.register_blueprint(event_route)
 db.init_app(app)
 Migrate(app, db)
-
 
 
 # Application Security
