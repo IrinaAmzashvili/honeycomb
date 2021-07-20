@@ -10,7 +10,7 @@ const loadClubs = (clubs) => ({
 
 const createClub = (club) => ({
     type: POST_CLUB,
-
+    club
 })
 
 const getOneClub = (club) => ({
@@ -28,10 +28,11 @@ export const getClubs = () => async (dispatch) => {
 }
 
 export const postClub = (club) => async (dispatch) => {
+    console.log("=======================> made it to thunk")
     const res = await fetch("/clubs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({club})
+        body: JSON.stringify(club)
     })
     if (res.ok) {
         const newClub = await res.json()
@@ -43,7 +44,7 @@ export const postClub = (club) => async (dispatch) => {
 export const getSingleClub = (id) => async (dispatch) => {
     const oneClub = await fetch(`/clubs/${id}`)
     const club = await oneClub.json()
-    if(oneClub.ok) {
+    if (oneClub.ok) {
         dispatch(getOneClub(club))
     }
 }
@@ -70,9 +71,9 @@ const clubsReducer = (state = initialState, action) => {
             const oneClub = Object.assign({}, state);
             oneClub.singleClub = action.club;
             return oneClub;
-            // return {
-            //     ...action.payload
-            // }
+        // return {
+        //     ...action.payload
+        // }
         default:
             return state;
     }

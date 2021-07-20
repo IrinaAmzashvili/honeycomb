@@ -13,7 +13,7 @@ function CreateClub() {
     const [category, setCategory] = useState("")
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit =  (e) => {
         e.preventDefault();
 
         const newClub = {
@@ -23,7 +23,7 @@ function CreateClub() {
             category_id: category,
 
         }
-        await dispatch(postClub(newClub))
+         dispatch(postClub(newClub))
     }
 
     return (
