@@ -7,6 +7,9 @@ import styles from '../ClubsPage/ClubsPage.module.css'
 import homeBackground from "../../images/homeBackground.png"
 import { GoSearch } from 'react-icons/go';
 
+// import styles from './ClubsPage.module.css';
+import ClubModal from '../CreateClubModal'
+
 const ClubsPage = () => {
 
   //------------------------------------------------clubs---------------------------------------------
@@ -30,10 +33,12 @@ const ClubsPage = () => {
       setSearchTerm(e.target.value)
   }
   const dynamicSearch = ()=>{
-    return clubs.filter(club=> club.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    return clubs.filter(club=> club?.name.toLowerCase().includes(searchTerm.toLowerCase()))
   }
 
   clubs = dynamicSearch();
+
+
 
   return (
     <>
@@ -42,9 +47,10 @@ const ClubsPage = () => {
       <div className={styles.clubsOuterDiv}>
         <div className={styles.clubsTopTwoLine}>
           <div className={styles.clubsFirstContainer}>
-            <button className={styles.startButton}>
+            {/* <button className={styles.startButton}>
               Start a club
-            </button>
+            </button> */}
+            <ClubModal className={styles.startButton} />
             <div className={styles.clubsFirstContainerRight}>
               <div className={styles.categoryFilterGroup}>
                 <select className={styles.categorySelect} >
@@ -73,7 +79,15 @@ const ClubsPage = () => {
         </div>
       </div>
       <img className={styles.homeBackground} src={homeBackground}></img>
+
+      {/* {clubs.map((club) => (
+        <Link key={club?.id} className={styles.club__name__link} to={`/clubs/${club?.id}`}>
+          <p>{club?.name}</p>
+        </Link>
+      ))} */}
+      {/* <ClubModal/> */}
     </>
+
   )
 }
 

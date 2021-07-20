@@ -95,3 +95,7 @@
     font-size: 30px;
     color:#3B2029;
 }
+
+a.club__name__link:hover {
+    text-decoration: underline;
+}
