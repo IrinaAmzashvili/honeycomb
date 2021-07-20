@@ -2,7 +2,9 @@ import React, {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { getSingleClub } from '../../store/clubs';
-import styles from './IndividualClub.module.css'
+import styles from './IndividualClub.module.css';
+import EditClubForm from '../EditClubForm';
+
 const IndividualClub = () => {
     const sessionUser = useSelector(state => state.session.user)
     const {id} = useParams();
@@ -10,10 +12,12 @@ const IndividualClub = () => {
     // const club = useSelector(state => state.club)
     const dispatch = useDispatch()
 
+
     useEffect(() => {
         dispatch(getSingleClub(parseInt(id)))
     }, [dispatch, id])
-    console.log('wowza', club)
+
+
     return (
         <>
             <div className={styles.redCrossBar}>
@@ -37,6 +41,7 @@ const IndividualClub = () => {
                 </div>
             </div>
             </div>
+            <EditClubForm/>
         </>
     )
 }

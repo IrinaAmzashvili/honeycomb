@@ -82,12 +82,12 @@ const clubsReducer = (state = initialState, action) => {
                 allClubs[club.id] = club
             })
             return allClubs;
+        case EDIT_CLUB:
         case POST_CLUB:
             return {
                 ...state,
                 [action.club.id]: action.club
             }
-
         case GET_ONE_CLUB:
             const oneClub = Object.assign({}, state);
             oneClub.singleClub = action.club;
