@@ -4,6 +4,7 @@ from flask import Blueprint
 from ..models import db, Club, School
 from flask_login import current_user
 from app.forms import ClubForm
+from app.forms.edit_club_form import EditClubForm
 
 club_route = Blueprint('clubs', __name__, url_prefix='')
 
@@ -31,6 +32,25 @@ def post_club():
         db.session.commit()
         return club.to_dict()
     return{'errors': 'Failed to submit club form'}
+
+@club_route.route('/clubs/<int:id>', methods=['PATCH'])
+def edit_one_club(id):
+    clubToEdit = Club.query.get(id)
+    form = EditClubForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        club = Club(
+            name=form.name.data,
+            description=form.description.data,
+            img_url=form.img_url.data,
+            category_id=form.category_id.data,
+            host_id=current_user.id,
+            school_id=current_user.school_id
+        )
+        db.session.update(club)
+        db.session.commit()
+        return club.to_dict()
+    return{'errors': 'Failed to edit club'}
 
 
 @club_route.route('/clubs/<int:id>', methods=['GET'])
