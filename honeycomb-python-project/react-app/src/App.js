@@ -11,7 +11,9 @@ import UsersList from './components/UsersList/UsersList';
 import User from './components/User';
 import Footer from "./components/Footer"
 import ClubsPage from './components/ClubsPage'
+import IndividualClub from './components/IndividualClub/IndividualClub';
 import { authenticate } from './store/session';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/clubs' exact={true} >
           <ClubsPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/clubs/:id'>
+          <IndividualClub/>
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>

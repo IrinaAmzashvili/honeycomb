@@ -1,4 +1,6 @@
 from flask import Blueprint, request
+from app.models import club
+from flask import Blueprint
 from ..models import db, Club
 from flask_login import current_user
 from app.forms import ClubForm
@@ -30,3 +32,8 @@ def post_club():
         db.session.commit()
         return club.to_dict()
     return{'errors': 'Failed to submit club form'}
+@club_route.route('/clubs/<int:id>', methods=['GET'])
+def get_one_club(id):
+    print('HITTING THE INDIVIDUAL CLUB ROUTE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+    oneClub = Club.query.get(id)
+    return oneClub.to_dict()
