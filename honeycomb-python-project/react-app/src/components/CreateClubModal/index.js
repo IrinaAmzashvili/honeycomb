@@ -13,7 +13,7 @@ function ClubModal() {
             <button className={styles.club_button} onClick={() => setShowModal(true)}>Create A Club</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <CreateClub />
+                    <CreateClub setShowModal={setShowModal} />
                 </Modal>
             )}
         </>

@@ -4,7 +4,7 @@ import { postClub } from "../../store/clubs";
 import styles from './ClubModal.module.css';
 
 
-function CreateClub() {
+function CreateClub({ setShowModal }) {
     const dispatch = useDispatch();
 
     const [name, setName] = useState('');
@@ -13,7 +13,7 @@ function CreateClub() {
     const [category, setCategory] = useState("")
 
 
-    const handleSubmit =  (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         const newClub = {
@@ -23,7 +23,8 @@ function CreateClub() {
             category_id: category,
 
         }
-         dispatch(postClub(newClub))
+        dispatch(postClub(newClub))
+        setShowModal(false);
     }
 
     return (
