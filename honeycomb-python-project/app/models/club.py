@@ -18,7 +18,7 @@ class Club(db.Model):
     categories = db.relationship('Category', back_populates="clubs")
     club_host = db.relationship('User', back_populates="hosted_clubs")
     schools = db.relationship('School', back_populates="clubs")
-    events = db.relationship('Event', back_populates="clubs")
+    events = db.relationship('Event', back_populates="clubs", cascade='all, delete-orphan')
     users = db.relationship('User', secondary=user_clubs,
                             back_populates="clubs")
 

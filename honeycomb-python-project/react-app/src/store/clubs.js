@@ -1,6 +1,7 @@
 //action creators
 const GET_CLUBS = 'clubs/GET_CLUBS';
 const GET_ONE_CLUB = 'clubs/GET_ONE_CLUB';
+const DELETE_CLUB = 'clubs/DELETE_CLUB'
 
 const loadClubs = (clubs) => ({
     type: GET_CLUBS,
@@ -10,6 +11,11 @@ const loadClubs = (clubs) => ({
 const getOneClub = (club) => ({
     type: GET_ONE_CLUB,
     club
+})
+
+const removeClub = (id) => ({
+    type: DELETE_CLUB,
+    id
 })
 
 //thunks
@@ -22,11 +28,24 @@ export const getClubs = () => async (dispatch) => {
 }
 
 export const getSingleClub = (id) => async (dispatch) => {
-    console.log('INSIDE THE THUNK FEHSLBHJSADBJFADSBFBDSAHJBFJADKSBDJBFJADKSBJAS')
     const oneClub = await fetch(`/clubs/${id}`)
     const club = await oneClub.json()
     if(oneClub.ok) {
         dispatch(getOneClub(club))
+    }
+}
+
+export const deleteClub = (id) => async (dispatch) => {
+    console.log('---> in delete thunk')
+
+    const res = await fetch(`/clubs/${id}`, {
+        method: 'DELETE'
+    });
+    await res.json();
+
+    if (res.ok) {
+        dispatch(removeClub(id))
+        return res
     }
 }
 
@@ -45,10 +64,14 @@ const clubsReducer = (state = initialState, action) => {
         case GET_ONE_CLUB:
             const oneClub = Object.assign({}, state);
             oneClub.singleClub = action.club;
-            return oneClub; 
+            return oneClub;
             // return {
             //     ...action.payload
             // }
+        case DELETE_CLUB:
+            const newObj = { ...state };
+            delete newObj[action.id];
+            return newObj;
         default:
             return state;
     }

@@ -11,7 +11,7 @@ import UsersList from './components/UsersList/UsersList';
 import User from './components/User';
 import Footer from "./components/Footer"
 import ClubsPage from './components/ClubsPage'
-import IndividualClub from './components/IndividualClub/IndividualClub';
+import IndividualClub from './components/IndividualClub';
 import { authenticate } from './store/session';
 
 
