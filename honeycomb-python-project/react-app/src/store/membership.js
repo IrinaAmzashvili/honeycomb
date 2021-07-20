@@ -7,13 +7,11 @@ const joinClub = (club) => ({
 
 // join club
 export const postJoinClub = (id) => async (dispatch) => {
-  console.log('-----> in thunk')
   const res = await fetch(`/api/membership/${id}`, {
     method: 'POST',
     header: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ id })
   });
-  console.log('-----> after thunk')
   const club = await res.json()
 
   if (res.ok) {

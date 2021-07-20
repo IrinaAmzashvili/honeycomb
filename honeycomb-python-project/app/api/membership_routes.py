@@ -7,14 +7,12 @@ membership_routes = Blueprint('membership', __name__)
 
 @membership_routes.route('/<int:id>', methods=['POST'])
 def join_club(id):
-    print('-----------------> in backend route')
-    member = User.query.get_or_404(current_user.id)
-    print('-----------------> AFTER GRAB MEMBER')
+    # queries to find user and club
+    user = User.query.get_or_404(current_user.id)
     club = Club.query.get_or_404(id)
-    print('-----------------> AFTER GRAB CLUB')
-    club.users.append(member)
-    print('-----------------> AFTER APPEND CLUB')
+    # append member to club users list
+    club.users.append(user)
+    # add to and update database
     db.session.add(club)
     db.session.commit()
-    print('----------------->', club)
     return {'club': club.to_dict()}

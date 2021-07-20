@@ -7,7 +7,7 @@ import membershipReducer from './membership'
 const rootReducer = combineReducers({
   session,
   clubs: clubsReducer,
-  clubMemberships: membershipReducer,
+  memberships: membershipReducer,
 });
 
 

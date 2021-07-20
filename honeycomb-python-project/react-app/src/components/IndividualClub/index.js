@@ -10,18 +10,17 @@ const IndividualClub = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    // const user = useSelector(state => state.session.user)
-    // const member = club?.id // user.clubs.id is equal to club.id
+    const memberships = useSelector((state) => Object.values(state.memberships))
+    const member = memberships.find(item => item?.id === club?.id) // user.clubs.id is equal to club.id
 
-    console.log('--->')
     const handleDelete = (e) => {
         e.preventDefault();
         dispatch(deleteClub(id))
-        // history.push('/clubs')
+        // include error handling: if result.message is true, proceed (might be an issue that backend True is capitalized)
+        history.push('/clubs')
     }
 
     const handleMembership = (e) => {
-        console.log('---> in handler')
         e.preventDefault()
         dispatch(postJoinClub(id))
     }

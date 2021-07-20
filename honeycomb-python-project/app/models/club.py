@@ -1,6 +1,5 @@
 from .db import db
-# from .user_club import user_clubs
-from .user import user_clubs
+from .user_club import user_clubs
 
 
 class Club(db.Model):
@@ -22,7 +21,6 @@ class Club(db.Model):
     events = db.relationship('Event', back_populates="clubs", cascade='all, delete-orphan', single_parent=True)
     users = db.relationship('User', secondary=user_clubs, back_populates="clubs")
 
-    # user_clubs = db.relationship('User_club', back_populates="clubs")
 
     def to_dict(self):
         return{
@@ -33,4 +31,5 @@ class Club(db.Model):
             'category_id': self.category_id,
             'host_id': self.host_id,
             'school_id': self.school_id,
+            'members': [member.id for member in self.users],
         }

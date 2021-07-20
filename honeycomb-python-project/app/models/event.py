@@ -15,8 +15,8 @@ class Event(db.Model):
 
     event_host = db.relationship('User', back_populates="hosted_events")
     clubs = db.relationship('Club', back_populates='events')
-    # rsvps = db.relationship('Rsvp', back_populates="events")
     users = db.relationship('User', secondary=rsvps, back_populates='events')
+
 
     def to_dict(self):
         return{
@@ -27,5 +27,5 @@ class Event(db.Model):
             'location': self.location,
             'host_id': self.host_id,
             'club_id': self.club_id,
-            'rsvps': [rsvp.user_id for rsvp in self.users]
+            'rsvps': [rsvp.id for rsvp in self.users],
         }

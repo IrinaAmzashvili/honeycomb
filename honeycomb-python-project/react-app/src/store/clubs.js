@@ -36,8 +36,6 @@ export const getSingleClub = (id) => async (dispatch) => {
 }
 
 export const deleteClub = (id) => async (dispatch) => {
-    console.log('---> in delete thunk')
-
     const res = await fetch(`/clubs/${id}`, {
         method: 'DELETE'
     });
