@@ -1,0 +1,92 @@
+@import url('../../global.css');
+@import url('../../index.css');
+@import url('../../vars.css');
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "image clubinfo";
+  }
+
+.image {
+    margin-left: 480px;
+    grid-area: image;
+ }
+
+.clubinfo { grid-area: clubinfo;}
+.redCrossBar {
+    height: 80px;
+    width: 100vw;
+    background-color: var(--coralTheme);
+}
+
+
+
+.clubInfoContainer {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
+    background-color: white;
+    height: 350px;
+    width: 100vw;
+}
+
+.clubImage {
+    height: 300px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.541);
+}
+.joinButton {
+    margin-left: 250px;
+    height: 40px;
+    width: 120px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--coralTheme);
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+.joinButton:hover {
+    cursor: pointer;
+    background-color: #d65858;
+}
+.clubName {
+    font-weight: 1000;
+    font-size: 40px;
+    margin-bottom: -40px;
+}
+
+.clubDescription {
+
+}
+
+.buttonContainer {
+
+}
+
+.editButton, .deleteButton {
+    height: 40px;
+    width: 120px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--tealTheme);
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+.editButton:hover, .deleteButton:hover {
+    background-color: var(--tealHover);
+    cursor: pointer;
+}
+
+.deleteButton {
+
+}
