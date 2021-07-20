@@ -7,7 +7,7 @@ from .db import db
 user_clubs = db.Table(
     'user_clubs',
     # Base.metadata,
-    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True, cascade='all, delete-orphan'),
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
     db.Column('club_id', db.Integer, db.ForeignKey('clubs.id'), primary_key=True)
 )
 

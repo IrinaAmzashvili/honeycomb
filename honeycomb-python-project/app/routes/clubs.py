@@ -23,7 +23,6 @@ def delete_club(id):
     club = Club.query.get_or_404(id)
     db.session.delete(club)
     print('------------------> after delete')
-
     db.session.commit()
     print('------------------> after commit')
     return {'message': 'success'}

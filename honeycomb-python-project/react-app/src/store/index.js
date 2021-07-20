@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import clubsReducer from './clubs';
 import session from './session'
+import membershipReducer from './membership'
 
 const rootReducer = combineReducers({
   session,
   clubs: clubsReducer,
+  clubMemberships: membershipReducer,
 });
 
 
