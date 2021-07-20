@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { getClubs } from "../../store/clubs";
+import { Link } from 'react-router-dom';
+import styles from './ClubsPage.module.css';
 
 const ClubsPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,9 @@ const ClubsPage = () => {
   return (
     <div>
       {clubs.map((club) => (
-        <div>{club.name}</div>
+        <Link className={styles.club__name__link} to="/club/:id">
+          <p>{club.name}</p>
+        </Link>
       ))}
     </div>
   )
