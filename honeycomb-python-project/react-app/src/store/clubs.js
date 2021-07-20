@@ -31,7 +31,7 @@ export const postClub = (club) => async (dispatch) => {
     const res = await fetch("/clubs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(club)
+        body: JSON.stringify({club})
     })
     if (res.ok) {
         const newClub = await res.json()
@@ -65,6 +65,7 @@ const clubsReducer = (state = initialState, action) => {
                 ...state,
                 [action.club.id]: action.club
             }
+
         case GET_ONE_CLUB:
             const oneClub = Object.assign({}, state);
             oneClub.singleClub = action.club;

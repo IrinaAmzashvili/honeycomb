@@ -25,11 +25,11 @@ const ClubsPage = () => {
 
   return (
     <>
-      {/* {clubs.map((club) => (
-        <Link key={club.id} className={styles.club__name__link} to={`/clubs/${club.id}`}>
+      {clubs.map((club) => (
+        <Link key={club?.id} className={styles.club__name__link} to={`/clubs/${club?.id}`}>
           <p>{club?.name}</p>
         </Link>
-      ))} */}
+      ))}
 
 
 

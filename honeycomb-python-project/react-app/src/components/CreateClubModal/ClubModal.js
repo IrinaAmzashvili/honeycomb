@@ -4,15 +4,13 @@ import { postClub } from "../../store/clubs";
 import styles from './ClubModal.module.css';
 
 
-
-
 function CreateClub() {
     const dispatch = useDispatch();
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [imgUrl, setImgUrl] = useState('');
-    const [category, setCategory] = useState(1)
+    const [category, setCategory] = useState("")
 
 
     const handleSubmit = async (e) => {
@@ -26,9 +24,6 @@ function CreateClub() {
 
         }
         await dispatch(postClub(newClub))
-
-
-
     }
 
     return (
@@ -41,7 +36,7 @@ function CreateClub() {
                     <label className={styles.club__form__label}>Club Name</label>
                 </div>
                 <div>
-                    <input className={styles.club__name} name="name" type="text" placeholder="Club Name" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input className={styles.club__name} name="name" type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 </div>
 
 
@@ -49,7 +44,7 @@ function CreateClub() {
                     <label className={styles.club__form__label}>Club Image URL</label>
                 </div>
                 <div>
-                    <input className={styles.club__name} name="imgUrl" type="text" placeholder="Club Img Url" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />
+                    <input className={styles.club__name} name="imgUrl" type="text" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />
                 </div>
 
 
@@ -57,7 +52,18 @@ function CreateClub() {
                     <label className={styles.club__form__label}>Category</label>
                 </div>
                 <div>
-                    <input className={styles.club__name} name="category" type="number" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} />
+                    <select className={styles.club__name} value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <option value="" disabled>Select a Category</option>
+                        <option value={1} >Social</option>
+                        <option value={2} >Academic</option>
+                        <option value={3} >Political</option>
+                        <option value={4} >Theater and Art</option>
+                        <option value={5} >Cultural</option>
+                        <option value={6} >Sports and Recreation</option>
+                        <option value={7} >Religious</option>
+                        <option value={8} >Community Service</option>
+                        <option value={9} >Media and Publication</option>
+                    </select>
                 </div>
 
 
@@ -65,10 +71,10 @@ function CreateClub() {
                     <label className={styles.club__form__label}>Description</label>
                 </div>
                 <div>
-                    <textarea className={styles.club__description} name="description" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <textarea className={styles.club__description} name="description" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
 
-                
+
                 <div>
                     <button className={styles.submit_button} type="submit">Submit Club</button>
                 </div>

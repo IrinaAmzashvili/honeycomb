@@ -32,8 +32,9 @@ def post_club():
         db.session.commit()
         return club.to_dict()
     return{'errors': 'Failed to submit club form'}
+
+    
 @club_route.route('/clubs/<int:id>', methods=['GET'])
 def get_one_club(id):
-    print('HITTING THE INDIVIDUAL CLUB ROUTE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
     oneClub = Club.query.get(id)
     return oneClub.to_dict()
