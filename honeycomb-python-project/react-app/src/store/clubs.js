@@ -1,7 +1,9 @@
 //action creators
 const GET_CLUBS = 'clubs/GET_CLUBS';
-const POST_CLUB = "clubs/POST_CLUB"
+const POST_CLUB = "clubs/POST_CLUB";
 const GET_ONE_CLUB = 'clubs/GET_ONE_CLUB';
+const EDIT_CLUB = 'clubs/EDIT_CLUB';
+
 
 const loadClubs = (clubs) => ({
     type: GET_CLUBS,
@@ -15,6 +17,11 @@ const createClub = (club) => ({
 
 const getOneClub = (club) => ({
     type: GET_ONE_CLUB,
+    club
+})
+
+const editOneClub = (club) => ({
+    type: EDIT_CLUB,
     club
 })
 
@@ -38,6 +45,19 @@ export const postClub = (club) => async (dispatch) => {
         const newClub = await res.json()
         dispatch(createClub(newClub))
         return newClub
+    }
+}
+
+export const editClub = (club) => async (dispatch) => {
+    const response = await fetch(`/clubs/${club}`, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(club)
+    })
+    if(response.ok) {
+        const editedClub = await response.json()
+        dispatch(editOneClub(editedClub))
+        return editedClub
     }
 }
 
