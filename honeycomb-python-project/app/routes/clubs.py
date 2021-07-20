@@ -16,5 +16,5 @@ def get_clubs():
     allClubs = Club.query.filter(current_user.school_id == Club.school_id).all()
     # allClubs = session.query(Club).join(School).filter(current_user.school_id == Club.school_id).all()
 
-    print("==============================", {'clubs': [club.to_dict() for club in allClubs]})
+    # print("==============================", {'clubs': [club.to_dict() for club in allClubs]})
     return {'clubs': [club.to_dict() for club in allClubs]}

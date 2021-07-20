@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getClubs } from "../../store/clubs";
+import { getSchool } from "../../store/schools";
 import ClubsCard from '../ClubsCard';
 import styles from '../ClubsPage/ClubsPage.module.css'
 import homeBackground from "../../images/homeBackground.png"
 import { GoSearch } from 'react-icons/go';
 
 const ClubsPage = () => {
+
+  //------------------------------------------------clubs---------------------------------------------
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -14,12 +17,18 @@ const ClubsPage = () => {
   }, [dispatch])
 
   let clubs = useSelector(state => Object.values(state.clubs))
+//---------------------------------------------School----------------------------------------------------
+  useEffect(async () => {
+    await dispatch(getSchool())
+  }, [dispatch])
 
+  const school = useSelector(state => Object.values(state.school)[0])
+  console.log(school)
+  //-------------------------------------------------Search--------------------------------------
   const [searchTerm, setSearchTerm] = useState("")
   const editSearch = (e)=>{
       setSearchTerm(e.target.value)
   }
-
   const dynamicSearch = ()=>{
     return clubs.filter(club=> club.name.toLowerCase().includes(searchTerm.toLowerCase()))
   }
@@ -55,7 +64,7 @@ const ClubsPage = () => {
 
         </div>
         <div className={styles.clubTitle} >
-            CLUBS AT YALE
+            CLUBS AT {school?.name}
         </div>
         <div className={styles.clubCardContainer} >
           {clubs.map((club) => (
