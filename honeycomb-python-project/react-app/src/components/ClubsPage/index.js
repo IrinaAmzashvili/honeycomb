@@ -1,26 +1,32 @@
 import React, { useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { getClubs } from "../../store/clubs";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+// import { getSingleClub } from '../../store/clubs';
 import styles from './ClubsPage.module.css';
 
 const ClubsPage = () => {
+  const {id} = useParams();
   const dispatch = useDispatch();
 
   useEffect(async() => {
     await dispatch(getClubs())
   }, [dispatch])
 
+  // useEffect(async() => {
+  //   await dispatch(getSingleClub(id))
+  // }, [dispatch])
+
   const clubs = useSelector(state => Object.values(state.clubs))
 
   return (
-    <div>
+    <>
       {clubs.map((club) => (
-        <Link className={styles.club__name__link} to="/club/:id">
-          <p>{club.name}</p>
+        <Link key={club.id} className={styles.club__name__link} to={`/clubs/${club.id}`}>
+          <p>{club?.name}</p>
         </Link>
       ))}
-    </div>
+    </>
   )
 }
 
