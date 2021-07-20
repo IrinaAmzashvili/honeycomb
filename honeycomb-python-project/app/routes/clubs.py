@@ -49,7 +49,7 @@ def edit_one_club(id):
         )
         db.session.update(club)
         db.session.commit()
-        return club.to_dict()
+        return clubToEdit.to_dict()
     return{'errors': 'Failed to edit club'}
 
 
