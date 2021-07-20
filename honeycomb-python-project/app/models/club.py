@@ -1,5 +1,6 @@
 from .db import db
-from .user_club import user_clubs
+# from .user_club import user_clubs
+from .user import user_clubs
 
 
 class Club(db.Model):
@@ -18,9 +19,8 @@ class Club(db.Model):
     categories = db.relationship('Category', back_populates="clubs")
     club_host = db.relationship('User', back_populates="hosted_clubs")
     schools = db.relationship('School', back_populates="clubs")
-    events = db.relationship('Event', back_populates="clubs", cascade='all, delete-orphan')
-    users = db.relationship('User', secondary=user_clubs,
-                            back_populates="clubs")
+    events = db.relationship('Event', back_populates="clubs", cascade='all, delete-orphan', single_parent=True)
+    users = db.relationship('User', secondary=user_clubs, back_populates="clubs")
 
     # user_clubs = db.relationship('User_club', back_populates="clubs")
 

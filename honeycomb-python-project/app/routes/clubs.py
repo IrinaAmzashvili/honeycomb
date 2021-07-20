@@ -20,9 +20,10 @@ def get_one_club(id):
 
 @club_route.route('/clubs/<int:id>', methods=['DELETE'])
 def delete_club(id):
+    print('------------------> before delete')
     club = Club.query.get_or_404(id)
     db.session.delete(club)
     print('------------------> after delete')
     db.session.commit()
     print('------------------> after commit')
-    return {'message': 'success'}
+    return {'message': True}

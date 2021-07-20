@@ -1,8 +1,15 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from .user_club import user_clubs
+# from .user_club import user_clubs
 from .rsvp import rsvps
+
+
+user_clubs = db.Table(
+    'user_clubs',
+    db.Column('user_id', db.Integer, db.ForeignKey('users.id'), primary_key=True),
+    db.Column('club_id', db.Integer, db.ForeignKey('clubs.id'), primary_key=True)
+)
 
 
 class User(db.Model, UserMixin):
