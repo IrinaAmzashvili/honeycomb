@@ -68,13 +68,6 @@ const IndividualClub = () => {
     }
   };
 
-<<<<<<< HEAD
-=======
-  useEffect(() => {
-    dispatch(getSingleClub(parseInt(id)));
-  }, [dispatch, id]);
-
-
   // ---------------------------------------calender----------------------
   let [currentMonth, setCurrentMonth] = useState(
     new Date()
@@ -93,7 +86,6 @@ const IndividualClub = () => {
 
   }
 
->>>>>>> e4906106746cce22178943316131e9c66ff516a7
   return (
     <div>
       <div className={styles.redCrossBar}></div>
