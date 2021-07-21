@@ -4,12 +4,15 @@ import clubsReducer from './clubs';
 import schoolReducer from './schools';
 import session from './session'
 import eventsReducer from './events';
+import membershipReducer from './membership'
 
 const rootReducer = combineReducers({
   session,
   clubs: clubsReducer,
   school: schoolReducer,
-  events: eventsReducer
+  events: eventsReducer,
+  memberships: membershipReducer,
+  school: schoolReducer,
 });
 
 
