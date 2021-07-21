@@ -1,7 +1,8 @@
 //action creators
 const GET_CLUBS = 'clubs/GET_CLUBS';
-const POST_CLUB = "clubs/POST_CLUB"
+const POST_CLUB = "clubs/POST_CLUB";
 const GET_ONE_CLUB = 'clubs/GET_ONE_CLUB';
+const EDIT_CLUB = 'clubs/EDIT_CLUB';
 const DELETE_CLUB = 'clubs/DELETE_CLUB'
 
 const loadClubs = (clubs) => ({
@@ -16,6 +17,11 @@ const createClub = (club) => ({
 
 const getOneClub = (club) => ({
     type: GET_ONE_CLUB,
+    club
+})
+
+const editOneClub = (club) => ({
+    type: EDIT_CLUB,
     club
 })
 
@@ -43,6 +49,19 @@ export const postClub = (club) => async (dispatch) => {
         const newClub = await res.json()
         dispatch(createClub(newClub))
         return newClub
+    }
+}
+
+export const editClub = (id, club) => async (dispatch) => {
+    const response = await fetch(`/api/clubs/${id}`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(club)
+    })
+    if(response.ok) {
+        const editedClub = await response.json()
+        dispatch(editOneClub(editedClub))
+        return editedClub
     }
 }
 
@@ -79,12 +98,16 @@ const clubsReducer = (state = initialState, action) => {
                 allClubs[club.id] = club
             })
             return allClubs;
+        case EDIT_CLUB:
+            return {
+                ...state,
+                [action.club.id]: action.club
+            }
         case POST_CLUB:
             return {
                 ...state,
                 [action.club.id]: action.club
             }
-
         case GET_ONE_CLUB:
             const oneClub = Object.assign({}, state);
             oneClub.singleClub = action.club;

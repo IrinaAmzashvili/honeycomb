@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getSingleClub, deleteClub } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
 import { getEvents } from '../../store/events';
+import EditClubForm from '../EditClubForm';
 import EventsCard from '../EventCards'
 import EventModal from '../CreateEventModal'
 import styles from "./IndividualClub.module.css";
@@ -107,6 +108,7 @@ const IndividualClub = () => {
                 <button className={styles.deleteButton} onClick={handleDelete}>
                   Delete
                 </button>
+                <EditClubForm club={club} clubId={id}/>
               </div>
             )}
           </div>
