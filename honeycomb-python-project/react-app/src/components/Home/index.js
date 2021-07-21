@@ -1,31 +1,50 @@
 import React from 'react';
 import styles from '../Home/Home.module.css'
-import homeImg2 from "../../images/homeImg2.png"
+import homeImg from "../../images/homeImg.png"
 import homeBackground from "../../images/homeBackground.png"
-import navBar2 from '../../images/navBar2.png';
+import { Redirect, useHistory } from "react-router-dom";
 
-const Home = () =>{
+
+
+const Home = () => {
+
+    const history = useHistory();
+    const routeChange = () =>{
+        console.log("onclick");
+        let path = `clubs`;
+        history.push(path);
+    }
+    // return (
+    //     <div>
+    //         <div className={styles.outerContainer} >
+    //             <div className={styles.topBar} ></div>
+    //             <img className={styles.homeBackground} src={homeBackground}></img>
+    //             <div className={styles.text} >
+    //                 <div className={styles.title} >Buzz on in!</div>
+    //                 <div className={styles.content}>Connect with the entire hive or create the buzz around your club.</div>
+    //                 <button type="submit" className={styles.startButton} onClick={routeChange} >Get started!</button>
+    //             </div>
+    //             <div className={styles.picture}>
+    //                 <img src={homeImg}></img>
+    //             </div>
+    //         </div>
+    //     </div>
+    // )
     return (
-        <div>
-            <div className={styles.topDiv} >
-                <img className={styles.navBar} src={navBar2}></img>
-            </div>
-            <div className={styles.outerContainer}>
+        <div className={styles.mostOuterDiv}>
+            <div className={styles.outerContainer} >
                 <div className={styles.topBar} ></div>
-                <img className={styles.homeBackground} src={homeBackground}></img>
-                <div className={styles.text}>
-                    <div className={styles.title}>Buzz on in!</div>
+                <div className={styles.text} >
+                    <div className={styles.title} >Buzz on in!</div>
                     <div className={styles.content}>Connect with the entire hive or create the buzz around your club.</div>
-                    <button className={styles.startButton}>Get started!</button>
+                    <button type="submit" className={styles.startButton} onClick={routeChange} >Get started!</button>
                 </div>
                 <div className={styles.picture}>
-                    <img src={homeImg2}></img>
+                    <img src={homeImg}></img>
                 </div>
-
             </div>
-            <div className={styles.bottomBar}></div>
+            <img className={styles.homeBackground} src={homeBackground}></img>
         </div>
-    )
-}
+    )}
 
 export default Home

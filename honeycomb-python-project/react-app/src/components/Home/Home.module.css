@@ -6,10 +6,13 @@
     width: 100%;
     display: block;
 }
+.mostOuterDiv{
+    position: relative;
+    overflow:hidden;
+}
 .outerContainer{
     width: 100%;
     height: 100%;
-    background-color: #FAFAFA;
     /* background-color: black; */
     padding: 144px;
     display: grid;
@@ -17,7 +20,7 @@
     grid-template-areas:
     "text picture";
     position: relative;
-    z-index: -20000;
+    z-index: 20000;
     overflow:hidden;
 
 }
@@ -46,35 +49,45 @@
     margin-top: 10px;
     grid-area: picture;
     width: fit-content;
+    z-index: 1;
 }
 
 .startButton{
     height: 73px;
     width: 286px;
-    background-color: #0098AB;
+    background-color: var(--tealTheme);
     border: none;
     border-radius: 20px;
     font-family: "Lato";
     font-size: 25px;
     color: #FFFFFF;
     margin-top: 80px;
+
 }
+
+.startButton:hover{
+    transition: all 0.4s ease 0s; 
+    cursor: pointer;
+    background-color: var(--tealHover);
+}
+
 .homeBackground{
     position: absolute;
-    margin-top: 100px;
+    top:0;
+    margin-top: 150px;
     overflow:hidden;
-    z-index: -1000;
+
+
 }
 .topBar{
     position: absolute;
     width: 100%;
     height: 120px;
-    background-color:#FA6666;
+    background-color:var(--coralTheme);
 }
 
 .bottomBar{
-
     width: 100%;
     height: 180px;
-    background-color:#FA6666;
+    background-color:var(--coralTheme);
 }

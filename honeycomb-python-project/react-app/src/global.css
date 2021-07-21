@@ -7,10 +7,19 @@
 }
 
 body {
+
     margin: 0;
     font-family: 'Lato';
     font-weight: 300;
+    overflow-y: scroll;
 }
+
+main{
+    width: 100%;
+    min-height: 800px;
+    z-index: -1000000;
+}
+
 
 a {
     text-decoration: none;

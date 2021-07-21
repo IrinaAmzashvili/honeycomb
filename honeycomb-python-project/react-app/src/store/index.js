@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import clubsReducer from './clubs';
+import schoolReducer from './schools';
 import session from './session'
 import membershipReducer from './membership'
 
@@ -8,6 +9,7 @@ const rootReducer = combineReducers({
   session,
   clubs: clubsReducer,
   memberships: membershipReducer,
+  school: schoolReducer,
 });
 
 
