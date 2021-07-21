@@ -44,7 +44,7 @@
 
 .startButton{
     border: none;
-    background-color: #0098AB;
+    background-color: var(--tealTheme);
     width: 173px;
     height: 53px;
     border-radius: 12px;
@@ -55,7 +55,9 @@
 }
 
 .startButton:hover{
-    background-color:#016f7e;
+    transition: all 0.4s ease 0s;
+    cursor: pointer;
+    background-color:var(--tealHover);
 }
 
 .clubsFirstContainer{
@@ -76,7 +78,7 @@
 }
 .categorySelect{
     border:none;
-    border-bottom: 1px solid #0098AB;
+    border-bottom: 2px solid var(--tealTheme);
     height: 48px;
     width: 250px;
     background-color: rgba(255, 255, 255, 0);

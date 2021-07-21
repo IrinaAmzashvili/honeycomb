@@ -3,11 +3,16 @@ import thunk from 'redux-thunk';
 import clubsReducer from './clubs';
 import schoolReducer from './schools';
 import session from './session'
+import eventsReducer from './events';
+import membershipReducer from './membership'
 
 const rootReducer = combineReducers({
   session,
   clubs: clubsReducer,
-  school: schoolReducer
+  school: schoolReducer,
+  events: eventsReducer,
+  memberships: membershipReducer,
+  school: schoolReducer,
 });
 
 

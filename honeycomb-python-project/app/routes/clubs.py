@@ -59,3 +59,11 @@ def post_club():
 def get_one_club(id):
     oneClub = Club.query.get(id)
     return oneClub.to_dict()
+
+
+@club_route.route('/clubs/<int:id>', methods=['DELETE'])
+def delete_club(id):
+    club = Club.query.get_or_404(id)
+    db.session.delete(club)
+    db.session.commit()
+    return {'message': True}

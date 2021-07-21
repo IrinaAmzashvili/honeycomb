@@ -67,7 +67,6 @@ const ClubsPage = () => {
               </div>
             </div>
           </div>
-
         </div>
         <div className={styles.clubTitle} >
             CLUBS AT {school?.name}
