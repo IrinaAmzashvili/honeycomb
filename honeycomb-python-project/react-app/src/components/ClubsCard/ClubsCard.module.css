@@ -14,7 +14,10 @@
     overflow-y:hidden;
     margin: 30px 48px;
 }
-
+.ClubsCardDiv:hover {
+    transition: all 0.3s ease-in-out 0s;
+    transform: translateY(-5px);
+}
 .ClubsCardImg{
     grid-area:ClubsCardImg;
     width: 296px;
