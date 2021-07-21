@@ -14,9 +14,10 @@ const IndividualClub = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // get all memberships
+  // get all memberships and single club
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
+    dispatch(getSingleClub(parseInt(id)));
   }, [dispatch]);
 
   // join/leave club
@@ -41,10 +42,6 @@ const IndividualClub = () => {
       history.push("/clubs");
     }
   };
-
-  useEffect(() => {
-    dispatch(getSingleClub(parseInt(id)));
-  }, [dispatch, id]);
 
   return (
     <>
