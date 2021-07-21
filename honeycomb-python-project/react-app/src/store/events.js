@@ -24,6 +24,7 @@ export const getEvents = (id) => async (dispatch) => {
 
 
 export const postEvent = (id, event) => async (dispatch) => {
+    console.log('=====================>', event)
     const res = await fetch(`/api/clubs/${id}/events`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -55,7 +56,7 @@ const eventsReducer = (state = initialState, action) => {
                 ...state,
                 [action.event.id]: action.event
             }
-            
+
         default:
             return state
     }

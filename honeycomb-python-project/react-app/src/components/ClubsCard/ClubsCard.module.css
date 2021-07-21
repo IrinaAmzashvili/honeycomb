@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 
-.ClubsCardDiv{
+.ClubsCardDiv {
     width: 592px;
     height: 166px;
     background-color: white;
@@ -21,7 +21,6 @@
     height: 166px;
     overflow-x:hidden;
     overflow-y:hidden;
-
 }
 
 .ClubsCardContent{
