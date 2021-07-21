@@ -1,6 +1,5 @@
 from app.models import db, School
 
-
 # Adds a demo user, you can add other users here if you want
 def seed_schools():
     school1 = School(name='Harvard')
