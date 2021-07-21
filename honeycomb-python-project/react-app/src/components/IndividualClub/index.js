@@ -3,6 +3,9 @@ import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleClub, deleteClub } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
+import { getEvents } from '../../store/events';
+import EventsCard from '../EventCards'
+import EventModal from '../CreateEventModal'
 import styles from "./IndividualClub.module.css";
 
 const IndividualClub = () => {
@@ -31,6 +34,14 @@ const IndividualClub = () => {
       // setMemberStatus(true)
     }
   };
+
+  
+  // gets events
+  useEffect(async () => {
+    await dispatch(getEvents(id))
+  }, [dispatch, id])
+
+  const events = useSelector(state => Object.values(state.events))
 
   // delete club
   const handleDelete = async (e) => {
@@ -72,6 +83,14 @@ const IndividualClub = () => {
           </div>
         </div>
       </div>
+      <EventModal />
+      <div>
+        {events.map((event) => (
+          <EventsCard event={event} />
+        ))}
+      </div>
+
+
     </>
   );
 };
