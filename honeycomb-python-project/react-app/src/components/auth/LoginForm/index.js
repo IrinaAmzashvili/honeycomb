@@ -60,11 +60,9 @@ const LoginForm = () => {
         </div>
         <button className={styles.login__submit__button} type='submit'>Login</button>
         <p className={styles.login__no__account}>Don't have an account yet? <Link to="/signup" className={styles.login__create__here}><span>Create one here</span></Link></p>
+        <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Login as a <span>Demo user</span></button>
       </form>
     </div>
-    <form onSubmit={demoLogin}>
-      <button className={styles.login__no__account__demo}>Login as a <span>Demo user</span></button>
-    </form>
     </>
   );
 };

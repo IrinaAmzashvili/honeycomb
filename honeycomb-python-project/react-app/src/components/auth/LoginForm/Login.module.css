@@ -74,11 +74,9 @@ body {
     background-color: var(--tealHover);
 }
 
-.login__no__account__demo {
-    position: fixed;
-    left: 960px;
-    bottom: 540px;
-    font-size: 17px;
+.login__no__account__demo span {
+    font-weight: bold;
+    color: var(--tealTheme);
 }
 
 a.login__create__here:hover {

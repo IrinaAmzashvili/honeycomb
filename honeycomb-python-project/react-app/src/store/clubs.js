@@ -34,7 +34,6 @@ export const getClubs = () => async (dispatch) => {
 }
 
 export const postClub = (club) => async (dispatch) => {
-    console.log("=======================> made it to thunk")
     const res = await fetch("/clubs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -54,7 +54,7 @@ const SignUpForm = () => {
   }
 
   return (
-
+    <>
       <div className={styles.signup__form__entire__container}>
       <div className={styles.signup__errors__container}>
         {errors.map((error, ind) => (
@@ -77,12 +77,12 @@ const SignUpForm = () => {
           </div>
           <button className={styles.signup__submit} type='submit'>Sign Up</button>
           <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
-        </form>
-        <form onSubmit={demoLogin}>
-          <button className={styles.login__no__account__demo}>Sign up as a <span>Demo user</span></button>
+          <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Sign up as a <span>Demo user</span></button>
         </form>
       </div>
-
+      {/* <form className={styles.demoLoginContainer} onSubmit={demoLogin}> */}
+      {/* </form> */}
+    </>
   );
 };
 

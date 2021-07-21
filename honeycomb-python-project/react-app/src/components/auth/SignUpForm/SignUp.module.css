@@ -1,4 +1,5 @@
 /* Entire form container */
+@import url('../../../index.css');
 .signup__form__entire__container {
     display: flex;
     justify-content: center;
@@ -14,10 +15,11 @@
 }
 
 .login__no__account__demo {
-    position: fixed;
-    left: 960px;
-    bottom: 445px;
-    font-size: 17px;
+    color: var(--linkButton);
+}
+.login__no__account__demo span {
+    font-weight: bold;
+    color: var(--tealTheme);
 }
 
 .signup__errors__container {
