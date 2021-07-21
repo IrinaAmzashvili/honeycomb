@@ -1,16 +1,25 @@
 .footer_container{
     background-color:#fa6666;
     display:flex;
-    position: absolute; 
     font-size:25px;
     justify-content: space-evenly;
     height:166px;
     width:100%;
-    bottom: 0em;
+}
+
+.footer_container_active {
+    background-color:#fa6666;
+    display:flex;
+    font-size:25px;
+    justify-content: space-evenly;
+    height:166px;
+    width:100%;
+    position: absolute;
+    bottom: 0em; 
 }
 
 .github_links{
-display:flex;
+    display:flex;
 }
 
 .linkedin{
