@@ -112,7 +112,7 @@ const IndividualClub = () => {
                 <button className={styles.deleteButton} onClick={handleDelete}>
                   Delete
                 </button>
-                <EditClubForm clubId={id}/>
+                <EditClubForm club={club} clubId={id}/>
               </div>
             )}
           </div>
