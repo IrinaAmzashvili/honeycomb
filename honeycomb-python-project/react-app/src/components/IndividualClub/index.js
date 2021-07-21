@@ -8,37 +8,17 @@ import styles from './IndividualClub.module.css'
 const IndividualClub = () => {
     const { id } = useParams();
     const club = useSelector(state => state.clubs.singleClub)
+    const user = useSelector(state => state.session.user)
+    const memberships = useSelector((state) => Object.values(state.memberships))
+    const member = memberships.find(joinedClub => joinedClub?.id === +id)
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const user = useSelector(state => state.session.user)
-    // Plan
-    // query to get all memberships
+    // get all memberships
     useEffect(() => {
         dispatch(getMemberships(user.id))
     }, [dispatch])
 
-    const memb = useSelector((state) => Object.values(state.memberships))
-    console.log('membership store-->', memb)
-    // grab current member, find if member, set memberStatus accordingly
-    // const memberships = useSelector((state) => state.session.user.memberships)
-    // const member = memberships.find(joinedClub => joinedClub === club?.id)
-    const member = memb.find(joinedClub => joinedClub === id)
-    // const [memberStatus, setMemberStatus] = useState(member ? true : false)
-    // const [memberStatus, setMemberStatus] = useState(false)
-
-    // console.log(member ? true : false, memberships, member)
-    // useEffect(() => {
-    //     // if user is/is not a member, set accordingly
-    //     // so button can display the right text
-    //     if (member) {
-    //         setMemberStatus(true)
-    //     } else {
-    //         setMemberStatus(false)
-    //     }
-    // }, [setMemberStatus, member, memberships])
-
-    console.log(member ? 'Leave Club' : 'Join Club')
     // join/leave club
     const handleMembership = (e) => {
         e.preventDefault()
@@ -53,11 +33,13 @@ const IndividualClub = () => {
     }
 
     // delete club
-    const handleDelete = (e) => {
+    const handleDelete = async (e) => {
         e.preventDefault();
-        dispatch(deleteClub(id))
-        // include error handling: if result.message is true, proceed (might be an issue that backend True is capitalized)
-        history.push('/clubs')
+        const res = await dispatch(deleteClub(id))
+        // if successfully deleted, redirect
+        if (res['message']) {
+            history.push('/clubs')
+        }
     }
 
     useEffect(() => {

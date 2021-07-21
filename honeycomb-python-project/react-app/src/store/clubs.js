@@ -39,11 +39,11 @@ export const deleteClub = (id) => async (dispatch) => {
     const res = await fetch(`/clubs/${id}`, {
         method: 'DELETE'
     });
-    await res.json();
 
     if (res.ok) {
+        const data = await res.json();
         dispatch(removeClub(id))
-        return res
+        return data;
     }
 }
 

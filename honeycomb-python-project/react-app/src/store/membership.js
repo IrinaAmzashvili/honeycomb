@@ -24,7 +24,7 @@ export const getMemberships = (id) => async (dispatch) => {
 
   if (res.ok) {
     const allClubs = await res.json()
-    dispatch(setMemberships(allClubs))
+    dispatch(setMemberships(allClubs.clubs))
     return res;
   }
 }
@@ -38,22 +38,21 @@ export const joinClub = (id) => async (dispatch) => {
 
   if (res.ok) {
     const club = await res.json()
-    dispatch(addClubMembership(club))
+    dispatch(addClubMembership(club.club))
     return res;
   }
 }
 
 // leave club
 export const leaveClub = (id) => async (dispatch) => {
-  console.log('---> in thunk creator')
   const res = await fetch(`/api/membership/${id}`, {
     method: 'DELETE',
   });
 
   if (res.ok) {
-    await res.json()
+    const data = await res.json()
     dispatch(deleteClubMembership(id))
-    return res;
+    return data;
   }
 }
 
@@ -70,7 +69,7 @@ const membershipReducer = (state = initialState, action) => {
     case CREATE_MEMBERSHIP:
       return {
         ...state,
-        [action.club.club.id]: action.club.club
+        [action.club.id]: action.club
       };
     case DELETE_MEMBERSHIP:
       newState = { ...state };
