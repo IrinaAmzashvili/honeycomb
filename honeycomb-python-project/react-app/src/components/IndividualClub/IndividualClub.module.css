@@ -102,6 +102,7 @@
 }
 .eventsAndCalender{
     background-color:#EBEBEB ;
+    min-height: 1280px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-areas:
@@ -113,8 +114,9 @@
 .calenderContainer{
     margin-top: 80px;
     margin-right: 80px;
+    margin-bottom: 80px;
     width: 609px;
-    height: 500px;
+    height: 70%;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
 }
 .monthlyCalender{

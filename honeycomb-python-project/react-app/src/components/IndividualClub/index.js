@@ -91,7 +91,7 @@ const IndividualClub = () => {
   }
 
   return (
-    <>
+    <div>
       <div className={styles.redCrossBar}></div>
       <div className={styles.clubInfoContainer}>
         <div class={styles.container}>
@@ -158,7 +158,7 @@ const IndividualClub = () => {
             </div>
 
 
-    </>
+    </div>
   );
 };
 
