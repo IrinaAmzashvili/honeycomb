@@ -5,6 +5,7 @@ import { getSingleClub } from '../../store/clubs';
 import styles from './IndividualClub.module.css'
 import { getEvents } from '../../store/events';
 import EventsCard from '../EventCards'
+import EventModal from '../CreateEventModal'
 
 
 const IndividualClub = () => {
@@ -52,6 +53,7 @@ const IndividualClub = () => {
                 </div>
 
             </div>
+            <EventModal />
             <div>
                 {events.map((event) => (
                     <EventsCard event={event} />
