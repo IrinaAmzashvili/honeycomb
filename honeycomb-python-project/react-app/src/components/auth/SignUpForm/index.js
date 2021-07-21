@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, Link } from 'react-router-dom';
-import { signUp } from '../../../store/session';
+import { signUp, login } from '../../../store/session';
+
 import styles from './SignUp.module.css'
 // import './signup.css';
 
@@ -23,6 +24,14 @@ const SignUpForm = () => {
       }
     }
   };
+
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const demoUser = await dispatch(login('demo@aa.io', 'password'))
+    if(demoUser) {
+      setErrors(demoUser);
+    }
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -68,7 +77,9 @@ const SignUpForm = () => {
           </div>
           <button className={styles.signup__submit} type='submit'>Sign Up</button>
           <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
-          <p className={styles.login__no__account}>Sign up as a <Link to="/" className={styles.login__create__here}><span>Demo user</span></Link></p>
+        </form>
+        <form onSubmit={demoLogin}>
+          <button className={styles.login__no__account__demo}>Sign up as a <span>Demo user</span></button>
         </form>
       </div>
 

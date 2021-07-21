@@ -13,6 +13,13 @@
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
 }
 
+.login__no__account__demo {
+    position: fixed;
+    left: 960px;
+    bottom: 445px;
+    font-size: 17px;
+}
+
 .signup__errors__container {
     position: fixed;
     margin-top: 100px;

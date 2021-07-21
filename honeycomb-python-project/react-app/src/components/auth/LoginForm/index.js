@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
 import styles from './Login.module.css'
 // import './login.css'
 
 const LoginForm = () => {
+  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +22,14 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    const demoUser = await dispatch(login('demo@aa.io', 'password'))
+    if(demoUser) {
+      setErrors(demoUser);
+    }
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -34,6 +43,7 @@ const LoginForm = () => {
   }
 
   return (
+    <>
     <div className={styles.login__form__container}>
       <div className={styles.login__errors__container}>
         {errors.map((error, ind) => (
@@ -50,10 +60,12 @@ const LoginForm = () => {
         </div>
         <button className={styles.login__submit__button} type='submit'>Login</button>
         <p className={styles.login__no__account}>Don't have an account yet? <Link to="/signup" className={styles.login__create__here}><span>Create one here</span></Link></p>
-        <p className={styles.login__no__account}>Login as a <Link to="/" className={styles.login__create__here}><span>Demo user</span></Link></p>
-
       </form>
     </div>
+    <form onSubmit={demoLogin}>
+      <button className={styles.login__no__account__demo}>Login as a <span>Demo user</span></button>
+    </form>
+    </>
   );
 };
 
