@@ -35,6 +35,11 @@ body {
 
 .login__errors__container {
     position: fixed;
+    margin-right: 900px;
+    margin-top: 50px;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--coralTheme);
 }
 
 /* The login email & password input */
@@ -69,7 +74,10 @@ body {
     background-color: var(--tealHover);
 }
 
-.login__no__account {
+.login__no__account__demo {
+    position: fixed;
+    left: 960px;
+    bottom: 540px;
     font-size: 17px;
 }
 
