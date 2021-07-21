@@ -77,12 +77,11 @@ const SignUpForm = () => {
           </div>
           <button className={styles.signup__submit} type='submit'>Sign Up</button>
           <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
+          <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Sign up as a <span>Demo user</span></button>
         </form>
       </div>
-      <form className={styles.demoLoginContainer} onSubmit={demoLogin}>
-        <h1 className={styles.login__no__account__demo}>Pssst! Wanna sign up faster? </h1>
-        <button className={styles.login__no__account__demo}>Sign up as a <span>Demo user</span></button>
-      </form>
+      {/* <form className={styles.demoLoginContainer} onSubmit={demoLogin}> */}
+      {/* </form> */}
     </>
   );
 };

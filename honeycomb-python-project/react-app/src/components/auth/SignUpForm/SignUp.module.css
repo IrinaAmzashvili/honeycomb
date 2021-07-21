@@ -1,4 +1,5 @@
 /* Entire form container */
+@import url('../../../index.css');
 .signup__form__entire__container {
     display: flex;
     justify-content: center;
@@ -14,22 +15,13 @@
 }
 
 .login__no__account__demo {
-    margin-left: 1600px;
-    /* margin-bottom: 500px; */
-    width: 300px;
-    /* position: fixed;
-    left: 960px;
-    bottom: 445px;
-    font-size: 17px; */
+    color: var(--linkButton);
 }
-.demoLoginContainer {
-    width: 100px;
-    justify-content: center;
-    margin-top: -400px;
-    align-items: center;
-    /* margin-top: -600px; */
-    height: 330px;
+.login__no__account__demo span {
+    font-weight: bold;
+    color: var(--tealTheme);
 }
+
 .signup__errors__container {
     position: fixed;
     margin-top: 100px;
