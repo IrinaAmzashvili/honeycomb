@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .schools import seed_schools, undo_schools
 from .clubs import seed_club, undo_club
 from .category import seed_category, undo_category
+from .events import seed_events, undo_events
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -16,6 +17,7 @@ def seed():
     seed_schools()
     seed_users()
     seed_club()
+    seed_events()
     # Add other seed functions here
 
 
@@ -26,4 +28,5 @@ def undo():
     undo_schools()
     undo_users()
     undo_club()
+    undo_events()
     # Add other undo functions here
