@@ -17,3 +17,10 @@ def get_school():
 
     print("==============================", {'school': school.to_dict()})
     return school.to_dict()
+
+
+
+@school_route.route('/api/signup/schools')
+def get_all_schools():
+    allSchools = School.query.all()
+    return {'schools': [school.to_dict() for school in allSchools]}
