@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router-dom';
 import styles from './EditClub.module.css';
 import { editClub } from '../../store/clubs';
-import { useDispatch } from 'react-redux';
-// Club Name
-// Club Image URL
-// Category
-// Description
-const EditClubForm = () => {
+import { useDispatch} from 'react-redux';
+
+const EditClubForm = ({clubId}) => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -16,20 +14,19 @@ const EditClubForm = () => {
     const {id} = useParams();
 
 
-    const editForm = (event) => {
-        event.preventDefault();
+        const editForm = (event) => {
+            event.preventDefault();
 
-        // const stuff = {
-        //     name,
-        //     description,
-        //     imgUrl,
-        //     category,
-        // }
+            const editedFormInfo = {
+                name,
+                description,
+                img_url: imgUrl,
+                category_id: category
+            }
+            dispatch(editClub(clubId, editedFormInfo));
+            history.push(`/clubs/${id}`);
+        }
 
-        dispatch(editClub(id, {name, description, imgUrl, category}));
-        // dispatch(editClub({stuff}));
-
-    }
 
     return (
         <>
@@ -38,10 +35,10 @@ const EditClubForm = () => {
                     <div className={styles.editHeadingContainer}>
                         <h1 className={styles.editHeading}>Edit Form</h1>
                     </div>
-                    <input placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} type='text' className={styles}/>
-                    <input placeholder="Image Url" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} className={styles}/>
-                    <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} type='text' className={styles}></textarea>
-                    <select value={category} onChange={(e) => setCategory(e.target.value)} className={styles}>
+                    <input name="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} type='text' className={styles}/>
+                    <input name="img_url" placeholder="Image Url" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} className={styles}/>
+                    <textarea name="description" placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} type='text' className={styles}></textarea>
+                    <select name="category" value={category} onChange={(e) => setCategory(e.target.value)} className={styles}>
                         <option value="" disabled>Select a Category</option>
                         <option value={1} >Social</option>
                         <option value={2} >Academic</option>
@@ -53,7 +50,7 @@ const EditClubForm = () => {
                         <option value={8} >Community Service</option>
                         <option value={9} >Media and Publication</option>
                     </select>
-                    <button className={styles.submitEditButton}>Edit Club</button>
+                <button className={styles.submitEditButton}>Edit Club</button>
                 </form>
             </div>
         </>

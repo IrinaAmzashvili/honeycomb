@@ -23,7 +23,6 @@ const IndividualClub = () => {
     return (
         <>
             <div className={styles.redCrossBar}>
-
             </div>
             <div className={styles.clubInfoContainer}>
             <div className={styles.container}>
@@ -43,7 +42,7 @@ const IndividualClub = () => {
                 </div>
             </div>
             </div>
-            <EditClubForm/>
+            <EditClubForm clubId={id}/>
         </>
     )
 }
