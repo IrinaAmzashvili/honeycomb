@@ -14,12 +14,22 @@
 }
 
 .login__no__account__demo {
-    position: fixed;
+    margin-left: 1600px;
+    /* margin-bottom: 500px; */
+    width: 300px;
+    /* position: fixed;
     left: 960px;
     bottom: 445px;
-    font-size: 17px;
+    font-size: 17px; */
 }
-
+.demoLoginContainer {
+    width: 100px;
+    justify-content: center;
+    margin-top: -400px;
+    align-items: center;
+    /* margin-top: -600px; */
+    height: 330px;
+}
 .signup__errors__container {
     position: fixed;
     margin-top: 100px;
