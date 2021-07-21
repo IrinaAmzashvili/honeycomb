@@ -116,8 +116,14 @@ const IndividualClub = () => {
           </div>
         </div>
       </div>
-      <EventModal />
+      <div className={styles.TitleAndEventModalContainer}>
+        <div className={styles.TitleAndEventModal}>
+          <div className={styles.title}>Upcoming Events</div>
+          <EventModal />
+        </div>
+      </div>
       <div className={styles.eventsAndCalender}>
+
                 <div className={styles.eventCardsContainer}>
                     {events.map((event) => (
                         <EventsCard event={event} />

@@ -108,6 +108,28 @@
     grid-template-areas:
     "events calender";
 }
+.TitleAndEventModalContainer{
+    padding-top:50px ;
+    padding-right: 200px;
+    padding-left:200px;
+    background-color:#EBEBEB ;
+    display: grid;
+    grid-template-columns: 800px auto;
+    grid-template-areas: "titleAndModal";
+
+}
+
+.TitleAndEventModal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: titleAndModal;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 25px;
+}
 .calenderContainer{
     grid-area: calender;
 }
