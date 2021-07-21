@@ -19,12 +19,10 @@ class User(db.Model, UserMixin):
     schools = db.relationship('School', back_populates='users')
     hosted_clubs = db.relationship('Club', back_populates='club_host')
     hosted_events = db.relationship('Event', back_populates='event_host')
-    # rsvps = db.relationship('Rsvp', back_populates='users')
     events = db.relationship('Event', secondary=rsvps, back_populates='users')
     clubs = db.relationship(
         'Club', secondary=user_clubs, back_populates='users')
-    # user_clubs = db.relationship(
-    #     'User_club', back_populates='users')
+
 
     @property
     def password(self):
@@ -43,5 +41,7 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'profile_img_url': self.profile_img_url,
-            'school_id': self.school_id
+            'school_id': self.school_id,
+            'memberships': [club.id for club in self.clubs],
+            'rsvps': [event.id for event in self.events],
         }

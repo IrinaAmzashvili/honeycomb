@@ -2,6 +2,7 @@
 const GET_CLUBS = 'clubs/GET_CLUBS';
 const POST_CLUB = "clubs/POST_CLUB"
 const GET_ONE_CLUB = 'clubs/GET_ONE_CLUB';
+const DELETE_CLUB = 'clubs/DELETE_CLUB'
 
 const loadClubs = (clubs) => ({
     type: GET_CLUBS,
@@ -16,6 +17,11 @@ const createClub = (club) => ({
 const getOneClub = (club) => ({
     type: GET_ONE_CLUB,
     club
+})
+
+const removeClub = (id) => ({
+    type: DELETE_CLUB,
+    id
 })
 
 //thunks
@@ -49,6 +55,18 @@ export const getSingleClub = (id) => async (dispatch) => {
     }
 }
 
+export const deleteClub = (id) => async (dispatch) => {
+    const res = await fetch(`/clubs/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(removeClub(id))
+        return data;
+    }
+}
+
 //reducer
 
 const initialState = { singleClub: null };
@@ -79,6 +97,10 @@ const clubsReducer = (state = initialState, action) => {
             //     ...state,
             //     [action.club.id]: action.club,
             // }
+        case DELETE_CLUB:
+            const newObj = { ...state };
+            delete newObj[action.id];
+            return newObj;
         default:
             return state;
     }
