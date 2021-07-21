@@ -45,31 +45,33 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className={styles.signup__form__entire__container}>
-      <form className={styles.signup__form__container} onSubmit={onSignUp}>
-        <div className={styles.signup__errors__container}>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <h1 className={styles.signup__heading}>Sign up</h1>
-        <div className={styles.signup__username__container}>
-          <input placeholder="Username" className={styles.signup__username} type='text' name='username' onChange={updateUsername} value={username}/>
-        </div>
-        <div className={styles.signup__email__container}>
-          <input placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={updateEmail} value={email}/>
-        </div>
-        <div className={styles.signup__password__container}>
-          <input placeholder="Password" className={styles.signup__password} type='password' name='password' onChange={updatePassword} value={password}/>
-        </div>
-        <div className={styles.signup__confirm__password__container}>
-          <input placeholder="Confirm password" className={styles.signup__confirm__password} type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} required={true} />
-        </div>
-        <button className={styles.signup__submit} type='submit'>Sign Up</button>
-        <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
-        <p className={styles.login__no__account}>Sign up as a <Link to="/" className={styles.login__create__here}><span>Demo user</span></Link></p>
-      </form>
-    </div>
+
+      <div className={styles.signup__form__entire__container}>
+      <div className={styles.signup__errors__container}>
+        {errors.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
+        <form className={styles.signup__form__container} onSubmit={onSignUp}>
+          <h1 className={styles.signup__heading}>Sign up</h1>
+          <div className={styles.signup__username__container}>
+            <input placeholder="Username" className={styles.signup__username} type='text' name='username' onChange={updateUsername} value={username}/>
+          </div>
+          <div className={styles.signup__email__container}>
+            <input placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={updateEmail} value={email}/>
+          </div>
+          <div className={styles.signup__password__container}>
+            <input placeholder="Password" className={styles.signup__password} type='password' name='password' onChange={updatePassword} value={password}/>
+          </div>
+          <div className={styles.signup__confirm__password__container}>
+            <input placeholder="Confirm password" className={styles.signup__confirm__password} type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} />
+          </div>
+          <button className={styles.signup__submit} type='submit'>Sign Up</button>
+          <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
+          <p className={styles.login__no__account}>Sign up as a <Link to="/" className={styles.login__create__here}><span>Demo user</span></Link></p>
+        </form>
+      </div>
+
   );
 };
 

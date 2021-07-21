@@ -35,6 +35,11 @@ body {
 
 .login__errors__container {
     position: fixed;
+    margin-right: 900px;
+    margin-top: 50px;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--coralTheme);
 }
 
 /* The login email & password input */
