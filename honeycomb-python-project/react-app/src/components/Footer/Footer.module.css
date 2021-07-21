@@ -1,13 +1,12 @@
 .footer_container{
     background-color:#fa6666;
     display:flex;
+    position: absolute; 
     font-size:25px;
     justify-content: space-evenly;
     height:166px;
     width:100%;
-    /* position:absolute; */
-    /* position:relative; */
-    bottom:0;
+    bottom: 0em;
 }
 
 .github_links{
