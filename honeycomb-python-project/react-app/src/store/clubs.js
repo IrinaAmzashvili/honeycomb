@@ -48,16 +48,16 @@ export const postClub = (club) => async (dispatch) => {
     }
 }
 
-export const editClub = (club) => async (dispatch) => {
-    const response = await fetch(`/clubs/${club}`, {
-        method: 'PATCH',
+export const editClub = (id, club) => async (dispatch) => {
+    const response = await fetch(`/clubs/${id}`, {
+        method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(club)
     })
+    console.log(club)
     if(response.ok) {
         const editedClub = await response.json()
         dispatch(editOneClub(editedClub))
-        return editedClub
     }
 }
 

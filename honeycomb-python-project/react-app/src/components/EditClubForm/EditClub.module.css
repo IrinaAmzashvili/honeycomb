@@ -1,0 +1,17 @@
+.editFormContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: darkblue;
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.submitEditButton {
+    height: 45px;
+    width: 173px; 
+}

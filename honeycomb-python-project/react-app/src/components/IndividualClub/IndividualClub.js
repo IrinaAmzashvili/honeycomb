@@ -5,12 +5,14 @@ import { getSingleClub } from '../../store/clubs';
 import styles from './IndividualClub.module.css';
 import EditClubForm from '../EditClubForm';
 
+
 const IndividualClub = () => {
     const sessionUser = useSelector(state => state.session.user)
     const {id} = useParams();
     const club = useSelector(state => state.clubs.singleClub)
     // const club = useSelector(state => state.club)
     const dispatch = useDispatch()
+
 
 
     useEffect(() => {
@@ -24,11 +26,11 @@ const IndividualClub = () => {
 
             </div>
             <div className={styles.clubInfoContainer}>
-            <div class={styles.container}>
-                <div class={styles.image}>
+            <div className={styles.container}>
+                <div className={styles.image}>
                     <img className={styles.clubImage} src={club?.img_url}/>
                 </div>
-                <div class={styles.clubinfo}>
+                <div className={styles.clubinfo}>
                     <p className={styles.clubName}>{club?.name}</p>
                     <button className={styles.joinButton}>Join club</button>
                     <p>Organized by (name here)</p>
