@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
 
-.ClubsCardDiv{
+.ClubsCardDiv {
     width: 592px;
     height: 166px;
     background-color: white;
@@ -14,17 +14,13 @@
     overflow-y:hidden;
     margin: 30px 48px;
 }
-.ClubsCardDiv:hover {
-    transition: all 0.3s ease-in-out 0s;
-    transform: translateY(-5px);
-}
+
 .ClubsCardImg{
     grid-area:ClubsCardImg;
     width: 296px;
     height: 166px;
     overflow-x:hidden;
     overflow-y:hidden;
-
 }
 
 .ClubsCardContent{
