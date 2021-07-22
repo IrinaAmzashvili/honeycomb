@@ -7,7 +7,7 @@ import styles from '../EventCards/EventCards.module.css'
 import EditEventModal from '../EditEventModal'
 
 
-const EventsCard = ({ event }) => {
+const EventsCard = ({ event, indx }) => {
     console.log('==============> event', event)
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -62,10 +62,10 @@ const EventsCard = ({ event }) => {
                 <div className={styles.eventDescription}>{event.description}</div>
             </div>
             <div className={styles.buttonGroup}>
-                <button className={styles.editButton}>Edit Event</button>
+                {/* <button className={styles.editButton}>Edit Event</button> */}
+                <EditEventModal eventId={event.id} className={styles.editButton} />
                 <button className={styles.attendButton} onClick={handleRsvp}>{rsvp ? 'Can\'t make it' : 'Attend'}</button>
                 {/* <button id={event.id} className={styles.editButton}>Edit Event</button> */}
-                <EditEventModal eventId={event.id} className={styles.editButton} />
             </div>
         </div>
     )

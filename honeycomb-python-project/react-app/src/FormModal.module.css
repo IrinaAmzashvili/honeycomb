@@ -1,7 +1,7 @@
 .club_button{
     position: absolute;
-    top: 430px;
-    left: 200px;
+    top: 455px;
+    left: 800px;
     width: 193px;
     height: 53px;
     border-radius: 24px;
@@ -69,4 +69,8 @@ margin-left:25px;
 
 .deleteButton {
     margin-left: 10px;
+}
+
+.editButton {
+    margin-top: 50px; 
 }
