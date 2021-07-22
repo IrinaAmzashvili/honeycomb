@@ -71,7 +71,7 @@ const initialState = {};
 const clubsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_CLUBS:
-            const allClubs = { ...state }
+            const allClubs = {}
             action.clubs.clubs.forEach((club) => {
                 allClubs[club.id] = club
             })
