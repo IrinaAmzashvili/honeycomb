@@ -1,43 +1,11 @@
 @import url('../../index.css');
 
-
-
-/* .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    "image clubinfo";
-} */
-
 .imageDiv {
     width: 597px;
     height: 350px;
     overflow-x:hidden;
     overflow-y:hidden;
 }
-
-/* .clubinfo { grid-area: clubinfo;} */
-
-/* .redCrossBar {
-    height: 80px;
-    width: 100vw;
-    background-color: var(--coralTheme);
-} */
-
-
-/*
-.clubInfoContainer {
-    padding: 50px 0;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
-    background-color: white;
-    height: 450px;
-    width: 100vw;
-} */
 
 .clubInfoContainer {
     display: flex;
@@ -55,22 +23,10 @@
 
 .clubImage {
     width: 100%;
-
-    /* margin-left: 200px; */
     border-radius: 5px;
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.541);
 }
-.joinButton {
-    /* margin-left: 250px; */
-    height: 40px;
-    width: 120px;
-    border: none;
-    border-radius: 12px;
-    background-color: var(--coralTheme);
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
+
 .joinButton:hover {
     cursor: pointer;
     background-color: #d65858;
@@ -137,5 +93,3 @@
 div.rc-h-48.rc-p-2.rc-border-r-2 {
         height: 5rem;
 }
-
-/* ----------- Events ------------ */

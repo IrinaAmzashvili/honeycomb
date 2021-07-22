@@ -84,7 +84,7 @@ const IndividualClub = () => {
           <p className={styles.clubName}>{club?.name}</p>
           <p>Organized by <span className={styles.hostName}>{sessionUser.username}</span></p>
           <p className={styles.clubDescription}>{club?.description}</p>
-          <button className={styles.joinButton} onClick={handleMembership}>
+          <button className='cta_button_coral' onClick={handleMembership}>
             {member ? "Leave Club" : "Join Club"}
           </button>
           {sessionUser.id === club?.host_id && (
