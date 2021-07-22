@@ -42,9 +42,10 @@ const IndividualClub = () => {
     dispatch(getClubs());
   }, [dispatch]);
 
+
   // join/leave club
   const handleMembership = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // if user is a member, leave club on click, else join club on click
     if (member) {
       dispatch(leaveClub(id));
@@ -59,15 +60,15 @@ const IndividualClub = () => {
   let [currentMonth, setCurrentMonth] = useState(new Date());
 
   const calendarEvents = () => {
-    let list = [];
-    for (const event of events) {
-      let obj = {};
-      obj["title"] = event.name;
-      obj["date"] = new Date(event.date_and_time);
-      list.push(obj);
-    }
-    return list;
-  };
+      let list = []
+      for (const event of events) {
+          let obj = {}
+          obj["title"] = event.name
+          obj["date"] = new Date(event.date_and_time)
+          list.push(obj)
+      }
+      return list
+  }
 
   return (
     <div>
@@ -95,7 +96,13 @@ const IndividualClub = () => {
         </div>
       </div>
       <div className={styles.eventsSectionDiv}>
-        <EventModal />
+        <div className={styles.TitleAndEventModalContainer}>
+          <div className={styles.TitleAndEventModal}>
+            <div className={styles.title}>Upcoming Events</div>
+            <EventModal />
+
+          </div>
+        </div>
         <div className={styles.eventsAndCalender}>
           <div className={styles.eventCardsContainer}>
             {events.map((event, indx) => (

@@ -31,3 +31,27 @@ def post_event(id):
         db.session.commit()
         return event.to_dict()
     return {'errors': 'Failed to submit Event form'}
+
+
+@event_route.route('/api/events/<int:id>', methods=['PUT'])
+def put_event(id):
+    form = EventForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        event = Event.query.filter(Event.id == id).one()
+        event.name = form.name.data,
+        event.description = form.description.data,
+        event.date_and_time = form.date_and_time.data,
+        event.location = form.location.data,
+        event.host_id = current_user.id,
+        db.session.commit()
+        return event.to_dict()
+    return {'errors': 'Failed to submit Event form'}
+
+
+@event_route.route('/api/events/<int:id>', methods=['DELETE'])
+def delete_event(id):
+    event = Event.query.get_or_404(id)
+    db.session.delete(event)
+    db.session.commit()
+    return {"id": event.id}
