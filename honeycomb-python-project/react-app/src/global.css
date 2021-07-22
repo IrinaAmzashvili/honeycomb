@@ -85,7 +85,8 @@ ul {
     width: 150px;
     height: 45px;
     border-radius: 35px;
-    border: 1px solid var(--coralTheme);
+    border: 2px solid #d40f0f;
+    /* border: 1px solid var(--coralTheme); */
     font-weight: bold;
     font-size: 18px;
     color: black;
@@ -96,5 +97,6 @@ ul {
     cursor: pointer;
     transition: all 0.3s ease 0s;
     color: white;
-    background-color: var(--coralTheme);
+    background-color: #d40f0f;
+    /* background-color: var(--coralTheme); */
 }
