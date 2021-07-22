@@ -1,24 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import '../../index.css';
 
 
 .ClubsCardDiv {
     width: 592px;
     height: 166px;
     background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid; */
+    display: flex;
+    /* grid-template-columns: 1fr 1fr;
     grid-template-areas:
-    "ClubsCardImg ClubsCardContent";
+    "ClubsCardImg ClubsCardContent"; */
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
     overflow-x:hidden;
     overflow-y:hidden;
-    margin: 30px 48px;
+    margin: 20px 0;
+    /* margin: 30px 48px; */
+}
+
+.clubImgDiv {
+    width: 296px;
+    height: 166px;
 }
 
 .ClubsCardImg{
-    grid-area:ClubsCardImg;
-    width: 296px;
-    height: 166px;
+    /* grid-area:ClubsCardImg; */
+    width: 100%;
     overflow-x:hidden;
     overflow-y:hidden;
 }

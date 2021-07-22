@@ -86,67 +86,69 @@ const IndividualClub = () => {
 
   return (
     <div>
-      <div className={styles.redCrossBar}></div>
+      {/* <div className={styles.redCrossBar}></div> */}
       <div className={styles.clubInfoContainer}>
-        <div class={styles.container}>
-          <div class={styles.image}>
-            <img className={styles.clubImage} src={club?.img_url} />
-          </div>
-          <div class={styles.clubinfo}>
-            <p className={styles.clubName}>{club?.name}</p>
-            <button className={styles.joinButton} onClick={handleMembership}>
-              {member ? "Leave Club" : "Join Club"}
-            </button>
-            <p>Organized by (name here)</p>
-            <p className={styles.clubDescription}>{club?.description}</p>
-            {sessionUser.id === club?.host_id && (
-              <div>
-                <EditClubModal club={club} />
-                <button className={styles.deleteButton} onClick={handleDelete}>
-                  Delete
-                </button>
-              </div>
-            )}
-          </div>
+        <div className={styles.imageDiv}>
+          <img className={styles.clubImage} src={club?.img_url} />
         </div>
+
+        <div class={styles.clubinfo}>
+          <p className={styles.clubName}>{club?.name}</p>
+          <p>Organized by <span className={styles.hostName}>{sessionUser.username}</span></p>
+          <p className={styles.clubDescription}>{club?.description}</p>
+          <button className={styles.joinButton} onClick={handleMembership}>
+            {member ? "Leave Club" : "Join Club"}
+          </button>
+          {sessionUser.id === club?.host_id && (
+            <div className={styles.hostButtonsDiv}>
+              <EditClubModal club={club} />
+              <button className={styles.deleteButton} onClick={handleDelete}>
+                Delete
+              </button>
+            </div>
+          )}
+        </div>
+
       </div>
-      <EventModal />
-      <div className={styles.eventsAndCalender}>
-        <div className={styles.eventCardsContainer}>
-          {events.map((event) => (
-            <EventsCard event={event} />
-          ))}
-        </div>
-        <div className={styles.calenderContainer}>
-          <MonthlyCalendar
-            className={styles.monthlyCalender}
-            currentMonth={currentMonth}
-            onCurrentMonthChange={(date) => setCurrentMonth(date)}
-          >
-            <MonthlyNav />
-            <MonthlyBody
-              // events={[
-              //     { title: 'Call John', date: subHours(new Date(), 2) },
-              //     { title: 'Call John', date: subHours(new Date(), 1) },
-              //     { title: 'Meeting with Bob', date: new Date() },
-              // ]}
-              events={calendarEvents()}
+      <div className={styles.eventsSectionDiv}>
+        <EventModal />
+        <div className={styles.eventsAndCalender}>
+          <div className={styles.eventCardsContainer}>
+            {events.map((event) => (
+              <EventsCard event={event} />
+            ))}
+          </div>
+          <div className={styles.calenderContainer}>
+            <MonthlyCalendar
+              className={styles.monthlyCalender}
+              currentMonth={currentMonth}
+              onCurrentMonthChange={(date) => setCurrentMonth(date)}
             >
-              <MonthlyDay
-                className={styles.monthlyDay}
-                renderDay={(data) =>
-                  data.map((item, index) => (
-                    <DefaultMonthlyEventItem
-                      key={index}
-                      title={item.title}
-                      // Format the date here to be in the format you prefer
-                      date={format(item.date, "HH:mm")}
-                    />
-                  ))
-                }
-              />
-            </MonthlyBody>
-          </MonthlyCalendar>
+              <MonthlyNav />
+              <MonthlyBody
+                // events={[
+                //     { title: 'Call John', date: subHours(new Date(), 2) },
+                //     { title: 'Call John', date: subHours(new Date(), 1) },
+                //     { title: 'Meeting with Bob', date: new Date() },
+                // ]}
+                events={calendarEvents()}
+              >
+                <MonthlyDay
+                  className={styles.monthlyDay}
+                  renderDay={(data) =>
+                    data.map((item, index) => (
+                      <DefaultMonthlyEventItem
+                        key={index}
+                        title={item.title}
+                        // Format the date here to be in the format you prefer
+                        date={format(item.date, "HH:mm")}
+                      />
+                    ))
+                  }
+                />
+              </MonthlyBody>
+            </MonthlyCalendar>
+          </div>
         </div>
       </div>
     </div>

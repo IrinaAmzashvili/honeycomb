@@ -100,7 +100,7 @@ const EditClubForm = ({ club, setShowModal }) => {
           ></textarea>
         </div>
         <div className={styles.button__div}>
-          <button className={styles.submit_button}>Edit Club</button>
+          <button className='cta_button'>Edit Club</button>
         </div>
       </form>
     </div>
