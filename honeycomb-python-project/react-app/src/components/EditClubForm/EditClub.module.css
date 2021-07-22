@@ -1,0 +1,16 @@
+/* .editButton {
+    height: 40px;
+    width: 120px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--tealTheme);
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
+
+.editButton:hover {
+    background-color: var(--tealHover);
+    cursor: pointer;
+} */

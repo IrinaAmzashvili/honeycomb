@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateEvent from './EventModal'
-import styles from './EventModal.module.css';
+import styles from '../../FormModal.module.css'
 
 
 function EventModal() {
@@ -10,7 +10,7 @@ function EventModal() {
 
     return (
         <>
-            <button className={styles.club_button} onClick={() => setShowModal(true)}>Create an Event</button>
+            <button className={`cta_button ${styles.club_button}`} onClick={() => setShowModal(true)}>Create an Event</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <CreateEvent setShowModal={setShowModal} />

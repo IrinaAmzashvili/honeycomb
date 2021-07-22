@@ -1,61 +1,32 @@
-@import url('../../global.css');
 @import url('../../index.css');
-@import url('../../vars.css');
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    /* gap: 0px 0px; */
-    /* grid-auto-flow: row; */
-    grid-template-areas:
-      "image clubinfo";
 
-
-  }
-
-.image {
-
-
-    grid-area: image;
- }
-
-.clubinfo { grid-area: clubinfo;}
-.redCrossBar {
-    height: 80px;
-    width: 100vw;
-    background-color: var(--coralTheme);
+.imageDiv {
+    width: 597px;
+    height: 350px;
+    overflow-x:hidden;
+    overflow-y:hidden;
 }
 
-
-
 .clubInfoContainer {
-    padding: 50px 0;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
-    background-color: white;
-    height: 450px;
-    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.clubinfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.clubInfoContainer > * {
+    margin: 0 45px;
 }
 
 .clubImage {
-    margin-left: 200px;
-    width: 597px;
-    height: 350px;
-    border-radius: 12px;
+    width: 100%;
+    border-radius: 5px;
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.541);
 }
-.joinButton {
-    margin-left: 250px;
-    height: 40px;
-    width: 120px;
-    border: none;
-    border-radius: 12px;
-    background-color: var(--coralTheme);
-    font-size: 17px;
-    font-weight: bold;
-    color: white;
-}
+
 .joinButton:hover {
     cursor: pointer;
     background-color: #d65858;
@@ -63,15 +34,11 @@
 .clubName {
     font-weight: 1000;
     font-size: 40px;
-    margin-bottom: -40px;
+    margin-bottom: 0;
 }
 
-.clubDescription {
-
-}
-
-.buttonContainer {
-
+.hostName {
+    font-weight: 400;
 }
 
 .editButton, .deleteButton {
@@ -91,9 +58,6 @@
     cursor: pointer;
 }
 
-.deleteButton {
-
-}
 .eventCardsContainer{
 
     padding-top: 30px;

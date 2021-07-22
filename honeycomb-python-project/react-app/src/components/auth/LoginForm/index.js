@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { login } from '../../../store/session';
 import styles from './Login.module.css'
-// import './login.css'
 
 const LoginForm = () => {
-  const history = useHistory();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,7 +49,7 @@ const LoginForm = () => {
         ))}
       </div>
       <form className={styles.login__form} onSubmit={onLogin}>
-        <h1 className={styles.login__form__heading}>Sign In</h1>
+        <h1 className={styles.login__form__heading}>Log In</h1>
         <div className={styles.login__email__container}>
           <input className={styles.login__email} name='email' type='text' placeholder='Email' value={email} onChange={updateEmail}/>
         </div>
@@ -60,11 +58,9 @@ const LoginForm = () => {
         </div>
         <button className={styles.login__submit__button} type='submit'>Login</button>
         <p className={styles.login__no__account}>Don't have an account yet? <Link to="/signup" className={styles.login__create__here}><span>Create one here</span></Link></p>
+        <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Or log in as a  <span>Demo user</span></button>
       </form>
     </div>
-    <form onSubmit={demoLogin}>
-      <button className={styles.login__no__account__demo}>Login as a <span>Demo user</span></button>
-    </form>
     </>
   );
 };
