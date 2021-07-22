@@ -6,6 +6,7 @@ import { getMemberships, joinClub, leaveClub } from "../../store/membership";
 import { getEvents } from '../../store/events';
 import EventsCard from '../EventCards'
 import EventModal from '../CreateEventModal'
+
 import styles from "./IndividualClub.module.css";
 import '@zach.codes/react-calendar/dist/calendar-tailwind-no-reset.css';
 import { format } from "date-fns";
@@ -31,14 +32,19 @@ const IndividualClub = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+
   // get all memberships
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getSingleClub(parseInt(id)));
+  }, [dispatch, id]);
+
   // join/leave club
   const handleMembership = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // if user is a member, leave club on click, else join club on click
     if (member) {
       dispatch(leaveClub(id));
@@ -62,14 +68,12 @@ const IndividualClub = () => {
     e.preventDefault();
     const res = await dispatch(deleteClub(id));
     // if successfully deleted, redirect
+
     if (res["message"]) {
       history.push("/clubs");
     }
   };
 
-  useEffect(() => {
-    dispatch(getSingleClub(parseInt(id)));
-  }, [dispatch, id]);
 
 
   // ---------------------------------------calender----------------------
@@ -87,7 +91,6 @@ const IndividualClub = () => {
           list.push(obj)
       }
       return list
-
   }
 
   return (
@@ -120,6 +123,7 @@ const IndividualClub = () => {
         <div className={styles.TitleAndEventModal}>
           <div className={styles.title}>Upcoming Events</div>
           <EventModal />
+
         </div>
       </div>
       <div className={styles.eventsAndCalender}>
