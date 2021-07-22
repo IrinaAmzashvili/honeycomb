@@ -49,6 +49,16 @@
     background-color: rgb(241, 241, 241);
 }
 
+.signup__school{
+    border-radius: 2px;
+    text-indent: 5px;
+    width: 250px;
+    height: 45px;
+    margin-bottom: 10px;
+    border: none;
+
+}
+
 /* Signup submit button */
 
 .signup__submit{
