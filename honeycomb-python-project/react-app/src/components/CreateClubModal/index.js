@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import CreateClub from './ClubModal'
-import styles from './ClubModal.module.css';
-
+import React, { useState } from "react";
+import { Modal } from "../../context/Modal";
+import CreateClub from "./ClubModal";
 
 function ClubModal() {
-    const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-
-    return (
-        <>
-            <button className={styles.club_button} onClick={() => setShowModal(true)}>Create A Club</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <CreateClub setShowModal={setShowModal} />
-                </Modal>
-            )}
-        </>
-    );
+  return (
+    <>
+      <button
+        className='cta_button'
+        onClick={() => setShowModal(true)}>
+          Create A Club
+      </button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <CreateClub setShowModal={setShowModal} />
+        </Modal>
+      )}
+    </>
+  );
 }
 
 export default ClubModal;

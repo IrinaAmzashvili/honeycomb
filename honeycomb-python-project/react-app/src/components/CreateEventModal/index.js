@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateEvent from './EventModal'
-import styles from './EventModal.module.css';
+import styles from '../../FormModal.module.css'
 
 
 function EventModal() {

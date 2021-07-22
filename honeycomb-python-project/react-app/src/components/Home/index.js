@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../Home/Home.module.css'
 import homeImg from "../../images/homeImg.png"
 import homeBackground from "../../images/homeBackground.png"
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 
