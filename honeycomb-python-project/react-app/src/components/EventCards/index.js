@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from '../EventCards/EventCards.module.css'
 
 
 const EventsCard = ({ event }) => {
-
+    const [attending, setAttending] = useState(false);
     // console.log('Find the event members through this console log',event)
     // const getRsvps = () => {
     //     return event.rsvps.length;
@@ -24,12 +24,10 @@ const EventsCard = ({ event }) => {
             </div>
             <div className={styles.buttonGroup}>
                 <button className={styles.editButton}>Edit Event</button>
-                <button className={styles.attendButton}>Attend</button>
+                <button className={styles.attendButton}>{setAttending === true ? 'Attending' : 'Attend'}</button>
             </div>
         </div>
     )
-
-
 
 }
 
