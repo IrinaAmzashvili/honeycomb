@@ -14,6 +14,7 @@ from .routes.clubs import club_route
 from .api.schools import school_route
 from .api.clubs import club_edit
 from .api.event_routes import event_route
+from .api.rsvps import rsvp_routes
 
 from .seeds import seed_commands
 
@@ -42,6 +43,7 @@ app.register_blueprint(club_route)
 app.register_blueprint(school_route)
 app.register_blueprint(club_edit, url_prefix='/api')
 app.register_blueprint(event_route)
+app.register_blueprint(rsvp_routes, url_prefix='/api/rsvp')
 db.init_app(app)
 Migrate(app, db)
 
