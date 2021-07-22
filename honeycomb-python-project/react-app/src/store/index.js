@@ -5,6 +5,7 @@ import schoolReducer from './schools';
 import session from './session'
 import eventsReducer from './events';
 import membershipReducer from './membership'
+import rsvpReducer from './rsvp';
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   events: eventsReducer,
   memberships: membershipReducer,
   school: schoolReducer,
+  rsvp: rsvpReducer,
 });
 
 

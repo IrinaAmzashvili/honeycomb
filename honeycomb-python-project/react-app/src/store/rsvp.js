@@ -1,7 +1,17 @@
+import { set } from "date-fns";
+
+const GET_RSVPS = 'events/GET_RSVPS'
 const ATTEND_EVENT = 'events/ATTEND_EVENT';
 const LEAVE_EVENT = 'events/LEAVE_EVENT';
 
+
+
 //action creators
+const setRsvps = (rsvps) => ({
+    type: GET_RSVPS,
+    rsvps
+})
+
 const joinEvent = (event) => ({
     type: ATTEND_EVENT,
     event
@@ -14,20 +24,29 @@ const leaveEvent = (id) => ({
 
 //thunks
 
+export const getRsvps = () => async (dispatch) => {
+    const response = await fetch('/api/rsvp/');
+    if(response.ok) {
+        const allRsvps = await response.json();
+        dispatch(setRsvps(allRsvps.rsvps))
+        return allRsvps;
+    }
+}
+
 export const attendOneEvent = (id) => async (dispatch) => {
-    const response = await fetch(`/api/rsvp${id}`, {
+    const response = await fetch(`/api/rsvp/${id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
     });
     if(response.ok) {
         const rsvpConfirmation = await response.json();
-        dispatch(joinEvent(rsvpConfirmation.rsvps))
+        dispatch(joinEvent(rsvpConfirmation.event))
         return rsvpConfirmation;
     }
 }
 
 export const leaveOneEvent = (id) => async (dispatch) => {
-    const response = await fetch(`/api/rsvp${id}`, {
+    const response = await fetch(`/api/rsvp/${id}`, {
         method: 'DELETE',
     })
     if(response.ok) {
@@ -38,9 +57,15 @@ export const leaveOneEvent = (id) => async (dispatch) => {
 }
 
 const initialState = {}
-export const rsvpReducer = (state = initialState, action ) => {
+const rsvpReducer = (state = initialState, action ) => {
     let rsvpToDelete = {};
     switch(action.type) {
+        case GET_RSVPS:
+            const allOfTheRsvps = {}
+            action.rsvps.forEach(rsvp => {
+                allOfTheRsvps[rsvp.id] = rsvp
+            })
+            return {...allOfTheRsvps}
         case ATTEND_EVENT:
             return {
                 ...state,
@@ -54,3 +79,5 @@ export const rsvpReducer = (state = initialState, action ) => {
             return state;
     }
 }
+
+export default rsvpReducer;
