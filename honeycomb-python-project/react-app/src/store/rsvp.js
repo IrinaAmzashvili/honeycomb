@@ -15,7 +15,7 @@ const leaveEvent = (rsvp) => ({
 //thunks
 
 export const attendOneEvent = (id, rsvp) => async (dispatch) => {
-    const response = await fetch('link here', {
+    const response = await fetch('link here and id', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(rsvp)
@@ -27,3 +27,14 @@ export const attendOneEvent = (id, rsvp) => async (dispatch) => {
     }
 }
 
+export const leaveOneEvent = (id, rsvp) => async (dispatch) => {
+    const response = await fetch('link here and id', {
+        method: 'DELETE',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(rsvp)
+    })
+    if(response.ok) {
+        const rsvpRevocation = await response.json();
+        dispatch(leaveEvent(rsvpRevocation))
+    }
+}
