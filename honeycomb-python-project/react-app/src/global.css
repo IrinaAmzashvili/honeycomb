@@ -63,6 +63,23 @@ ul {
     background-color: var(--tealHover);
 }
 
+.cta_button_coral{
+    width: 150px;
+    height: 45px;
+    border-radius: 35px;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background-color: var(--coralTheme);
+}
+
+.cta_button_coral:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--coralHover);
+}
+
 .cta_button_empty {
     width: 150px;
     height: 45px;
