@@ -21,35 +21,17 @@
     height: 40px;
     width: 150px;
 }
+
 .calenderContainer button:hover {
     background-color: var(--tealHover);
 }
+
 .imageDiv {
     width: 597px;
     height: 350px;
     overflow-x:hidden;
     overflow-y:hidden;
 }
-
-/* .clubinfo { grid-area: clubinfo;} */
-
-/* .redCrossBar {
-    height: 80px;
-    width: 100vw;
-    background-color: var(--coralTheme);
-} */
-
-
-/*
-.clubInfoContainer {
-    padding: 50px 0;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
-    background-color: white;
-    height: 450px;
-    width: 100vw;
-} */
 
 .clubInfoContainer {
     display: flex;
@@ -67,8 +49,6 @@
 
 .clubImage {
     width: 100%;
-
-    /* margin-left: 200px; */
     border-radius: 5px;
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.541);
 }
@@ -127,6 +107,28 @@
     grid-template-areas:
     "events calender";
 }
+.TitleAndEventModalContainer{
+    padding-top:50px ;
+    padding-right: 200px;
+    padding-left:200px;
+    background-color:#EBEBEB ;
+    display: grid;
+    grid-template-columns: 800px auto;
+    grid-template-areas: "titleAndModal";
+
+}
+
+.TitleAndEventModal{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-area: titleAndModal;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 25px;
+}
 .calenderContainer{
     grid-area: calender;
 }
@@ -149,5 +151,3 @@
 div.rc-h-48.rc-p-2.rc-border-r-2 {
         height: 5rem;
 }
-
-/* ----------- Events ------------ */

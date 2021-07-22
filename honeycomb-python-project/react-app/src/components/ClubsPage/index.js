@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { GoSearch } from "react-icons/go";
 import { getClubs } from "../../store/clubs";
 import { getSchool } from "../../store/schools";
 import ClubsCard from "../ClubsCard";
-import styles from "../ClubsPage/ClubsPage.module.css";
-import homeBackground from "../../images/homeBackground.png";
-import { GoSearch } from "react-icons/go";
-
-// import styles from './ClubsPage.module.css';
 import ClubModal from "../CreateClubModal";
+import homeBackground from "../../images/homeBackground.png";
+import styles from "../ClubsPage/ClubsPage.module.css";
+
 
 const ClubsPage = () => {
   //------------------------------------------------clubs---------------------------------------------
@@ -24,8 +23,7 @@ const ClubsPage = () => {
     await dispatch(getSchool());
   }, [dispatch]);
 
-  const school = useSelector((state) => Object.values(state.school)[0]);
-  console.log(school);
+  const school = useSelector((state) => Object.values(state?.school)[0]);
   //-------------------------------------------------Search--------------------------------------
   const [searchTerm, setSearchTerm] = useState("");
   const editSearch = (e) => {

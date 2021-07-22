@@ -1,0 +1,111 @@
+.club_button{
+    /* margin-top: 10px; */
+    width: 120px;
+    height: 45px;
+    border-radius: 12px;
+    border: 1px solid var(--tealTheme);
+    /* font-weight: bold; */
+    /* font-size: 20px; */
+    color: #191919;
+    background-color: white;
+}
+
+.club_button:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--tealTheme);
+    color: white;
+}
+
+.club__form__heading {
+    margin-left: 40px;
+    color: var(--tealTheme);
+}
+
+.club__heading_container{
+/* margin-left:20px; */
+
+
+}
+
+.club__name{
+    border-radius: 2px;
+    text-indent: 5px;
+    width: 300px;
+    height: 35px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: rgb(241, 241, 241);
+}
+
+.club__description{
+    border-radius: 2px;
+    text-indent: 5px;
+    width: 300px;
+    height: 75px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: rgb(241, 241, 241);
+
+}
+
+.submit_button{
+    margin-top: 10px;
+    /* margin-left: 40px; */
+    width: 120px;
+    height: 35px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    background-color: var(--tealTheme);
+}
+.outerContainer{
+    position: relative;
+}
+.submit_button_delete{
+    position: absolute;
+    top: 400px;
+    left: 120px;
+    margin-top: 10px;
+    margin-left: 60px;
+    width: 120px;
+    height: 35px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    background-color: #FA6666;
+}
+
+.submit_button_delete:hover{
+    background-color: #b05555;
+}
+
+
+.submit_button:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--tealHover);
+}
+
+.club__form__label{
+    font-weight: bold;
+}
+
+.club__label__container{
+    padding-bottom: 5px;
+    margin-left:5px;
+}
+
+.calender_input{
+    border-radius: 2px;
+    text-indent: 5px;
+    width: 300px;
+    height: 35px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: rgb(241, 241, 241);
+}

@@ -15,6 +15,7 @@ def get_memberships(id):
     memberClubs = [club.to_dict() for club in clubs]
     return {'clubs': memberClubs}
 
+
 @membership_routes.route('/<int:id>', methods=['POST'])
 def join_club(id):
     # queries to find user and club

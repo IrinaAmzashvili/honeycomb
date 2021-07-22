@@ -1,11 +1,17 @@
 from app.models import db, School
+from app.school_data import university_list
 
 # Adds a demo user, you can add other users here if you want
-def seed_schools():
-    school1 = School(name='Harvard')
 
-    db.session.add(school1)
-    db.session.commit()
+
+def seed_schools():
+
+    i = 0
+    while i < len(university_list):
+        school = School(name=f"{university_list[i]}")
+        db.session.add(school)
+        db.session.commit()
+        i += 1
 
 
 # Uses a raw SQL query to TRUNCATE the users table.

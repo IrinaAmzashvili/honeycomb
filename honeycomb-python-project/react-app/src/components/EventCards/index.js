@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { attendOneEvent, leaveOneEvent, getRsvps } from '../../store/rsvp';
 import styles from '../EventCards/EventCards.module.css'
+import EditEventModal from '../EditEventModal'
 
 
 const EventsCard = ({ event }) => {
@@ -51,7 +52,7 @@ const EventsCard = ({ event }) => {
     }
 
     return (
-        <div className={styles.outerContainer}>
+        <div key={indx} className={styles.outerContainer}>
             <div className={styles.content}>
                 <div className={styles.eventDate}>{newTime.toLocaleDateString()} <span className={styles.timeStampMiddle}>at</span> {newTime.toLocaleTimeString()}</div>
                 {/* <div className={styles.eventDate}>{event.date_and_time}</div> */}
@@ -63,6 +64,8 @@ const EventsCard = ({ event }) => {
             <div className={styles.buttonGroup}>
                 <button className={styles.editButton}>Edit Event</button>
                 <button className={styles.attendButton} onClick={handleRsvp}>{rsvp ? 'Can\'t make it' : 'Attend'}</button>
+                {/* <button id={event.id} className={styles.editButton}>Edit Event</button> */}
+                <EditEventModal eventId={event.id} className={styles.editButton} />
             </div>
         </div>
     )

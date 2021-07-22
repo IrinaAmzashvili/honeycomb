@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import CreateEvent from './EventModal'
-import styles from '../../FormModal.module.css'
+import EditEvent from './EditEventModal'
+import styles from './EditEventModal.module.css';
 
-function EventModal() {
+
+function EventModal({ eventId}) {
     const [showModal, setShowModal] = useState(false);
 
 
     return (
         <>
-            <button className={`cta_button ${styles.club_button}`} onClick={() => setShowModal(true)}>Create an Event</button>
+            <button className={styles.club_button} onClick={() => setShowModal(true)}>Edit an Event</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <CreateEvent setShowModal={setShowModal} />
+                    <EditEvent eventId={eventId} setShowModal={setShowModal} />
                 </Modal>
             )}
         </>
