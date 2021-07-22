@@ -1,85 +1,13 @@
-.club_button{
-    margin-top: 10px;
-    width: 173px;
-    height: 53px;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    background-color: var(--tealTheme);
+.calendar_div > *{
+    width: 100%;
 }
 
-.club_button:hover{
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    background-color: var(--tealHover);
-}
-
-.club__form__heading {
-    color: var(--tealTheme);
-}
-
-.club__heading_container{
-margin-left:25px;
-}
-
-.club__name{
+.calendar_input{
     border-radius: 2px;
     text-indent: 5px;
-    width: 250px;
+    width: 100%;
     height: 35px;
     margin-bottom: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
 }
-
-.club__description{
-    border-radius: 2px;
-    text-indent: 5px;
-    width: 250px;
-    height: 75px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: rgb(241, 241, 241);
-
-}
-
-.submit_button{
-    margin-top: 10px;
-    margin-left: 40px;
-    width: 150px;
-    height: 35px;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    background-color: var(--tealTheme);
-}
-
-.submit_button:hover{
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    background-color: var(--tealHover);
-}
-
-.club__form__label{
-    font-weight: bold;
-}
-
-.club__label__container{
-    padding-bottom: 5px;
-    margin-left:5px;
-}
-
-.calender_input{
-    border-radius: 2px;
-    text-indent: 5px;
-    width: 250px;
-    height: 35px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: rgb(241, 241, 241);
-}
-

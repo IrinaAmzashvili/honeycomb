@@ -1,34 +1,47 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postClub } from "../../store/clubs";
-import styles from '../../FormModal.module.css'
+import { useHistory } from "react-router-dom";
+import { editClub } from "../../store/clubs";
+import { deleteClub } from "../../store/clubs";
 
-function CreateClub({ setShowModal }) {
+import styles from "../../FormModal.module.css";
+
+const EditClubForm = ({ club, setShowModal }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
+  const [name, setName] = useState(club.name);
+  const [description, setDescription] = useState(club.description);
+  const [imgUrl, setImgUrl] = useState(club.img_url);
+  const [category, setCategory] = useState(club.category_id);
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
-  const [category, setCategory] = useState("");
+  const editForm = (event) => {
+    event.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newClub = {
+    const editedFormInfo = {
       name,
       description,
       img_url: imgUrl,
       category_id: category,
     };
-    dispatch(postClub(newClub));
+    dispatch(editClub(club.id, editedFormInfo));
     setShowModal(false);
+  };
+
+  // delete club
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(deleteClub(club.id));
+    // if successfully deleted, redirect
+    if (res["message"]) {
+      history.push("/clubs");
+    }
   };
 
   return (
     <div className={styles.club__form__div}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={editForm}>
         <div className={styles.club__heading_container}>
-          <h1 className={styles.club__form__heading}>Create A Club</h1>
+          <h1 className={styles.club__form__heading}>Edit Form</h1>
         </div>
         <div className={styles.club__label__container}>
           <label for="name" className={styles.club__form__label}>
@@ -37,15 +50,14 @@ function CreateClub({ setShowModal }) {
         </div>
         <div>
           <input
-            id="name"
-            className={styles.club__name}
             name="name"
-            type="text"
+            placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            type="text"
+            className={styles.club__name}
           />
         </div>
-
         <div className={styles.club__label__container}>
           <label for="imgUrl" className={styles.club__form__label}>
             Club Image URL
@@ -53,15 +65,13 @@ function CreateClub({ setShowModal }) {
         </div>
         <div>
           <input
-            id="imgUrl"
-            className={styles.club__name}
-            name="imgUrl"
-            type="text"
+            name="img_url"
+            placeholder="Image Url"
             value={imgUrl}
             onChange={(e) => setImgUrl(e.target.value)}
+            className={styles.club__name}
           />
         </div>
-
         <div className={styles.club__label__container}>
           <label for="category" className={styles.club__form__label}>
             Category
@@ -69,10 +79,10 @@ function CreateClub({ setShowModal }) {
         </div>
         <div>
           <select
-            id="category"
-            className={styles.club__name}
+            name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
+            className={styles.club__name}
           >
             <option value="" disabled>
               Select a Category
@@ -88,7 +98,6 @@ function CreateClub({ setShowModal }) {
             <option value={9}>Media and Publication</option>
           </select>
         </div>
-
         <div className={styles.club__label__container}>
           <label for="description" className={styles.club__form__label}>
             Description
@@ -96,22 +105,23 @@ function CreateClub({ setShowModal }) {
         </div>
         <div>
           <textarea
-            id="description"
-            className={styles.club__description}
             name="description"
+            placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-          />
+            type="text"
+            className={styles.club__description}
+          ></textarea>
         </div>
-
         <div className={styles.button__div}>
-          <button className='cta_button' type="submit">
-            Submit Club
+          <button className={`${styles.editButton} cta_button`}>Edit Club</button>
+          <button className={`${styles.deleteButton} cta_button_danger`} onClick={handleDelete}>
+            Delete Club
           </button>
         </div>
       </form>
     </div>
   );
-}
+};
 
-export default CreateClub;
+export default EditClubForm;
