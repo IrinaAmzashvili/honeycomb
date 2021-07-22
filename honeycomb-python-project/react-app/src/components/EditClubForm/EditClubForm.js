@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { editClub } from "../../store/clubs";
-import { deleteClub, getClubs } from "../../store/clubs";
+import { deleteClub } from "../../store/clubs";
 
 import styles from "../../FormModal.module.css";
 

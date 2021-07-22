@@ -11,8 +11,6 @@
 }
 
 .clubCardContainer{
-    /* margin-top: 50px; */
-    /* padding: 0px 200px 80px 200px; */
     padding: 20px 0;
     display: flex;
     flex-direction: row;
@@ -46,8 +44,6 @@
 }
 
 .clubTitle{
-    /* margin-top: 150px; */
-    /* padding: 50px 250px 10px 250px; */
     margin-bottom: 50px;
     font-family: "Playfair Display";
     font-weight: 600;
@@ -75,7 +71,6 @@
 
 .clubsFirstContainer{
     display: flex;
-    /* padding: 200px 250px 0px 250px; */
     justify-content: space-between;
 }
 

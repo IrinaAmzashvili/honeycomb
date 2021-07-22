@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "../../context/Modal";
 import CreateClub from "./ClubModal";
-import styles from "../../FormModal.module.css";
 
 function ClubModal() {
   const [showModal, setShowModal] = useState(false);
@@ -10,7 +9,6 @@ function ClubModal() {
     <>
       <button
         className='cta_button'
-        // className={styles.club_button}
         onClick={() => setShowModal(true)}>
           Create A Club
       </button>

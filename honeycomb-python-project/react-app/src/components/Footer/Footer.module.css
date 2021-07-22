@@ -23,12 +23,10 @@
 
 .github_links, .linkedin {
     display:flex;
-    /* margin-top: 2em; */
 }
 
 .icon_container{
     color:white;
-    /* margin-top:2em; */
     padding:10px;
 }
 
@@ -38,7 +36,6 @@
 
 .git_names, .linkedin_names {
     display: flex;
-    /* margin-top:1.5em; */
 }
 
 .left, .right {
@@ -59,6 +56,5 @@
 }
 
 .name:hover {
-    /* color: rgb(214, 214, 214); */
     font-weight: 600;
 }
