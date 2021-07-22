@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postClub } from "../../store/clubs";
-import styles from "./ClubModal.module.css";
+import styles from '../../FormModal.module.css'
 
 function CreateClub({ setShowModal }) {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function CreateClub({ setShowModal }) {
   };
 
   return (
-    <div>
+    <div className={styles.club__form__div}>
       <form onSubmit={handleSubmit}>
         <div className={styles.club__heading_container}>
           <h1 className={styles.club__form__heading}>Create A Club</h1>
@@ -104,7 +104,7 @@ function CreateClub({ setShowModal }) {
           />
         </div>
 
-        <div>
+        <div className={styles.button__div}>
           <button className={styles.submit_button} type="submit">
             Submit Club
           </button>

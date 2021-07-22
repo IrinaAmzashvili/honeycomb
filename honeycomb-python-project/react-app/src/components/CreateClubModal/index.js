@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CreateClub from './ClubModal'
-import styles from './ClubModal.module.css';
+import styles from '../../FormModal.module.css'
 
 
 function ClubModal() {

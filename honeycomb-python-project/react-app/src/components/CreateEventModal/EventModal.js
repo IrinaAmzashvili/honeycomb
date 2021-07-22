@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { postEvent } from "../../store/events";
 import DatePicker from "react-datepicker";
-import styles from "./EventModal.module.css";
+import eventStyles from './EventModal.module.css';
+import styles from '../../FormModal.module.css'
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -39,7 +40,7 @@ function CreateEvent({ setShowModal }) {
 
   return (
     <>
-      <div>
+      <div className={styles.club__form__div}>
         <form onSubmit={handleSubmit}>
           <div className={styles.club__heading_container}>
             <h1 className={styles.club__form__heading}>Create An Event</h1>
@@ -75,9 +76,9 @@ function CreateEvent({ setShowModal }) {
             <label className={styles.club__form__label}>Date and Time</label>
           </div>
 
-          <div>
+          <div className={eventStyles.calendar_div}>
             <DatePicker
-              className={styles.calender_input}
+              className={eventStyles.calendar_input}
               showTimeSelect
               selected={startDate}
               onChange={(date) => setStartDate(date)}
@@ -99,7 +100,7 @@ function CreateEvent({ setShowModal }) {
             />
           </div>
 
-          <div>
+          <div className={styles.button__div}>
             <button className={styles.submit_button} type="submit">
               Submit Event
             </button>
