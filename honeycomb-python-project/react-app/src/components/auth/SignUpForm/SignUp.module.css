@@ -5,11 +5,11 @@
     justify-content: center;
     text-align: center;
     background-color: white;
-    height: 450px;
+    height: 500px;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 100px;;
     border-radius: 12px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
 }
@@ -49,6 +49,16 @@
     margin-bottom: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
+}
+
+.signup__school{
+    border-radius: 2px;
+    text-indent: 5px;
+    width: 250px;
+    height: 45px;
+    margin-bottom: 10px;
+    border: none;
+
 }
 
 /* Signup submit button */

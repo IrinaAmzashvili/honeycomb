@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
   clubs: clubsReducer,
   events: eventsReducer,
   memberships: membershipReducer,
-  school: schoolReducer,
+  school: schoolReducer
 });
 
 

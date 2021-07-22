@@ -24,7 +24,7 @@ const ClubsPage = () => {
     await dispatch(getSchool());
   }, [dispatch]);
 
-  const school = useSelector((state) => Object.values(state.school)[0]);
+  const school = useSelector((state) => Object.values(state?.school)[0]);
   console.log(school);
   //-------------------------------------------------Search--------------------------------------
   const [searchTerm, setSearchTerm] = useState("");
