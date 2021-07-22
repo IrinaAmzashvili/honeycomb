@@ -36,7 +36,6 @@ function CreateEvent({ setShowModal }) {
       club_id: id,
     };
     const data = await dispatch(postEvent(id, newEvent));
-    console.log('-----> data:', data)
     if (data.errors) {
       setErrors(data.errors);
       return;

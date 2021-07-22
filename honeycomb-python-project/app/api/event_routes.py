@@ -19,7 +19,6 @@ def post_event(id):
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print('----------> BACKEND VALIDATED')
         event = Event(
             name=form.name.data,
             description=form.description.data,
@@ -29,9 +28,7 @@ def post_event(id):
             club_id=id
         )
         db.session.add(event)
-        print('----------> BACKEND VALIDATED', event.to_dict())
         db.session.commit()
-        print('----------> BACKEND commited')
         return event.to_dict()
 
     errorMessages = []
@@ -41,3 +38,27 @@ def post_event(id):
             formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return{'errors': errorMessages}
+
+
+@event_route.route('/api/events/<int:id>', methods=['PUT'])
+def put_event(id):
+    form = EventForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        event = Event.query.filter(Event.id == id).one()
+        event.name = form.name.data,
+        event.description = form.description.data,
+        event.date_and_time = form.date_and_time.data,
+        event.location = form.location.data,
+        event.host_id = current_user.id,
+        db.session.commit()
+        return event.to_dict()
+    return {'errors': 'Failed to submit Event form'}
+
+
+@event_route.route('/api/events/<int:id>', methods=['DELETE'])
+def delete_event(id):
+    event = Event.query.get_or_404(id)
+    db.session.delete(event)
+    db.session.commit()
+    return {"id": event.id}
