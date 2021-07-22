@@ -10,6 +10,10 @@
     margin: 50px 80px 50px 200px;
 }
 
+.timeStampMiddle {
+    color: #727272;
+}
+
 .content{
     overflow-x:hidden;
     overflow-y:hidden;
@@ -51,10 +55,13 @@
     border:1px solid var(--tealTheme);
     background-color: white;
     margin-left: 20px;
+    font-weight: bold;
 }
 
 .editButton:hover, .attendButton:hover{
-    border:none ;
+    cursor: pointer;
+    transition: all 0.4s ease 0s;
+    border: none;
     background-color: #0098AB;
     color: white;
 }

@@ -53,7 +53,7 @@ const EventsCard = ({ event }) => {
     return (
         <div className={styles.outerContainer}>
             <div className={styles.content}>
-                <div className={styles.eventDate}>{newTime.toLocaleDateString()}{newTime.toLocaleTimeString()}</div>
+                <div className={styles.eventDate}>{newTime.toLocaleDateString()} <span className={styles.timeStampMiddle}>at</span> {newTime.toLocaleTimeString()}</div>
                 {/* <div className={styles.eventDate}>{event.date_and_time}</div> */}
                 <div className={styles.eventRsvps}>There are {attending ? ` ${attending} members attending` : ' no members attending'}</div>
                 <div className={styles.eventLocation}>Location: {event.location}</div>
