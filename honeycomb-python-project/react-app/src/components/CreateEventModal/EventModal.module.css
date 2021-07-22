@@ -11,3 +11,8 @@
     border: none;
     background-color: rgb(241, 241, 241);
 }
+
+.club_button {
+    position: absolute;
+    top: 50px; 
+}
