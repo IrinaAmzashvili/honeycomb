@@ -14,25 +14,25 @@ const leaveEvent = (id) => ({
 
 //thunks
 
-export const attendOneEvent = (id, rsvp) => async (dispatch) => {
-    const response = await fetch('link here and id', {
+export const attendOneEvent = (id) => async (dispatch) => {
+    const response = await fetch(`/api/rsvp${id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
     });
     if(response.ok) {
         const rsvpConfirmation = await response.json();
-        dispatch(joinEvent(rsvpConfirmation))
+        dispatch(joinEvent(rsvpConfirmation.rsvps))
         return rsvpConfirmation;
     }
 }
 
-export const leaveOneEvent = (id, rsvp) => async (dispatch) => {
-    const response = await fetch('link here and id', {
+export const leaveOneEvent = (id) => async (dispatch) => {
+    const response = await fetch(`/api/rsvp${id}`, {
         method: 'DELETE',
     })
     if(response.ok) {
         const rsvpRevocation = await response.json();
-        dispatch(leaveEvent(rsvpRevocation))
+        dispatch(leaveEvent(id))
         return rsvpRevocation;
     }
 }
