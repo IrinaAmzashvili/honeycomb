@@ -11,3 +11,10 @@ const leaveEvent = (rsvp) => ({
     type: LEAVE_EVENT,
     rsvp
 })
+
+//thunks
+
+export const attendOneEvent = (id) => async (dispatch) => {
+    const response = await fetch('link here');
+    
+}
