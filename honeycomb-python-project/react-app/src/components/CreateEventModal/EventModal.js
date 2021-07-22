@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { postEvent } from "../../store/events";
@@ -27,7 +27,6 @@ function CreateEvent({ setShowModal }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    
 
         const newEvent = {
             name,

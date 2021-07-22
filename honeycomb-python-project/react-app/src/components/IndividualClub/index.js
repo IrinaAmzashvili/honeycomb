@@ -3,12 +3,12 @@ import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteClub, getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
-import { getEvents } from '../../store/events';
-import EditClubForm from '../EditClubForm';
-import EventsCard from '../EventCards'
-import EventModal from '../CreateEventModal'
+import { getEvents } from "../../store/events";
+import EditClubModal from "../EditClubForm";
+import EventsCard from "../EventCards";
+import EventModal from "../CreateEventModal";
 import styles from "./IndividualClub.module.css";
-import '@zach.codes/react-calendar/dist/calendar-tailwind-no-reset.css';
+import "@zach.codes/react-calendar/dist/calendar-tailwind-no-reset.css";
 import { format } from "date-fns";
 
 import {
@@ -17,23 +17,23 @@ import {
   MonthlyNav,
   MonthlyDay,
   DefaultMonthlyEventItem,
-} from '@zach.codes/react-calendar';
+} from "@zach.codes/react-calendar";
 
 const subHours = (date, hour) => {
   return date.setHours(date.getHours() - hour);
-}
+};
 
 const IndividualClub = () => {
   const { id } = useParams();
   const clubs = useSelector((state) => Object.values(state.clubs));
-  const club = clubs.find(club => club?.id === +id)
+  const club = clubs.find((club) => club?.id === +id);
   const sessionUser = useSelector((state) => state.session.user);
   const memberships = useSelector((state) => Object.values(state.memberships));
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log(clubs)
+  console.log(clubs);
   // get all memberships and all club
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
@@ -53,13 +53,12 @@ const IndividualClub = () => {
     }
   };
 
-
   // gets events
   useEffect(async () => {
-    await dispatch(getEvents(id))
-  }, [dispatch, id])
+    await dispatch(getEvents(id));
+  }, [dispatch, id]);
 
-  const events = useSelector(state => Object.values(state.events))
+  const events = useSelector((state) => Object.values(state.events));
 
   // delete club
   const handleDelete = async (e) => {
@@ -72,22 +71,18 @@ const IndividualClub = () => {
   };
 
   // ---------------------------------------calender----------------------
-  let [currentMonth, setCurrentMonth] = useState(
-    new Date()
-  );
-
+  let [currentMonth, setCurrentMonth] = useState(new Date());
 
   const calendarEvents = () => {
-      let list = []
-      for (const event of events) {
-          let obj = {}
-          obj["title"] = event.name
-          obj["date"] = new Date(event.date_and_time)
-          list.push(obj)
-      }
-      return list
-
-  }
+    let list = [];
+    for (const event of events) {
+      let obj = {};
+      obj["title"] = event.name;
+      obj["date"] = new Date(event.date_and_time);
+      list.push(obj);
+    }
+    return list;
+  };
 
   return (
     <div>
@@ -106,11 +101,10 @@ const IndividualClub = () => {
             <p className={styles.clubDescription}>{club?.description}</p>
             {sessionUser.id === club?.host_id && (
               <div>
-                <button className={styles.editButton}>Edit</button>
+                <EditClubModal club={club} />
                 <button className={styles.deleteButton} onClick={handleDelete}>
                   Delete
                 </button>
-                <EditClubForm club={club} clubId={id}/>
               </div>
             )}
           </div>
@@ -118,46 +112,43 @@ const IndividualClub = () => {
       </div>
       <EventModal />
       <div className={styles.eventsAndCalender}>
-                <div className={styles.eventCardsContainer}>
-                    {events.map((event) => (
-                        <EventsCard event={event} />
-                    ))}
-                </div>
-                <div className={styles.calenderContainer}>
-                    <MonthlyCalendar
-                        className={styles.monthlyCalender}
-                        currentMonth={currentMonth}
-                        onCurrentMonthChange={date => setCurrentMonth(date)}
-                    >
-                        <MonthlyNav />
-                        <MonthlyBody
-                            // events={[
-                            //     { title: 'Call John', date: subHours(new Date(), 2) },
-                            //     { title: 'Call John', date: subHours(new Date(), 1) },
-                            //     { title: 'Meeting with Bob', date: new Date() },
-                            // ]}
-                            events={
-                                calendarEvents()
-                            }
-                        >
-                        <MonthlyDay className={styles.monthlyDay}
-                            renderDay={data =>
-                                data.map((item, index) => (
-                                <DefaultMonthlyEventItem
-                                    key={index}
-                                    title={item.title}
-                                    // Format the date here to be in the format you prefer
-                                    date={format(item.date, 'HH:mm')}
-                        />
-                        ))
-                    }
+        <div className={styles.eventCardsContainer}>
+          {events.map((event) => (
+            <EventsCard event={event} />
+          ))}
+        </div>
+        <div className={styles.calenderContainer}>
+          <MonthlyCalendar
+            className={styles.monthlyCalender}
+            currentMonth={currentMonth}
+            onCurrentMonthChange={(date) => setCurrentMonth(date)}
+          >
+            <MonthlyNav />
+            <MonthlyBody
+              // events={[
+              //     { title: 'Call John', date: subHours(new Date(), 2) },
+              //     { title: 'Call John', date: subHours(new Date(), 1) },
+              //     { title: 'Meeting with Bob', date: new Date() },
+              // ]}
+              events={calendarEvents()}
+            >
+              <MonthlyDay
+                className={styles.monthlyDay}
+                renderDay={(data) =>
+                  data.map((item, index) => (
+                    <DefaultMonthlyEventItem
+                      key={index}
+                      title={item.title}
+                      // Format the date here to be in the format you prefer
+                      date={format(item.date, "HH:mm")}
                     />
-                        </MonthlyBody>
-                    </MonthlyCalendar>
-                </div>
-            </div>
-
-
+                  ))
+                }
+              />
+            </MonthlyBody>
+          </MonthlyCalendar>
+        </div>
+      </div>
     </div>
   );
 };
