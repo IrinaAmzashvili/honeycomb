@@ -1,23 +1,25 @@
 /* Entire form container */
+@import url('../../../index.css');
 .signup__form__entire__container {
     display: flex;
     justify-content: center;
     text-align: center;
     background-color: white;
-    height: 450px;
+    height: 500px;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 100px;;
     border-radius: 12px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
 }
 
 .login__no__account__demo {
-    position: fixed;
-    left: 960px;
-    bottom: 445px;
-    font-size: 17px;
+    color: var(--linkButton);
+}
+.login__no__account__demo span {
+    font-weight: bold;
+    color: var(--tealTheme);
 }
 
 .signup__errors__container {
