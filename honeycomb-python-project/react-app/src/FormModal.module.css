@@ -16,8 +16,13 @@
     background-color: var(--tealHover);
 }
 
+.club__form__div {
+    width: 80%;
+}
+
 .club__form__heading {
     color: var(--tealTheme);
+    text-align: center;
 }
 
 .club__heading_container{
@@ -27,8 +32,8 @@ margin-left:25px;
 .club__name{
     border-radius: 2px;
     text-indent: 5px;
-    width: 250px;
-    height: 35px;
+    width: 100%;
+    height: 45px;
     margin-bottom: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
@@ -37,38 +42,29 @@ margin-left:25px;
 .club__description{
     border-radius: 2px;
     text-indent: 5px;
-    width: 250px;
+    width: 100%;
     height: 75px;
     margin-bottom: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
-
-}
-
-.submit_button{
-    margin-top: 10px;
-    margin-left: 40px;
-    width: 150px;
-    height: 35px;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-    font-size: 15px;
-    color: white;
-    background-color: var(--tealTheme);
-}
-
-.submit_button:hover{
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    background-color: var(--tealHover);
+    resize: none;
 }
 
 .club__form__label{
-    font-weight: bold;
+    font-weight: 100;
 }
 
 .club__label__container{
     padding-bottom: 5px;
     margin-left:5px;
+}
+
+.button__div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.deleteButton {
+    margin-left: 10px;
 }

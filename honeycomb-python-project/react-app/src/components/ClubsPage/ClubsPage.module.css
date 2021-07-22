@@ -1,12 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import '../../index.css';
+
+
+.clubsPageContainer {
+    margin: 100px;
+    margin-top: 50px;
+}
+
+.clubsTopTwoLine {
+    margin: 30px;
+}
 
 .clubCardContainer{
-    /* margin-top: 50px; */
-    padding: 0px 200px 80px 200px;
+    padding: 20px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: space-between;
     z-index: 300000;
 }
 
@@ -24,7 +34,7 @@
 ::placeholder {
     color: #3B2029;
     font-family: "Lato";
-  }
+}
 
 .topBar{
     position: absolute;
@@ -34,8 +44,7 @@
 }
 
 .clubTitle{
-    /* margin-top: 150px; */
-    padding: 50px 250px 10px 250px;
+    margin-bottom: 50px;
     font-family: "Playfair Display";
     font-weight: 600;
     font-size: 35px;
@@ -62,15 +71,20 @@
 
 .clubsFirstContainer{
     display: flex;
-    padding: 200px 250px 0px 250px;
     justify-content: space-between;
 }
+
+.backgroundImgDiv {
+    width: 100%;
+}
+
 .homeBackground{
-    position: absolute;
+    position: fixed;
     top:0;
     margin-top: 100px;
     overflow:hidden;
     z-index: -1000000000;
+    width: 98vw;
 }
 .clubsFirstContainerRight{
     display: flex;
