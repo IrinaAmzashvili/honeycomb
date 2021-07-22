@@ -1,5 +1,31 @@
 @import url('../../index.css');
 
+
+
+/* .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "image clubinfo";
+} */
+
+.calenderContainer button {
+    background-color: var(--tealTheme);
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    width: 150px;
+}
+
+.calenderContainer button:hover {
+    background-color: var(--tealHover);
+}
+
 .imageDiv {
     width: 597px;
     height: 350px;
@@ -26,7 +52,17 @@
     border-radius: 5px;
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.541);
 }
-
+.joinButton {
+    height: 40px;
+    width: 150px;
+    border: none;
+    /* margin-bottom: 10px; */
+    border-radius: 20px;
+    background-color: var(--coralTheme);
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+}
 .joinButton:hover {
     cursor: pointer;
     background-color: #d65858;
@@ -59,7 +95,6 @@
 }
 
 .eventCardsContainer{
-
     padding-top: 30px;
     padding-bottom: 30px;
     grid-area: events;
@@ -101,11 +136,12 @@
     margin-top: 80px;
     margin-right: 80px;
     margin-bottom: 80px;
-    width: 609px;
+    width: 809px;
     height: 1030px;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
 }
-.monthlyCalender{
+
+.monthlyCalender {
     width: 609px;
     height: 418px;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);

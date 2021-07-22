@@ -1,9 +1,10 @@
-/* .editButton {
+.editButton {
     height: 40px;
-    width: 120px;
+    width: 150px;
+    margin-top: 10px;
     margin-right: 10px;
     border: none;
-    border-radius: 12px;
+    border-radius: 20px;
     background-color: var(--tealTheme);
     font-size: 17px;
     font-weight: bold;
@@ -13,4 +14,4 @@
 .editButton:hover {
     background-color: var(--tealHover);
     cursor: pointer;
-} */
+}

@@ -115,7 +115,7 @@ const IndividualClub = () => {
               currentMonth={currentMonth}
               onCurrentMonthChange={(date) => setCurrentMonth(date)}
             >
-              <MonthlyNav />
+              <MonthlyNav className={styles.calendarButtons} />
               <MonthlyBody
                 // events={[
                 //     { title: 'Call John', date: subHours(new Date(), 2) },
