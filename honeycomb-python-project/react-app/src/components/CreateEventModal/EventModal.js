@@ -11,6 +11,7 @@ import "react-datepicker/dist/react-datepicker.css";
 function CreateEvent({ setShowModal }) {
   const dispatch = useDispatch();
 
+  const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
@@ -23,7 +24,7 @@ function CreateEvent({ setShowModal }) {
     return time.getHours() > 12 ? "text-success" : "text-error";
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newEvent = {
@@ -34,7 +35,12 @@ function CreateEvent({ setShowModal }) {
       host_id: user.id,
       club_id: id,
     };
-    dispatch(postEvent(id, newEvent));
+    const data = await dispatch(postEvent(id, newEvent));
+    console.log('-----> data:', data)
+    if (data.errors) {
+      setErrors(data.errors);
+      return;
+    }
     setShowModal(false);
   };
 
@@ -45,6 +51,13 @@ function CreateEvent({ setShowModal }) {
           <div className={styles.club__heading_container}>
             <h1 className={styles.club__form__heading}>Create An Event</h1>
           </div>
+          <ul className={styles.errors__container}>
+          {errors.map((error, i) => (
+            <li className={styles.errors} key={i}>
+              {error}
+            </li>
+          ))}
+        </ul>
           <div className={styles.club__label__container}>
             <label className={styles.club__form__label}>Event Title</label>
           </div>

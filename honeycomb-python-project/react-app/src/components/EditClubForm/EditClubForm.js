@@ -9,12 +9,14 @@ import styles from "../../FormModal.module.css";
 const EditClubForm = ({ club, setShowModal }) => {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  const [errors, setErrors] = useState([]);
   const [name, setName] = useState(club.name);
   const [description, setDescription] = useState(club.description);
   const [imgUrl, setImgUrl] = useState(club.img_url);
   const [category, setCategory] = useState(club.category_id);
 
-  const editForm = (event) => {
+  const editForm = async (event) => {
     event.preventDefault();
 
     const editedFormInfo = {
@@ -23,7 +25,11 @@ const EditClubForm = ({ club, setShowModal }) => {
       img_url: imgUrl,
       category_id: category,
     };
-    dispatch(editClub(club.id, editedFormInfo));
+    const data = await dispatch(editClub(club.id, editedFormInfo));
+    if (data.errors) {
+      setErrors(data.errors);
+      return;
+    }
     setShowModal(false);
   };
 
@@ -43,6 +49,13 @@ const EditClubForm = ({ club, setShowModal }) => {
         <div className={styles.club__heading_container}>
           <h1 className={styles.club__form__heading}>Edit Form</h1>
         </div>
+        <ul className={styles.errors__container}>
+          {errors.map((error, i) => (
+            <li className={styles.errors} key={i}>
+              {error}
+            </li>
+          ))}
+        </ul>
         <div className={styles.club__label__container}>
           <label for="name" className={styles.club__form__label}>
             Club Name
@@ -114,8 +127,13 @@ const EditClubForm = ({ club, setShowModal }) => {
           ></textarea>
         </div>
         <div className={styles.button__div}>
-          <button className={`${styles.editButton} cta_button`}>Edit Club</button>
-          <button className={`${styles.deleteButton} cta_button_danger`} onClick={handleDelete}>
+          <button className={`${styles.editButton} cta_button`}>
+            Edit Club
+          </button>
+          <button
+            className={`${styles.deleteButton} cta_button_danger`}
+            onClick={handleDelete}
+          >
             Delete Club
           </button>
         </div>
