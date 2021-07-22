@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
 import { useSelector } from "react-redux";
@@ -13,8 +13,8 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* <ProfileButton /> */}
-        {/* <li>
+        {/* <ProfileButton />
+         <li>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users
           </NavLink>
@@ -22,6 +22,11 @@ const NavBar = () => {
         <li>
           <NavLink to='/clubs' exact={true} activeClassName='active'>
             Clubs
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName="active">
+            Profile
           </NavLink>
         </li>
         <li>
