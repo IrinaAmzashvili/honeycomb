@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleClub, deleteClub } from "../../store/clubs";
+import { deleteClub, getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
 import { getEvents } from '../../store/events';
 import EditClubForm from '../EditClubForm';
@@ -25,17 +25,19 @@ const subHours = (date, hour) => {
 
 const IndividualClub = () => {
   const { id } = useParams();
-  const club = useSelector((state) => state.clubs.singleClub);
+  const clubs = useSelector((state) => Object.values(state.clubs));
+  const club = clubs.find(club => club?.id === +id)
   const sessionUser = useSelector((state) => state.session.user);
   const memberships = useSelector((state) => Object.values(state.memberships));
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // get all memberships and single club
+  console.log(clubs)
+  // get all memberships and all club
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
-    dispatch(getSingleClub(parseInt(id)));
+    dispatch(getClubs());
   }, [dispatch]);
 
   // join/leave club

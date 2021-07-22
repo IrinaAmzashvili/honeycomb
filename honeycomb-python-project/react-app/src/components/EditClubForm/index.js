@@ -1,39 +1,27 @@
-import React, {useEffect, useState} from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 import styles from './EditClub.module.css';
-import { editClub, getSingleClub } from '../../store/clubs';
-import { useDispatch, useSelector} from 'react-redux';
+import { editClub } from '../../store/clubs';
+import { useDispatch } from 'react-redux';
 
-const EditClubForm = ({clubId, club}) => {
-    // const club = useSelector((state) => state.clubs.singleClub);
-    const history = useHistory();
+const EditClubForm = ({ clubId, club }) => {
     const dispatch = useDispatch();
     const [name, setName] = useState(club.name);
     const [description, setDescription] = useState(club.description);
     const [imgUrl, setImgUrl] = useState(club.img_url);
     const [category, setCategory] = useState(club.category_id);
-    const [clubby, setClubby] = useState(club);
-    const {id} = useParams();
 
 
-        const editForm = (event) => {
-            event.preventDefault();
+    const editForm = (event) => {
+        event.preventDefault();
 
-            const editedFormInfo = {
-                name,
-                description,
-                img_url: imgUrl,
-                category_id: category
-            }
-            dispatch(editClub(clubId, editedFormInfo));
+        const editedFormInfo = {
+            name,
+            description,
+            img_url: imgUrl,
+            category_id: category
         }
-
-        useEffect(() => {
-            dispatch(getSingleClub(+id))
-            return () => {
-
-            }
-        }, [dispatch, club])
+        dispatch(editClub(clubId, editedFormInfo));
+    }
 
     return (
         <>
