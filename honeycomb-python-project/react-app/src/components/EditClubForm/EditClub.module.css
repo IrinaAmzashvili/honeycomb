@@ -1,9 +1,9 @@
 .editButton {
     height: 40px;
-    width: 120px;
+    width: 150px;
     margin-right: 10px;
     border: none;
-    border-radius: 12px;
+    border-radius: 20px;
     background-color: var(--tealTheme);
     font-size: 17px;
     font-weight: bold;
