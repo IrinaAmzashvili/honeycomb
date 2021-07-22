@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { editClub } from "../../store/clubs";
 import { useDispatch } from "react-redux";
-import styles from '../../FormModal.module.css'
+import { useParams, useHistory } from "react-router-dom";
+import { editClub } from "../../store/clubs";
+import { deleteClub, getClubs } from "../../store/clubs";
+
+import styles from "../../FormModal.module.css";
 
 const EditClubForm = ({ club, setShowModal }) => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [name, setName] = useState(club.name);
   const [description, setDescription] = useState(club.description);
@@ -21,6 +25,16 @@ const EditClubForm = ({ club, setShowModal }) => {
     };
     dispatch(editClub(club.id, editedFormInfo));
     setShowModal(false);
+  };
+
+  // delete club
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(deleteClub(club.id));
+    // if successfully deleted, redirect
+    if (res["message"]) {
+      history.push("/clubs");
+    }
   };
 
   return (
@@ -100,7 +114,10 @@ const EditClubForm = ({ club, setShowModal }) => {
           ></textarea>
         </div>
         <div className={styles.button__div}>
-          <button className='cta_button'>Edit Club</button>
+          <button className={`${styles.editButton} cta_button`}>Edit Club</button>
+          <button className={`${styles.deleteButton} cta_button_danger`} onClick={handleDelete}>
+            Delete
+          </button>
         </div>
       </form>
     </div>

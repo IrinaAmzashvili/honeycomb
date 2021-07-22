@@ -47,7 +47,7 @@ ul {
 }
 
 .cta_button{
-    width: 200px;
+    width: 150px;
     height: 45px;
     border-radius: 35px;
     border: none;
@@ -61,4 +61,40 @@ ul {
     cursor: pointer;
     transition: all 0.3s ease 0s;
     background-color: var(--tealHover);
+}
+
+.cta_button_empty {
+    width: 150px;
+    height: 45px;
+    border-radius: 35px;
+    border: 1px solid var(--tealTheme);
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    background-color: transparent;
+}
+
+.cta_button_empty:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: white;
+    background-color: var(--tealTheme);
+}
+
+.cta_button_danger {
+    width: 150px;
+    height: 45px;
+    border-radius: 35px;
+    border: 1px solid var(--coralTheme);
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    background-color: transparent;
+}
+
+.cta_button_danger:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: white;
+    background-color: var(--coralTheme);
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteClub, getClubs } from "../../store/clubs";
+import { getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
 import { getEvents } from "../../store/events";
 import EditClubModal from "../EditClubForm";
@@ -31,9 +31,7 @@ const IndividualClub = () => {
   const memberships = useSelector((state) => Object.values(state.memberships));
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
   const dispatch = useDispatch();
-  const history = useHistory();
 
-  console.log(clubs);
   // get all memberships and all club
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
@@ -59,16 +57,6 @@ const IndividualClub = () => {
   }, [dispatch, id]);
 
   const events = useSelector((state) => Object.values(state.events));
-
-  // delete club
-  const handleDelete = async (e) => {
-    e.preventDefault();
-    const res = await dispatch(deleteClub(id));
-    // if successfully deleted, redirect
-    if (res["message"]) {
-      history.push("/clubs");
-    }
-  };
 
   // ---------------------------------------calender----------------------
   let [currentMonth, setCurrentMonth] = useState(new Date());
@@ -102,9 +90,6 @@ const IndividualClub = () => {
           {sessionUser.id === club?.host_id && (
             <div className={styles.hostButtonsDiv}>
               <EditClubModal club={club} />
-              <button className={styles.deleteButton} onClick={handleDelete}>
-                Delete
-              </button>
             </div>
           )}
         </div>

@@ -48,6 +48,7 @@ const ClubsPage = () => {
       {/* <div className={styles.topBar} ></div> */}
       <div className={styles.clubsOuterDiv}>
         <div className={styles.clubsTopTwoLine}>
+          <div className={styles.clubTitle}>CLUBS AT {school?.name}</div>
           <div className={styles.clubsFirstContainer}>
             {/* <button className={styles.startButton}>
               Start a club
@@ -78,7 +79,6 @@ const ClubsPage = () => {
             </div>
           </div>
         </div>
-        <div className={styles.clubTitle}>CLUBS AT {school?.name}</div>
         <div className={styles.clubCardContainer}>
           {clubs.map((club) => (
             <ClubsCard club={club} />

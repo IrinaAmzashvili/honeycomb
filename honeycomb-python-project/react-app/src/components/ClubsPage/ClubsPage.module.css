@@ -2,7 +2,12 @@
 
 
 .clubsPageContainer {
-    margin: 50px 100px;
+    margin: 100px;
+    margin-top: 50px;
+}
+
+.clubsTopTwoLine {
+    margin: 30px;
 }
 
 .clubCardContainer{
@@ -31,7 +36,7 @@
 ::placeholder {
     color: #3B2029;
     font-family: "Lato";
-  }
+}
 
 .topBar{
     position: absolute;
@@ -43,6 +48,7 @@
 .clubTitle{
     /* margin-top: 150px; */
     /* padding: 50px 250px 10px 250px; */
+    margin-bottom: 50px;
     font-family: "Playfair Display";
     font-weight: 600;
     font-size: 35px;

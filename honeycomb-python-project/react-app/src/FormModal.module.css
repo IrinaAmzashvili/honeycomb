@@ -50,11 +50,6 @@ margin-left:25px;
     resize: none;
 }
 
-.button__div {
-    text-align: right;
-    margin: 10px 0;
-}
-
 .club__form__label{
     font-weight: 100;
 }
@@ -62,4 +57,14 @@ margin-left:25px;
 .club__label__container{
     padding-bottom: 5px;
     margin-left:5px;
+}
+
+.button__div {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.deleteButton {
+    margin-left: 10px;
 }
