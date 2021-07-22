@@ -55,11 +55,6 @@ const IndividualClub = () => {
     }
   };
 
-  // gets events
-  // useEffect(async () => {
-  //   await dispatch(getEvents(id));
-  // }, [dispatch, id]);
-
   // ---------------------------------------calender----------------------
   let [currentMonth, setCurrentMonth] = useState(new Date());
 
@@ -89,7 +84,7 @@ const IndividualClub = () => {
             <span className={styles.hostName}>{sessionUser.username}</span>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
-          <button className="cta_button_coral" onClick={handleMembership}>
+          <button className={member ? "cta_button_coral_empty" : "cta_button_coral"} onClick={handleMembership}>
             {member ? "Leave Club" : "Join Club"}
           </button>
           {sessionUser.id === club?.host_id && (
