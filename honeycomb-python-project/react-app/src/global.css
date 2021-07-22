@@ -7,11 +7,15 @@
 }
 
 body {
-
     margin: 0;
     font-family: 'Lato';
     font-weight: 300;
     overflow-y: scroll;
+}
+
+#root {
+    position: relative;
+    min-height: 100vh;
 }
 
 main{

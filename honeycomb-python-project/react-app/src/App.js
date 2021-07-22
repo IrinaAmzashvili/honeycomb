@@ -64,8 +64,8 @@ function App() {
           <Home2/>
         </Route>
       </Switch>
-      </main>
       <Footer />
+      </main>
     </BrowserRouter>
   );
 }
