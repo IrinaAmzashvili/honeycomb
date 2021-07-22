@@ -24,7 +24,7 @@ const EventsCard = ({ event }) => {
             </div>
             <div className={styles.buttonGroup}>
                 <button className={styles.editButton}>Edit Event</button>
-                <button className={styles.attendButton}>{setAttending === true ? 'Attending' : 'Attend'}</button>
+                <button className={styles.attendButton}>Attend</button>
             </div>
         </div>
     )
