@@ -14,7 +14,16 @@ const leaveEvent = (rsvp) => ({
 
 //thunks
 
-export const attendOneEvent = (id) => async (dispatch) => {
-    const response = await fetch('link here');
-    
+export const attendOneEvent = (id, rsvp) => async (dispatch) => {
+    const response = await fetch('link here', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(rsvp)
+    });
+    if(response.ok) {
+        const rsvpConfirmation = await response.json();
+        dispatch(joinEvent(rsvpConfirmation))
+        return rsvpConfirmation;
+    }
 }
+
