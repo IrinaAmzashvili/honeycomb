@@ -30,7 +30,14 @@ def post_event(id):
         db.session.add(event)
         db.session.commit()
         return event.to_dict()
-    return {'errors': 'Failed to submit Event form'}
+
+    errorMessages = []
+    for field in form.errors:
+        for error in form.errors[field]:
+            formattedErr = error[10:]
+            formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
+            errorMessages.append(f'{formattedField} {formattedErr}')
+    return{'errors': errorMessages}
 
 
 @event_route.route('/api/events/<int:id>', methods=['PUT'])

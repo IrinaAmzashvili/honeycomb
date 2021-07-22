@@ -32,11 +32,14 @@ export const postClub = (club) => async (dispatch) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(club)
-    })
+    });
     if (res.ok) {
-        const newClub = await res.json()
-        dispatch(createEditClub(newClub))
-        return newClub
+        const data = await res.json();
+        if (data.errors) {
+            return data;
+        }
+        dispatch(createEditClub(data));
+        return data;
     }
 }
 
@@ -47,9 +50,12 @@ export const editClub = (id, club) => async (dispatch) => {
         body: JSON.stringify(club)
     })
     if(response.ok) {
-        const editedClub = await response.json()
-        dispatch(createEditClub(editedClub))
-        return editedClub
+        const data = await response.json()
+        if (data.errors) {
+            return data;
+        }
+        dispatch(createEditClub(data))
+        return data
     }
 }
 

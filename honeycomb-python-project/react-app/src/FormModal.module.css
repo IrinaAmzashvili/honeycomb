@@ -1,21 +1,10 @@
-.club_button{
-    position: absolute;
-    top: 455px;
-    left: 800px;
-    width: 193px;
-    height: 53px;
-    border-radius: 24px;
-    border: none;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    background-color: var(--tealTheme);
+.errors__container {
+    padding-bottom: 10px;
 }
 
-.club_button:hover{
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    background-color: var(--tealHover);
+.errors {
+    text-align: center;
+    color: var(--coralTheme);
 }
 
 .club__form__div {
