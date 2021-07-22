@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from '../EventCards/EventCards.module.css'
 
 
-const EventsCard = ({ event }) => {
+const EventsCard = ({ event, indx }) => {
     const [attending, setAttending] = useState(false);
     // console.log('Find the event members through this console log',event)
     // const getRsvps = () => {
@@ -13,7 +13,7 @@ const EventsCard = ({ event }) => {
     const newTime = new Date(event.date_and_time)
 
     return (
-        <div className={styles.outerContainer}>
+        <div key={indx} className={styles.outerContainer}>
             <div className={styles.content}>
                 <div className={styles.eventDate}>{newTime.toLocaleDateString()}{newTime.toLocaleTimeString()}</div>
                 {/* <div className={styles.eventDate}>{event.date_and_time}</div> */}
