@@ -63,6 +63,24 @@ ul {
     background-color: var(--tealHover);
 }
 
+.cta_button_empty {
+    width: 150px;
+    height: 45px;
+    border-radius: 35px;
+    border: 1px solid var(--tealTheme);
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    background-color: transparent;
+}
+
+.cta_button_empty:hover{
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    color: white;
+    background-color: var(--tealTheme);
+}
+
 .cta_button_coral{
     width: 150px;
     height: 45px;
@@ -80,22 +98,22 @@ ul {
     background-color: var(--coralHover);
 }
 
-.cta_button_empty {
+.cta_button_coral_empty {
     width: 150px;
     height: 45px;
     border-radius: 35px;
-    border: 1px solid var(--tealTheme);
+    border: 1px solid var(--coralTheme);
     font-weight: bold;
     font-size: 18px;
     color: black;
     background-color: transparent;
 }
 
-.cta_button_empty:hover{
+.cta_button_coral_empty:hover {
     cursor: pointer;
     transition: all 0.3s ease 0s;
     color: white;
-    background-color: var(--tealTheme);
+    background-color: var(--coralTheme);
 }
 
 .cta_button_danger {
