@@ -39,7 +39,7 @@ export const joinClub = (id) => async (dispatch) => {
   if (res.ok) {
     const club = await res.json()
     dispatch(addClubMembership(club.club))
-    return res;
+    return club;
   }
 }
 

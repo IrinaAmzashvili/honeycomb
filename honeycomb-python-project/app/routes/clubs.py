@@ -1,10 +1,9 @@
 from flask import Blueprint, request, redirect
 from app.models import club
 from flask import Blueprint
-from ..models import db, Club, School
+from ..models import db, Club, School, User
 from flask_login import current_user
 from app.forms import ClubForm
-from app.forms.edit_club_form import EditClubForm
 
 club_route = Blueprint('clubs', __name__, url_prefix='')
 
@@ -31,28 +30,14 @@ def post_club():
         db.session.add(club)
         db.session.commit()
         return club.to_dict()
-    return{'errors': 'Failed to submit club form'}
 
-# @club_route.route('/clubs/<int:id>', methods=['PUT'])
-# def edit_one_club(id):
-#     clubToEdit = Club.query.get(id)
-#     form = EditClubForm()
-#     if form.validate_on_submit():
-#         print('==========================>', form.name.data)
-#         print('==========================>', form.description.data)
-#         print('==========================>', form.img_url.data)
-#         print('==========================>', form.category_id.data)
-
-#         clubToEdit.name=form.name.data,
-#         clubToEdit.description=form.description.data,
-#         clubToEdit.img_url=form.img_url.data,
-#         clubToEdit.category_id=form.category_id.data,
-#         clubToEdit.host_id=current_user.id,
-#         clubToEdit.school_id=current_user.school_id
-#         db.session.add(clubToEdit)
-#         db.session.commit()
-#     return clubToEdit.to_dict()
-#         # return{'errors': 'Failed to edit club'}
+    errorMessages = []
+    for field in form.errors:
+        for error in form.errors[field]:
+            formattedErr = error[10:]
+            formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
+            errorMessages.append(f'{formattedField} {formattedErr}')
+    return {'errors': errorMessages}
 
 
 @club_route.route('/clubs/<int:id>', methods=['GET'])
