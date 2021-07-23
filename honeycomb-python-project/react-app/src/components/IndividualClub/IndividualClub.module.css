@@ -77,6 +77,11 @@
     font-weight: 400;
 }
 
+.hostName:hover {
+    color: var(--tealHover);
+    font-weight: bold; 
+}
+
 .editButton, .deleteButton {
     height: 40px;
     width: 120px;
