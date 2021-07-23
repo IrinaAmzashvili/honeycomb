@@ -80,10 +80,6 @@ top:1em;
     color:black;
 }
 
-i{
-    color: var(--coralTheme);;
-}
-
 .bee{
     height:40px;
 }
