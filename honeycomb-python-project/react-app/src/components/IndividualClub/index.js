@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
@@ -24,6 +24,7 @@ const subHours = (date, hour) => {
 };
 
 const IndividualClub = () => {
+  const history = useHistory()
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -34,6 +35,17 @@ const IndividualClub = () => {
 
   const club = clubs.find((club) => club?.id === +id);
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
+  const clubHost = club?.members.find(
+    (member) => +member[0] === +club?.host_id
+  );
+
+  // console.log("club---------------", club)
+// if no club show 404 not found
+  if (clubs.length > 0) {
+    if (!club) {
+      history.push("/404");
+    }
+  }
 
   // get all memberships, clubs, and events
   useEffect(() => {
@@ -41,7 +53,6 @@ const IndividualClub = () => {
     dispatch(getEvents(id));
     dispatch(getClubs());
   }, [dispatch]);
-
 
   // join/leave club
   const handleMembership = (e) => {
@@ -60,15 +71,15 @@ const IndividualClub = () => {
   let [currentMonth, setCurrentMonth] = useState(new Date());
 
   const calendarEvents = () => {
-      let list = []
-      for (const event of events) {
-          let obj = {}
-          obj["title"] = event.name
-          obj["date"] = new Date(event.date_and_time)
-          list.push(obj)
-      }
-      return list
-  }
+    let list = [];
+    for (const event of events) {
+      let obj = {};
+      obj["title"] = event.name;
+      obj["date"] = new Date(event.date_and_time);
+      list.push(obj);
+    }
+    return list;
+  };
 
   return (
     <div>
@@ -82,12 +93,21 @@ const IndividualClub = () => {
           <p className={styles.clubName}>{club?.name}</p>
           <p>
             Organized by{" "}
-            <span className={styles.hostName}>{sessionUser.username}</span>
+            <span className={styles.hostName}>
+              {clubHost ? clubHost[1] : undefined}
+            </span>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
-          <button className={member ? "cta_button_coral_empty" : "cta_button_coral"} onClick={handleMembership}>
-            {member ? "Leave Club" : "Join Club"}
-          </button>
+          {/* if user is not host, display "join/leave club" button */}
+          {sessionUser.id !== club?.host_id && (
+            <button
+              className={member ? "cta_button_coral_empty" : "cta_button_coral"}
+              onClick={handleMembership}
+            >
+              {member ? "Leave Club" : "Join Club"}
+            </button>
+          )}
+          {/* if user is host, display "edit club" button */}
           {sessionUser.id === club?.host_id && (
             <div className={styles.hostButtonsDiv}>
               <EditClubModal club={club} />
@@ -99,8 +119,10 @@ const IndividualClub = () => {
         <div className={styles.TitleAndEventModalContainer}>
           <div className={styles.TitleAndEventModal}>
             <div className={styles.title}>Upcoming Events</div>
-            <EventModal />
-
+            {/* if user is host, display "create event" button */}
+            {sessionUser.id === club?.host_id && (
+              <EventModal />
+            )}
           </div>
         </div>
         <div className={styles.eventsAndCalender}>
