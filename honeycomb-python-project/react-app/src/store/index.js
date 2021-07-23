@@ -7,6 +7,7 @@ import eventsReducer from './events';
 import membershipReducer from './membership'
 import rsvpReducer from './rsvp';
 
+
 const rootReducer = combineReducers({
   session,
   clubs: clubsReducer,

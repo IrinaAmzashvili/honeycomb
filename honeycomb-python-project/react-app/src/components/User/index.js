@@ -1,10 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './User.module.css';
-
+// import { getSchool } from '../../store/user';
+import { getSchool } from '../../store/schools';
+import { getMemberships } from '../../store/membership';
+import { useDispatch, useSelector } from 'react-redux';
 function User() {
+  const sessionUser = useSelector(state => state.session.user)
+  const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+  const userSchool = useSelector(state => Object.values(state.school))
+  const memberships = useSelector((state) => Object.values(state.memberships));
+  // const member = memberships.find((joinedClub) => joinedClub?.id === user?.id);
+
+  // console.log('MEMBER INFORMATION', member)
+
+
+  useEffect(() => {
+    dispatch(getSchool())
+  }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getMemberships(sessionUser.id))
+  }, [dispatch])
 
   useEffect(() => {
     if (!userId) {
@@ -20,7 +39,7 @@ function User() {
   if (!user) {
     return null;
   }
-
+  console.log('USER INFORMATION', userSchool[0])
   return (
     <div>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
@@ -28,18 +47,27 @@ function User() {
         <img className={styles.profileImage} src={user.profile_img_url}></img>
         <p className={styles.profileUsername}>{user.username}</p>
         <p className={styles.profileEmail}>{user.email}</p>
-        {/* Display school where user.school_id === school.id */}
+        <p className={styles.profileSchool}>{userSchool[0]?.name}</p>
       </div>
       <div className={styles.profileEditContainer}>
         <button className={styles.profileEditButton}>Edit Profile</button>
       </div>
       <div className={styles.profileMemberClubs}>
         <h2 className={styles.profileMemberClubsHeading}>Member</h2>
+        {memberships.map(member => (
+          <div className={styles.profileMemberContainer}>
+            <p className={styles.profileMemberName}>{member.name}</p>
+            <p className={styles.profileMemberDesc}>{member.description}</p>
+          </div>
+        ))}
+        {/* <p>{member?.name}</p> */}
+
+        {/* <p>{member?.name}</p> */}
+        {/* <p>{member?.description}</p> */}
         {/* List clubs that the user is a member of here */}
         {/* joins table? where user.id === tablename users.id*/}
       </div>
     </div>
-
   );
 }
 export default User;
