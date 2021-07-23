@@ -30,7 +30,7 @@ const NavBar = () => {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-
+  console.log('===============================>', sessionUser)
 
   let sessionLinks;
   if (sessionUser) {
@@ -43,14 +43,14 @@ const NavBar = () => {
         </li>
         <li>
           <button onClick={openMenu} className={styles.profile_btn} >
-          {/* <img className={styles.bee} src={honey}></img> */}
+            {/* <img className={styles.bee} src={honey}></img> */}
             {/* <i className="fab fa-forumbee fa-2x"></i> */}
           </button>
           {showMenu && (
             <ul className={styles.profile_dropdown}>
               <li className={styles.user_info}>{sessionUser.username}</li>
               <li className={styles.user_info}>
-                <NavLink exact to="/users">My Profile</NavLink>
+                <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
               </li>
               <li>
                 <LogoutButton />
