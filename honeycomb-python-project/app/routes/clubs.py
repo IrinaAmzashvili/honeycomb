@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, redirect
 from app.models import club
 from flask import Blueprint
 from ..models import db, Club, School, User
@@ -42,7 +42,7 @@ def post_club():
 
 @club_route.route('/clubs/<int:id>', methods=['GET'])
 def get_one_club(id):
-    oneClub = Club.query.get(id)
+    oneClub = Club.query.get_or_404(id)
     return oneClub.to_dict()
 
 

@@ -66,6 +66,7 @@ def sign_up():
             username=form.data['username'],
             email=form.data['email'],
             school_id=form.data['school_id'],
+            profile_img_url=form.data['profile_img_url'],
             password=form.data['password']
         )
         db.session.add(user)
