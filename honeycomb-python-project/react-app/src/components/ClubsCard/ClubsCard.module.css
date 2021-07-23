@@ -2,7 +2,7 @@
 
 
 .ClubsCardDiv {
-    width: 552px;
+    width: 500px;
     height: 166px;
     background-color: white;
     display: flex;
@@ -10,7 +10,7 @@
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
     overflow-x:hidden;
     overflow-y:hidden;
-    margin: 20px 30px;
+    margin: 20px 20px;
 }
 
 .clubImgDiv {

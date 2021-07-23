@@ -7,15 +7,16 @@
 }
 
 .clubsTopTwoLine {
-    margin: 30px;
+    margin: 30px 105px;
 }
 
 .clubCardContainer{
-    padding: 20px 0;
+    padding: 20px 85px;
+    width: 2050px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: space-between;
     z-index: 300000;
 }
