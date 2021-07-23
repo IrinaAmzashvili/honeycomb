@@ -40,13 +40,11 @@ const initialState = {};
 const schoolReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_SCHOOL:
-            // return action.school
             const allSchools = { ...state }
             allSchools[action.school.id] = action.school
             return allSchools;
 
         case ALL_SCHOOLS:
-            console.log(action.schools)
             const GetAllSchools = { ...state }
             action.schools.schools.forEach((school) => {
                 GetAllSchools[school.id] = school

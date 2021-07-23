@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
   const [showMenu, setShowMenu] = useState(false);
-  // to update with session user
-  // const loggedIn = true;
 
   const openMenu = () => {
     if (showMenu) return;

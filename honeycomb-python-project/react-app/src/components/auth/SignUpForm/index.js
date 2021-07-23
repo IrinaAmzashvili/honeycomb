@@ -4,11 +4,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { signUp, login } from '../../../store/session';
 import { getAllSchools } from '../../../store/schools'
 import Select from 'react-select';
-
-
 import styles from './SignUp.module.css'
-// import './signup.css';
-
 
 
 const SignUpForm = () => {
