@@ -62,7 +62,7 @@ function EditEvent({ setShowModal, eventId }) {
       <div className={styles.club__form__div}>
         <form onSubmit={handleSubmit}>
           <div className={styles.club__heading_container}>
-            <h1 className={styles.club__form__heading}>Create An Event</h1>
+            <h1 className={styles.club__form__heading}>Edit Your Event</h1>
           </div>
 
           <ul className={styles.errors__container}>

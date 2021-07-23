@@ -34,16 +34,17 @@ const IndividualClub = () => {
 
   const club = clubs.find((club) => club?.id === +id);
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
-  const clubHost = club?.members.find(member => +member[0] === +club?.host_id)
+  const clubHost = club?.members.find(
+    (member) => +member[0] === +club?.host_id
+  );
 
-console.log('---> host', clubHost)
+  console.log("---> host", clubHost);
   // get all memberships, clubs, and events
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
     dispatch(getEvents(id));
     dispatch(getClubs());
   }, [dispatch]);
-
 
   // join/leave club
   const handleMembership = (e) => {
@@ -62,15 +63,15 @@ console.log('---> host', clubHost)
   let [currentMonth, setCurrentMonth] = useState(new Date());
 
   const calendarEvents = () => {
-      let list = []
-      for (const event of events) {
-          let obj = {}
-          obj["title"] = event.name
-          obj["date"] = new Date(event.date_and_time)
-          list.push(obj)
-      }
-      return list
-  }
+    let list = [];
+    for (const event of events) {
+      let obj = {};
+      obj["title"] = event.name;
+      obj["date"] = new Date(event.date_and_time);
+      list.push(obj);
+    }
+    return list;
+  };
 
   return (
     <div>
@@ -84,12 +85,21 @@ console.log('---> host', clubHost)
           <p className={styles.clubName}>{club?.name}</p>
           <p>
             Organized by{" "}
-            <span className={styles.hostName}>{clubHost ? clubHost[1] : undefined}</span>
+            <span className={styles.hostName}>
+              {clubHost ? clubHost[1] : undefined}
+            </span>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
-          <button className={member ? "cta_button_coral_empty" : "cta_button_coral"} onClick={handleMembership}>
-            {member ? "Leave Club" : "Join Club"}
-          </button>
+          {/* if user is not host, display "join/leave club" button */}
+          {sessionUser.id !== club?.host_id && (
+            <button
+              className={member ? "cta_button_coral_empty" : "cta_button_coral"}
+              onClick={handleMembership}
+            >
+              {member ? "Leave Club" : "Join Club"}
+            </button>
+          )}
+          {/* if user is host, display "edit club" button */}
           {sessionUser.id === club?.host_id && (
             <div className={styles.hostButtonsDiv}>
               <EditClubModal club={club} />
@@ -101,8 +111,10 @@ console.log('---> host', clubHost)
         <div className={styles.TitleAndEventModalContainer}>
           <div className={styles.TitleAndEventModal}>
             <div className={styles.title}>Upcoming Events</div>
-            <EventModal />
-
+            {/* if user is host, display "create event" button */}
+            {sessionUser.id === club?.host_id && (
+              <EventModal />
+            )}
           </div>
         </div>
         <div className={styles.eventsAndCalender}>
