@@ -36,7 +36,7 @@ const IndividualClub = () => {
   const club = clubs.find((club) => club?.id === +id);
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
 
-  console.log("club---------------", club)
+  // console.log("club---------------", club)
 // if no club show 404 not found
   if (clubs.length > 0) {
     if (!club) {
