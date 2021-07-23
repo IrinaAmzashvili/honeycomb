@@ -39,8 +39,9 @@ const IndividualClub = () => {
     (member) => +member[0] === +club?.host_id
   );
 
-  // console.log("club---------------", club)
-// if no club show 404 not found
+  console.log('---> club', club?.members, club?.host_id)
+
+  // if no club show 404 not found
   if (clubs.length > 0) {
     if (!club) {
       history.push("/404");
