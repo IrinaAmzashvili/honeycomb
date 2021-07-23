@@ -29,3 +29,5 @@ def edit_one_club(id):
             formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return{'errors': errorMessages}
+
+

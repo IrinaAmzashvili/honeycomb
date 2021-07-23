@@ -1,7 +1,8 @@
 //action creators
 const GET_CLUBS = 'clubs/GET_CLUBS';
 const POST_PUT_CLUB = "clubs/POST_PUT_CLUB";
-const DELETE_CLUB = 'clubs/DELETE_CLUB'
+const DELETE_CLUB = 'clubs/DELETE_CLUB';
+
 
 const loadClubs = (clubs) => ({
     type: GET_CLUBS,
@@ -17,6 +18,7 @@ const removeClub = (id) => ({
     type: DELETE_CLUB,
     id
 })
+
 
 //thunks
 export const getClubs = () => async (dispatch) => {

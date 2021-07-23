@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { postClub } from "../../store/clubs";
+import { joinClub } from "../../store/membership";
 import styles from "../../FormModal.module.css";
 
 function CreateClub({ setShowModal }) {
@@ -29,6 +30,7 @@ function CreateClub({ setShowModal }) {
       setErrors(data.errors);
       return;
     }
+    dispatch(joinClub(data.id))
     setShowModal(false);
     history.push(`/clubs/${data.id}`);
   };

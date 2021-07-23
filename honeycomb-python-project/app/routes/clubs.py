@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.models import club
 from flask import Blueprint
-from ..models import db, Club, School
+from ..models import db, Club, School, User
 from flask_login import current_user
 from app.forms import ClubForm
 
