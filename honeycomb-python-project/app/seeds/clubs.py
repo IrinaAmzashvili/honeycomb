@@ -11,37 +11,29 @@ def seed_club():
     club7 = Club(name='Feisty! :3', description='A bunch of feisty old dinosaurs', img_url='https://secure-content.meetupstatic.com/images/https%3A%2F%2Fsecure.meetupstatic.com%2Fphotos%2Fevent%2Fd%2F9%2F4%2Fd%2F600_485635629.jpeg', category_id=1, host_id=1, school_id=1)
 
 
-    db.session.add(club1)
-    db.session.add(club2)
-    db.session.add(club3)
-    db.session.add(club4)
-    db.session.add(club5)
-    db.session.add(club6)
-    db.session.add(club7)
+    # add and commit all clubs to database
+    allClubs = [club1, club2, club3, club4, club5, club6, club7]
+    db.session.add_all(allClubs)
     db.session.commit()
 
+    # query for hosts
     user1 = User.query.get_or_404(1)
     user2 = User.query.get_or_404(2)
     user3 = User.query.get_or_404(3)
 
-    print('----------->', user1)
-
-    user1Clubs = [club1.id, club4.id, club5.id, club6.id, club7.id]
-    user2Clubs = [club2.id]
-    user3Clubs = [club3.id]
+    # create lists of clubs hosted, add to user clubs (memberships)
+    user1Clubs = [club1, club4, club5, club6, club7]
+    user2Clubs = [club2]
+    user3Clubs = [club3]
 
     user1.clubs.extend(user1Clubs)
     user2.clubs.extend(user2Clubs)
     user3.clubs.extend(user3Clubs)
 
-    db.session.add(user1)
-    db.session.add(user2)
-    db.session.add(user3)
+    # add and commit users to database
+    allUsers = [user1, user2, user3]
+    db.session.add_all(allUsers)
     db.session.commit()
-
-
-    # db.bulk_save_objects(list)
-    # db.session.add_all(list?)
 
 
 
