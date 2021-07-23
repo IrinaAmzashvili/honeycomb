@@ -52,21 +52,14 @@ const ClubsPage = () => {
         <img className={styles.homeBackground} src={homeBackground}></img>
       </div>
 
-      {/* <div className={styles.topBar} ></div> */}
       <div className={styles.clubsOuterDiv}>
         <div className={styles.clubsTopTwoLine}>
           <div className={styles.clubTitle}>CLUBS AT {school?.name}</div>
           <div className={styles.clubsFirstContainer}>
-            {/* <button className={styles.startButton}>
-              Start a club
-            </button> */}
             <ClubModal className={styles.startButton} />
             <div className={styles.clubsFirstContainerRight}>
               <div className={styles.categoryFilterGroup}>
                 <select className={styles.categorySelect}  onChange={(e)=>handleFilter(e)}>
-                  {/* {eventCategories.map(eventCategory =>
-                    <option key={eventCategory}>{eventCategory}</option>
-                  )} */}
                   <option className={styles.categoryOptions} value="0">
                     Filtered by Category
                   </option>
@@ -100,7 +93,6 @@ const ClubsPage = () => {
                 </select>
               </div>
               <div className={styles.searchBarContainer}>
-                {/* <i className ="fas fa-search"></i> */}
                 <GoSearch className={styles.searchIcon} />
                 <input
                   placeholder="Search"
@@ -116,20 +108,13 @@ const ClubsPage = () => {
         <div className={styles.clubCardContainer}>
           {clubs
           .filter((club)=>{
-              return club?.category_id == selectedCategory || selectedCategory === "0"
+              return club?.category_id === selectedCategory || selectedCategory === "0"
             })
           .map((club) => (
             <ClubsCard club={club} />
           ))}
         </div>
       </div>
-
-      {/* {clubs.map((club) => (
-        <Link key={club?.id} className={styles.club__name__link} to={`/clubs/${club?.id}`}>
-          <p>{club?.name}</p>
-        </Link>
-      ))} */}
-      {/* <ClubModal/> */}
     </div>
   );
 };

@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
-import { editEvent, getEvents, deleteEvent } from "../../store/events";
+import { editEvent, deleteEvent } from "../../store/events";
 import DatePicker from "react-datepicker";
-// import styles from "./EditEventModal.module.css";
 import styles from "../../FormModal.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 function EditEvent({ setShowModal, eventId }) {
   const dispatch = useDispatch();
-  const { id } = useParams();
-  // const history = useHistory();
-  //  gets events
-  //  useEffect(async () => {
-  //     await dispatch(getEvents(id))
-  // }, [dispatch, id])
-
   const events = useSelector((state) => Object.values(state.events));
-  const event = events.filter((event) => event.id == eventId)[0];
+  const event = events.filter((event) => event.id === eventId)[0];
 
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState(event.name);
@@ -53,7 +44,6 @@ function EditEvent({ setShowModal, eventId }) {
   const handleDelete = (e) => {
     e.preventDefault();
     dispatch(deleteEvent(eventId));
-    // dispatch(getEvents(id))
     setShowModal(false);
   };
 

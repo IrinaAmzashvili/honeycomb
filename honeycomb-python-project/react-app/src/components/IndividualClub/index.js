@@ -19,10 +19,6 @@ import {
   DefaultMonthlyEventItem,
 } from "@zach.codes/react-calendar";
 
-const subHours = (date, hour) => {
-  return date.setHours(date.getHours() - hour);
-};
-
 const IndividualClub = () => {
   const history = useHistory()
   const { id } = useParams();
@@ -38,8 +34,6 @@ const IndividualClub = () => {
   const clubHost = club?.members.find(
     (member) => +member[0] === +club?.host_id
   );
-
-  console.log('---> club', club?.members, club?.host_id)
 
   // if no club show 404 not found
   if (clubs.length > 0) {
@@ -57,14 +51,11 @@ const IndividualClub = () => {
 
   // join/leave club
   const handleMembership = (e) => {
-    // e.preventDefault();
     // if user is a member, leave club on click, else join club on click
     if (member) {
       dispatch(leaveClub(id));
-      // setMemberStatus(false)
     } else {
       dispatch(joinClub(id));
-      // setMemberStatus(true)
     }
   };
 
@@ -84,7 +75,6 @@ const IndividualClub = () => {
 
   return (
     <div>
-      {/* <div className={styles.redCrossBar}></div> */}
       <div className={styles.clubInfoContainer}>
         <div className={styles.imageDiv}>
           <img className={styles.clubImage} src={club?.img_url} />
