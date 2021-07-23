@@ -40,6 +40,27 @@ right:5em;
 top:1em;
 }
 
+.profileImg {
+    position: absolute;
+    margin-left:20px;
+    background-size: cover;
+    border-radius: 8px;
+    border:1px solid lightgrey;
+    box-shadow: 0 20px 48px rgb(0 0 0 / 20%);
+    height:45px;
+    width:45px;
+    right:4.5em;
+    top:1em;
+}
+
+.profileImg:hover{
+    cursor:pointer;
+}
+
+.profile_btn:hover{
+    cursor:pointer;
+}
+
 .profile_dropdown{
     position: absolute;
     right:6.5em;
@@ -65,6 +86,4 @@ i{
 
 .bee{
     height:40px;
-
-
 }

@@ -3,12 +3,10 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import honey from '../../images/honey.png';
-
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
-  const dispatch = useDispatch();
+
   const [showMenu, setShowMenu] = useState(false);
   // to update with session user
   // const loggedIn = true;
@@ -30,37 +28,60 @@ const NavBar = () => {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  console.log('===============================>', sessionUser)
+
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = (
-      <>
-        <li>
-          <NavLink to='/clubs' exact={true} activeClassName='active'>
-            Clubs
-          </NavLink>
-        </li>
-        <li>
-          <button onClick={openMenu} className={styles.profile_btn} >
-            {/* <img className={styles.bee} src={honey}></img> */}
-            {/* <i className="fab fa-forumbee fa-2x"></i> */}
-          </button>
-          {showMenu && (
-            <ul className={styles.profile_dropdown}>
-              <li className={styles.user_info}>{sessionUser.username}</li>
-              <li className={styles.user_info}>
-                <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
-              </li>
-              <li>
-                <LogoutButton />
-              </li>
-
-            </ul>
-          )}
-        </li>
-      </>
-    );
+    if (sessionUser.profile_img_url) {
+      sessionLinks = (
+        <>
+          <li>
+            <NavLink to='/clubs' exact={true} activeClassName='active'>
+              Clubs
+            </NavLink>
+          </li>
+          <li>
+              <img   onClick={openMenu} className={styles.profileImg} src={sessionUser.profile_img_url}></img>
+            {showMenu && (
+              <ul className={styles.profile_dropdown}>
+                <li className={styles.user_info}>{sessionUser.username}</li>
+                <li className={styles.user_info}>
+                  <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
+                </li>
+                <li>
+                  <LogoutButton />
+                </li>
+              </ul>
+            )}
+          </li>
+        </>
+      );
+    } else {
+      sessionLinks = (
+        <>
+          <li>
+            <NavLink to='/clubs' exact={true} activeClassName='active'>
+              Clubs
+            </NavLink>
+          </li>
+          <li>
+            <button onClick={openMenu} className={styles.profile_btn}>
+            </button>
+            {showMenu && (
+              <ul className={styles.profile_dropdown}>
+                <li className={styles.user_info}>{sessionUser.username}</li>
+                <li className={styles.user_info}>
+                  <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
+                </li>
+                <li>
+                  <LogoutButton />
+                </li>
+              </ul>
+            )}
+          </li>
+        </>
+      );
+    }
   } else {
     sessionLinks = (
       <>
