@@ -4,15 +4,14 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
-
 from .models import *
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.membership_routes import membership_routes
-from .routes.clubs import club_route
+from .api.clubs import club_route
 from .api.schools import school_route
-from .api.clubs import club_edit
+# from .api.clubs import club_edit
 from .api.event_routes import event_route
 from .api.rsvps import rsvp_routes
 
@@ -39,9 +38,9 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(membership_routes, url_prefix='/api/membership')
-app.register_blueprint(club_route)
+app.register_blueprint(club_route, url_prefix='/api')
 app.register_blueprint(school_route)
-app.register_blueprint(club_edit, url_prefix='/api')
+# app.register_blueprint(club_edit, url_prefix='/api')
 app.register_blueprint(event_route)
 app.register_blueprint(rsvp_routes, url_prefix='/api/rsvp')
 db.init_app(app)
