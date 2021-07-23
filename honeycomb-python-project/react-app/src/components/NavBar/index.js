@@ -1,31 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import honey from '../../images/honey.png';
+
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
+  const dispatch = useDispatch();
+  const [showMenu, setShowMenu] = useState(false);
   // to update with session user
   // const loggedIn = true;
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  useEffect(() => {
+    if (!showMenu) return;
+
+    const closeMenu = () => {
+      setShowMenu(false);
+    };
+
+    document.addEventListener('click', closeMenu);
+
+    return () => document.removeEventListener("click", closeMenu);
+  }, [showMenu]);
+
+
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* <ProfileButton /> */}
-        {/* <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li> */}
         <li>
           <NavLink to='/clubs' exact={true} activeClassName='active'>
             Clubs
           </NavLink>
         </li>
         <li>
-          <LogoutButton />
+          <button onClick={openMenu} className={styles.profile_btn} >
+          {/* <img className={styles.bee} src={honey}></img> */}
+            {/* <i className="fab fa-forumbee fa-2x"></i> */}
+          </button>
+          {showMenu && (
+            <ul className={styles.profile_dropdown}>
+              <li className={styles.user_info}>{sessionUser.username}</li>
+              <li className={styles.user_info}>
+                <NavLink exact to="/users">My Profile</NavLink>
+              </li>
+              <li>
+                <LogoutButton />
+              </li>
+
+            </ul>
+          )}
         </li>
       </>
     );

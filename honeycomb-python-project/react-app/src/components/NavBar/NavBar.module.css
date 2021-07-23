@@ -1,5 +1,6 @@
 @import '../../index.css';
 
+
 .navbar {
     background-color: white;
     height: 65px;
@@ -22,4 +23,48 @@
 .loginSignupDiv {
     display: flex;
     justify-content: space-around;
+}
+
+.profile_btn{
+position: absolute;
+margin-left:20px;
+background-color:white;
+background: url('../../images/honey-bee.png') no-repeat center;
+background-size: cover;
+border-radius: 8px;
+border:1px solid lightgrey;
+box-shadow: 0 20px 48px rgb(0 0 0 / 20%);
+height:45px;
+width:45px;
+right:5em;
+top:1em;
+}
+
+.profile_dropdown{
+    position: absolute;
+    right:6.5em;
+    top:3.75em;
+    border:1px solid lightgrey;
+    box-shadow: 0 20px 48px rgb(0 0 0 / 40%);
+    background-color: white;
+    border-radius: 8px;
+    padding:15px;
+    font-family: 'Lato';
+    z-index:999999;
+}
+
+
+.user_info{
+    padding-bottom: 7px;
+    color:black;
+}
+
+i{
+    color: var(--coralTheme);;
+}
+
+.bee{
+    height:40px;
+
+
 }
