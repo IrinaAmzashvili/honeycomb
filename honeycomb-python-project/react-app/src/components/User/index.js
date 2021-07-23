@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import styles from './User.module.css';
 // import { getSchool } from '../../store/user';
 import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
 function User() {
+  const clubs = useSelector(state => state.clubs)
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
@@ -40,7 +41,7 @@ function User() {
     return null;
   }
   console.log('USER INFORMATION', userSchool[0])
-  
+
   return (
     <div className={styles.entireProfileContainer}>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
@@ -57,9 +58,12 @@ function User() {
         <h2 className={styles.profileMemberClubsHeading}>Member</h2>
         {memberships.map(member => (
           <div className={styles.profileMemberContainer}>
+            {/* {console.log(member)} */}
             <img className={styles.profileMemberImg} src={member.img_url}></img>
             <div>
-              <p className={styles.profileMemberName}>{member.name}</p>
+              <Link to={`/clubs/${member.id}`}>
+                <p className={styles.profileMemberName}>{member.name}</p>
+              </Link>
               <p className={styles.profileMemberDesc}>{member.description}</p>
             </div>
           </div>
