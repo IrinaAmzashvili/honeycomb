@@ -9,8 +9,9 @@ import { useHistory } from "react-router-dom";
 const Home = () => {
 
     const history = useHistory();
+
     const routeChange = () =>{
-        let path = `clubs`;
+        let path = `clubs/`;
         history.push(path);
     }
     // return (

@@ -39,7 +39,7 @@ const EditClubForm = ({ club, setShowModal }) => {
     const res = await dispatch(deleteClub(club.id));
     // if successfully deleted, redirect
     if (res["message"]) {
-      history.push("/clubs");
+      history.push("/clubs/");
     }
   };
 

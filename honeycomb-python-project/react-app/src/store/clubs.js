@@ -22,7 +22,7 @@ const removeClub = (id) => ({
 
 //thunks
 export const getClubs = () => async (dispatch) => {
-    const allClubs = await fetch('/api/clubs');
+    const allClubs = await fetch('/api/clubs/');
     const clubs = await allClubs.json()
     if (allClubs.ok) {
         dispatch(loadClubs(clubs))
@@ -30,7 +30,7 @@ export const getClubs = () => async (dispatch) => {
 }
 
 export const postClub = (club) => async (dispatch) => {
-    const res = await fetch("/api/clubs", {
+    const res = await fetch("/api/clubs/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(club)

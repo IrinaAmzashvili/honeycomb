@@ -32,13 +32,13 @@ def edit_one_club(id):
 
 
 
-@club_route.route('/clubs')
+@club_route.route('/clubs/')
 def get_clubs():
     allClubs = Club.query.filter(current_user.school_id == Club.school_id).all()
     return {'clubs': [club.to_dict() for club in allClubs]}
 
 
-@club_route.route('/clubs', methods=['POST'])
+@club_route.route('/clubs/', methods=['POST'])
 def post_club():
     form = ClubForm()
     form['csrf_token'].data = request.cookies['csrf_token']
