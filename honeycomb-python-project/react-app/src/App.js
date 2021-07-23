@@ -13,6 +13,7 @@ import User from './components/User';
 import Footer from "./components/Footer"
 import ClubsPage from './components/ClubsPage'
 import IndividualClub from './components/IndividualClub';
+import NotFound from './components/NotFound'
 import { authenticate } from './store/session';
 
 
@@ -51,7 +52,7 @@ function App() {
         <ProtectedRoute path='/clubs' exact={true} >
           <ClubsPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/clubs/:id'>
+        <ProtectedRoute path='/clubs/:id' exact={true}>
           <IndividualClub/>
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
@@ -63,6 +64,8 @@ function App() {
         <Route path='/2' exact={true} >
           <Home2/>
         </Route>
+        {/* <Route path='/-' exact={true}><NotFound /></Route> */}
+        <Route path='*'><NotFound /></Route>
       </Switch>
       <Footer />
       </main>
