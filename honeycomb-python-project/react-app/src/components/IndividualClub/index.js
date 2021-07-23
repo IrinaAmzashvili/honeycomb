@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
@@ -92,10 +92,10 @@ const IndividualClub = () => {
         <div className={styles.clubinfo}>
           <p className={styles.clubName}>{club?.name}</p>
           <p>
-            Organized by{" "}
-            <span className={styles.hostName}>
-              {clubHost ? clubHost[1] : undefined}
-            </span>
+            Organized by
+            <Link to={`/users/${sessionUser.id}`}>
+              <span className={styles.hostName}> {clubHost ? clubHost[1] : undefined}</span>
+            </Link>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
           {/* if user is not host, display "join/leave club" button */}
