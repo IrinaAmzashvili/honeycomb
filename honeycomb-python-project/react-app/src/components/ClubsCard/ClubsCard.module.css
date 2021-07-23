@@ -2,15 +2,15 @@
 
 
 .ClubsCardDiv {
-    width: 592px;
+    width: 552px;
     height: 166px;
     background-color: white;
     display: flex;
-    text-align: center;
+    justify-content: flex-start;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
     overflow-x:hidden;
     overflow-y:hidden;
-    margin: 20px 0;
+    margin: 20px 30px;
 }
 
 .clubImgDiv {
@@ -26,8 +26,11 @@
 }
 
 .ClubsCardContent{
+    display: flex;
+    flex-direction: column;
     margin-top: 25px;
     margin-bottom: 25px;
+    margin-left: 30px;
     grid-area:ClubsCardContent;
 }
 
@@ -35,12 +38,12 @@
     font-family:"Lato";
     font-size: 30px;
     color: #454545;
-    margin: 20px 30px 0px 30px;
+    /* margin: 20px 30px 0px 30px; */
 }
 
 .clubDescription {
     font-family:"Lato";
     font-size: 20px;
     color: #454545;
-    margin: 22px 30px 30px 30px;
+    /* margin: 22px 30px 30px 30px; */
 }
