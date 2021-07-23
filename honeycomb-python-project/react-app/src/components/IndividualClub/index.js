@@ -82,7 +82,9 @@ const IndividualClub = () => {
           <p className={styles.clubName}>{club?.name}</p>
           <p>
             Organized by
-            <span className={styles.hostName}> {sessionUser.username}</span>
+            <Link to={`/users/${sessionUser.id}`}>
+              <span className={styles.hostName}> {sessionUser.username}</span>
+            </Link>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
           <button className={member ? "cta_button_coral_empty" : "cta_button_coral"} onClick={handleMembership}>

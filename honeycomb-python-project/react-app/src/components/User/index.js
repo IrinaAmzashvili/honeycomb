@@ -40,6 +40,7 @@ function User() {
     return null;
   }
   console.log('USER INFORMATION', userSchool[0])
+  
   return (
     <div className={styles.entireProfileContainer}>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
