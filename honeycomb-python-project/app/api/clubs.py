@@ -7,7 +7,7 @@ from app.forms import ClubForm
 club_route = Blueprint('clubs', __name__, url_prefix='')
 
 
-@club_route.route('/clubs/<int:id>', methods=['PUT'])
+@club_route.route('/api/clubs/<int:id>', methods=['PUT'])
 def edit_one_club(id):
     form = ClubForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -32,13 +32,13 @@ def edit_one_club(id):
 
 
 
-@club_route.route('/clubs/')
+@club_route.route('/api/clubs/')
 def get_clubs():
     allClubs = Club.query.filter(current_user.school_id == Club.school_id).all()
     return {'clubs': [club.to_dict() for club in allClubs]}
 
 
-@club_route.route('/clubs/', methods=['POST'])
+@club_route.route('/api/clubs/', methods=['POST'])
 def post_club():
     form = ClubForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -64,13 +64,13 @@ def post_club():
     return {'errors': errorMessages}
 
 
-@club_route.route('/clubs/<int:id>', methods=['GET'])
+@club_route.route('/api/clubs/<int:id>', methods=['GET'])
 def get_one_club(id):
     oneClub = Club.query.get_or_404(id)
     return oneClub.to_dict()
 
 
-@club_route.route('/clubs/<int:id>', methods=['DELETE'])
+@club_route.route('/api/clubs/<int:id>', methods=['DELETE'])
 def delete_club(id):
     club = Club.query.get_or_404(id)
     db.session.delete(club)
