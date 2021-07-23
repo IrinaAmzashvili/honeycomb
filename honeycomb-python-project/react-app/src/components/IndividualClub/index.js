@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
@@ -81,8 +81,8 @@ const IndividualClub = () => {
         <div className={styles.clubinfo}>
           <p className={styles.clubName}>{club?.name}</p>
           <p>
-            Organized by{" "}
-            <span className={styles.hostName}>{sessionUser.username}</span>
+            Organized by
+            <span className={styles.hostName}> {sessionUser.username}</span>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
           <button className={member ? "cta_button_coral_empty" : "cta_button_coral"} onClick={handleMembership}>
