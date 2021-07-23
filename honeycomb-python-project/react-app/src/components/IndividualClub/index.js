@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
@@ -24,6 +24,7 @@ const subHours = (date, hour) => {
 };
 
 const IndividualClub = () => {
+  const history = useHistory()
   const { id } = useParams();
   const dispatch = useDispatch();
 
@@ -35,13 +36,20 @@ const IndividualClub = () => {
   const club = clubs.find((club) => club?.id === +id);
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
 
+  console.log("club---------------", club)
+// if no club show 404 not found
+  if (clubs.length > 0) {
+    if (!club) {
+      history.push("/404");
+    }
+  }
+
   // get all memberships, clubs, and events
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
     dispatch(getEvents(id));
     dispatch(getClubs());
   }, [dispatch]);
-
 
   // join/leave club
   const handleMembership = (e) => {
