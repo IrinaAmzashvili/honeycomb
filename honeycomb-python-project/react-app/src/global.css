@@ -52,7 +52,7 @@ ul {
     border-radius: 35px;
     border: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: var(--tealTheme);
 }
@@ -69,8 +69,8 @@ ul {
     border-radius: 35px;
     border: 1px solid var(--tealTheme);
     font-weight: bold;
-    font-size: 18px;
-    color: black;
+    font-size: 16px;
+    color: var(--tealTheme);
     background-color: transparent;
 }
 
@@ -78,7 +78,8 @@ ul {
     cursor: pointer;
     transition: all 0.3s ease 0s;
     color: white;
-    background-color: var(--tealTheme);
+    background-color: var(--tealHover);
+    border: 1px solid var(--tealHover);
 }
 
 .cta_button_coral{
@@ -87,7 +88,7 @@ ul {
     border-radius: 35px;
     border: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: var(--coralTheme);
 }
@@ -104,8 +105,8 @@ ul {
     border-radius: 35px;
     border: 1px solid var(--coralTheme);
     font-weight: bold;
-    font-size: 18px;
-    color: black;
+    font-size: 16px;
+    color: var(--coralTheme);
     background-color: transparent;
 }
 
@@ -121,10 +122,9 @@ ul {
     height: 45px;
     border-radius: 35px;
     border: 2px solid #d40f0f;
-    /* border: 1px solid var(--coralTheme); */
     font-weight: bold;
-    font-size: 18px;
-    color: black;
+    font-size: 16px;
+    color: #d40f0f;
     background-color: transparent;
 }
 
@@ -133,5 +133,4 @@ ul {
     transition: all 0.3s ease 0s;
     color: white;
     background-color: #d40f0f;
-    /* background-color: var(--coralTheme); */
 }

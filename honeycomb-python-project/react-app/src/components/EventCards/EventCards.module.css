@@ -1,6 +1,5 @@
 @import url('../../index.css');
-@import url('../../global.css');
-@import url('../../vars.css');
+
 .outerContainer{
     width:794px;
     height: 383px;
@@ -48,7 +47,7 @@
     justify-content:flex-end;
 
 }
-.editButton, .attendButton{
+/* .editButton, .attendButton{
     width: 111px;
     height: 45px;
     border-radius: 12px;
@@ -64,4 +63,8 @@
     border: none;
     background-color: #0098AB;
     color: white;
+} */
+
+.attendButton {
+    margin-left: 10px;
 }

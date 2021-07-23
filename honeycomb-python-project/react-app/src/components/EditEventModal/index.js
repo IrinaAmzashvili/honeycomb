@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditEvent from './EditEventModal'
-import styles from './EditEventModal.module.css';
 
 
 function EventModal({ eventId}) {
@@ -10,7 +9,7 @@ function EventModal({ eventId}) {
 
     return (
         <>
-            <button className={styles.club_button} onClick={() => setShowModal(true)}>Edit an Event</button>
+            <button className='cta_button_empty' onClick={() => setShowModal(true)}>Edit Event</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditEvent eventId={eventId} setShowModal={setShowModal} />

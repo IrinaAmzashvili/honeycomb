@@ -42,9 +42,12 @@ export const postEvent = (id, event) => async (dispatch) => {
         body: JSON.stringify(event)
     });
     if (res.ok) {
-        const newEvent = await res.json()
-        dispatch(createEvent(newEvent))
-        return newEvent
+        const data = await res.json();
+        if (data.errors) {
+            return data;
+        }
+        dispatch(createEvent(data));
+        return data;
     }
 }
 
@@ -57,9 +60,13 @@ export const editEvent = (id, event) => async (dispatch) => {
         body: JSON.stringify(event)
     });
     if (res.ok) {
-        const newEvent = await res.json()
-        dispatch(updateEvent(newEvent))
-        return newEvent
+        const data = await res.json()
+        console.log('----> thunk data:', data)
+        if (data.errors) {
+            return data
+        }
+        dispatch(updateEvent(data))
+        return data
     }
 }
 

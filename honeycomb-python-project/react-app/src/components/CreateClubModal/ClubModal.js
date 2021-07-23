@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { postClub } from "../../store/clubs";
-import styles from '../../FormModal.module.css'
+import { joinClub } from "../../store/membership";
+import styles from "../../FormModal.module.css";
 
 function CreateClub({ setShowModal }) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
+  const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [category, setCategory] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newClub = {
@@ -20,8 +24,15 @@ function CreateClub({ setShowModal }) {
       img_url: imgUrl,
       category_id: category,
     };
-    dispatch(postClub(newClub));
+    const data = await dispatch(postClub(newClub));
+    console.log("--> in handler, data:", data);
+    if (data.errors) {
+      setErrors(data.errors);
+      return;
+    }
+    dispatch(joinClub(data.id))
     setShowModal(false);
+    history.push(`/clubs/${data.id}`);
   };
 
   return (
@@ -30,6 +41,14 @@ function CreateClub({ setShowModal }) {
         <div className={styles.club__heading_container}>
           <h1 className={styles.club__form__heading}>Create A Club</h1>
         </div>
+        <ul className={styles.errors__container}>
+          {errors &&
+            errors.map((error, i) => (
+              <li className={styles.errors} key={i}>
+                {error}
+              </li>
+            ))}
+        </ul>
         <div className={styles.club__label__container}>
           <label for="name" className={styles.club__form__label}>
             Club Name
@@ -105,7 +124,7 @@ function CreateClub({ setShowModal }) {
         </div>
 
         <div className={styles.button__div}>
-          <button className='cta_button' type="submit">
+          <button className="cta_button" type="submit">
             Submit Club
           </button>
         </div>

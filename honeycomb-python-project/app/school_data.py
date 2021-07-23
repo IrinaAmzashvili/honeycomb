@@ -1,5 +1,5 @@
 
-university_list = ["Massachusetts Institute of Technology (MIT)"
+university_list = ["Massachusetts Institute of Technology (MIT)",
                    "University of Oxford",
                    "Stanford University",
                    "University of Cambridge",
