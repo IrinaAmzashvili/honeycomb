@@ -9,7 +9,7 @@ function EditClubModal({ club }) {
 
     return (
         <>
-            <button className='cta_button' onClick={() => setShowModal(true)}>Edit</button>
+            <button className='cta_button' onClick={() => setShowModal(true)}>Edit Club</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditClubForm setShowModal={setShowModal} club={club} />

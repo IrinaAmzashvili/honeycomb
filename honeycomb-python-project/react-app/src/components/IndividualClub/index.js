@@ -34,7 +34,9 @@ const IndividualClub = () => {
 
   const club = clubs.find((club) => club?.id === +id);
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
+  const clubHost = club?.members.find(member => +member[0] === +club?.host_id)
 
+console.log('---> host', clubHost)
   // get all memberships, clubs, and events
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id));
@@ -82,7 +84,7 @@ const IndividualClub = () => {
           <p className={styles.clubName}>{club?.name}</p>
           <p>
             Organized by{" "}
-            <span className={styles.hostName}>{sessionUser.username}</span>
+            <span className={styles.hostName}>{clubHost ? clubHost[1] : undefined}</span>
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
           <button className={member ? "cta_button_coral_empty" : "cta_button_coral"} onClick={handleMembership}>

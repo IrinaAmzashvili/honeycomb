@@ -31,5 +31,5 @@ class Club(db.Model):
             'category_id': self.category_id,
             'host_id': self.host_id,
             'school_id': self.school_id,
-            'members': [member.id for member in self.users],
+            'members': [[member.id, member.username] for member in self.users],
         }
