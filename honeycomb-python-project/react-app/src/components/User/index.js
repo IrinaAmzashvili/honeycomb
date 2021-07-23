@@ -41,23 +41,26 @@ function User() {
   }
   console.log('USER INFORMATION', userSchool[0])
   return (
-    <div>
+    <div className={styles.entireProfileContainer}>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
       <div className={styles.profileUserInformation}>
         <img className={styles.profileImage} src={user.profile_img_url}></img>
-        <p className={styles.profileUsername}>{user.username}</p>
-        <p className={styles.profileEmail}>{user.email}</p>
-        <p className={styles.profileSchool}>{userSchool[0]?.name}</p>
-      </div>
-      <div className={styles.profileEditContainer}>
-        <button className={styles.profileEditButton}>Edit Profile</button>
+        <div className={styles.profileStuffContainer}>
+          <p className={styles.profileUsername}>{user.username}</p>
+          <p className={styles.profileEmail}>{user.email}</p>
+          <p className={styles.profileSchool}>{userSchool[0]?.name}</p>
+          <button className={styles.profileEditButton}>Edit Profile</button>
+        </div>
       </div>
       <div className={styles.profileMemberClubs}>
         <h2 className={styles.profileMemberClubsHeading}>Member</h2>
         {memberships.map(member => (
           <div className={styles.profileMemberContainer}>
-            <p className={styles.profileMemberName}>{member.name}</p>
-            <p className={styles.profileMemberDesc}>{member.description}</p>
+            <img className={styles.profileMemberImg} src={member.img_url}></img>
+            <div>
+              <p className={styles.profileMemberName}>{member.name}</p>
+              <p className={styles.profileMemberDesc}>{member.description}</p>
+            </div>
           </div>
         ))}
         {/* <p>{member?.name}</p> */}
