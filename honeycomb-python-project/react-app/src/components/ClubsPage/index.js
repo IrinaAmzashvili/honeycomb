@@ -10,6 +10,7 @@ import styles from "../ClubsPage/ClubsPage.module.css";
 
 
 const ClubsPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("0");
   //------------------------------------------------clubs---------------------------------------------
   const dispatch = useDispatch();
 
@@ -36,6 +37,14 @@ const ClubsPage = () => {
   };
 
   clubs = dynamicSearch();
+//---------------------------------------------------------------filter------------------------------------------------
+
+
+  const handleFilter = (event)=>{
+    const selectedIndex = event.target.options.selectedIndex;
+    setSelectedCategory(event.target.options[selectedIndex].value)
+  }
+
 
   return (
     <div className={styles.clubsPageContainer}>
@@ -54,12 +63,39 @@ const ClubsPage = () => {
             <ClubModal className={styles.startButton} />
             <div className={styles.clubsFirstContainerRight}>
               <div className={styles.categoryFilterGroup}>
-                <select className={styles.categorySelect}>
+                <select className={styles.categorySelect}  onChange={(e)=>handleFilter(e)}>
                   {/* {eventCategories.map(eventCategory =>
                     <option key={eventCategory}>{eventCategory}</option>
                   )} */}
-                  <option className={styles.categoryOptions} key="">
+                  <option className={styles.categoryOptions} value="0">
                     Filtered by Category
+                  </option>
+                  <option className={styles.categoryOptions} value="1">
+                    Social
+                  </option>
+                  <option className={styles.categoryOptions} value="2">
+                    Academic
+                  </option>
+                  <option className={styles.categoryOptions} value="3">
+                    Political
+                  </option>
+                  <option className={styles.categoryOptions} value="4">
+                    Theater and Art
+                  </option>
+                  <option className={styles.categoryOptions} value="5">
+                    Cultural
+                  </option>
+                  <option className={styles.categoryOptions} value="6">
+                    Sports and Recreation
+                  </option>
+                  <option className={styles.categoryOptions} value="7">
+                    Religious
+                  </option>
+                  <option className={styles.categoryOptions} value="8">
+                    Community Service
+                  </option>
+                  <option className={styles.categoryOptions} value="9">
+                    Media and Publication
                   </option>
                 </select>
               </div>
@@ -78,7 +114,11 @@ const ClubsPage = () => {
           </div>
         </div>
         <div className={styles.clubCardContainer}>
-          {clubs.map((club) => (
+          {clubs
+          .filter((club)=>{
+              return club?.category_id == selectedCategory || selectedCategory === "0"
+            })
+          .map((club) => (
             <ClubsCard club={club} />
           ))}
         </div>
