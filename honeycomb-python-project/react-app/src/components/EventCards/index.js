@@ -62,10 +62,8 @@ const EventsCard = ({ event, indx }) => {
                 <div className={styles.eventDescription}>{event.description}</div>
             </div>
             <div className={styles.buttonGroup}>
-                {/* <button className={styles.editButton}>Edit Event</button> */}
                 <EditEventModal eventId={event.id} className={styles.editButton} />
-                <button className={styles.attendButton} onClick={handleRsvp}>{rsvp ? 'Can\'t make it' : 'Attend'}</button>
-                {/* <button id={event.id} className={styles.editButton}>Edit Event</button> */}
+                <button className={rsvp ? `cta_button_empty ${styles.attendButton}` : `cta_button ${styles.attendButton}`} onClick={handleRsvp}>{rsvp ? 'Can\'t make it' : 'Attend'}</button>
             </div>
         </div>
     )
