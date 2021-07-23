@@ -11,7 +11,6 @@ def seed_category():
     category7 = Category(type='Religious')
     category8 = Category(type='Community Service')
     category9 = Category(type='Media and Publication')
-    category10 = Category(type='Other')
 
     db.session.add(category1)
     db.session.add(category2)
@@ -22,7 +21,6 @@ def seed_category():
     db.session.add(category7)
     db.session.add(category8)
     db.session.add(category9)
-    db.session.add(category10)
     db.session.commit()
 
 
