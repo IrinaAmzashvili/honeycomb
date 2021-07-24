@@ -108,7 +108,7 @@ const ClubsPage = () => {
         <div className={styles.clubCardContainer}>
           {clubs
           .filter((club)=>{
-              return club?.category_id === selectedCategory || selectedCategory === "0"
+              return +club?.category_id === +selectedCategory || selectedCategory === "0"
             })
           .map((club) => (
             <ClubsCard club={club} />
