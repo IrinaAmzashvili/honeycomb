@@ -64,11 +64,12 @@ function App() {
         <Route path='/2' exact={true} >
           <Home2/>
         </Route>
-        {/* <Route path='/-' exact={true}><NotFound /></Route> */}
         <Route path='*'><NotFound /></Route>
       </Switch>
-      <Footer />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </BrowserRouter>
   );
 }

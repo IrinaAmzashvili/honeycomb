@@ -25,7 +25,6 @@ function CreateClub({ setShowModal }) {
       category_id: category,
     };
     const data = await dispatch(postClub(newClub));
-    console.log("--> in handler, data:", data);
     if (data.errors) {
       setErrors(data.errors);
       return;

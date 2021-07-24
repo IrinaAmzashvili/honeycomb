@@ -1,5 +1,3 @@
-import { set } from "date-fns";
-
 const GET_RSVPS = 'events/GET_RSVPS'
 const ATTEND_EVENT = 'events/ATTEND_EVENT';
 const LEAVE_EVENT = 'events/LEAVE_EVENT';

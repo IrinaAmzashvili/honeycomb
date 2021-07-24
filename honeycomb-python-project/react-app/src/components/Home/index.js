@@ -10,7 +10,6 @@ const Home = () => {
 
     const history = useHistory();
     const routeChange = () =>{
-        console.log("onclick");
         let path = `clubs`;
         history.push(path);
     }

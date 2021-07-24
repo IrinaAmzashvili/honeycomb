@@ -8,8 +8,6 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
   const [showMenu, setShowMenu] = useState(false);
-  // to update with session user
-  // const loggedIn = true;
 
   const openMenu = () => {
     if (showMenu) return;

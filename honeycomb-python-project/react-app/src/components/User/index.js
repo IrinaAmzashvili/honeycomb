@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styles from './User.module.css';
-// import { getSchool } from '../../store/user';
 import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,10 +12,6 @@ function User() {
   const { userId }  = useParams();
   const userSchool = useSelector(state => Object.values(state.school))
   const memberships = useSelector((state) => Object.values(state.memberships));
-  // const member = memberships.find((joinedClub) => joinedClub?.id === user?.id);
-
-  // console.log('MEMBER INFORMATION', member)
-
 
   useEffect(() => {
     dispatch(getSchool())
@@ -40,7 +35,6 @@ function User() {
   if (!user) {
     return null;
   }
-  console.log('USER INFORMATION', userSchool[0])
 
   return (
     <div className={styles.entireProfileContainer}>
@@ -58,7 +52,6 @@ function User() {
         <h2 className={styles.profileMemberClubsHeading}>Member</h2>
         {memberships.map(member => (
           <div className={styles.profileMemberContainer}>
-            {/* {console.log(member)} */}
             <img className={styles.profileMemberImg} src={member.img_url}></img>
             <div>
               <Link to={`/clubs/${member.id}`}>
@@ -68,12 +61,6 @@ function User() {
             </div>
           </div>
         ))}
-        {/* <p>{member?.name}</p> */}
-
-        {/* <p>{member?.name}</p> */}
-        {/* <p>{member?.description}</p> */}
-        {/* List clubs that the user is a member of here */}
-        {/* joins table? where user.id === tablename users.id*/}
       </div>
     </div>
   );

@@ -35,7 +35,6 @@ export const getEvents = (id) => async (dispatch) => {
 
 
 export const postEvent = (id, event) => async (dispatch) => {
-    // console.log('=====================>', event)
     const res = await fetch(`/api/clubs/${id}/events`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -53,7 +52,6 @@ export const postEvent = (id, event) => async (dispatch) => {
 
 
 export const editEvent = (id, event) => async (dispatch) => {
-    // console.log('=====================>', event)
     const res = await fetch(`/api/events/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -61,7 +59,6 @@ export const editEvent = (id, event) => async (dispatch) => {
     });
     if (res.ok) {
         const data = await res.json()
-        console.log('----> thunk data:', data)
         if (data.errors) {
             return data
         }
@@ -89,7 +86,6 @@ const eventsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_EVENTS:
             const allEvents = {}
-            // const allEvents = { ...state }
             action.events.events.forEach((event) => {
                 allEvents[event.id] = event
             })
