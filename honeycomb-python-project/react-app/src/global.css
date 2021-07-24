@@ -134,3 +134,23 @@ ul {
     color: white;
     background-color: #d40f0f;
 }
+
+
+@media only screen and (max-width: 1150px) {
+
+    .cta_button{
+    width: 80px;
+    height: 45px;
+    border-radius: 35px;
+    border: none;
+    font-weight: bold;
+    font-size: 10px;
+    color: white;
+    background-color: var(--tealTheme);
+    }
+    .cta_button:hover{
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        background-color: var(--tealHover);
+    }
+}

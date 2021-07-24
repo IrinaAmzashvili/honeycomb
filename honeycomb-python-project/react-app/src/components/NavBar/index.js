@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
 import { useSelector, useDispatch } from "react-redux";
-
+import logo from "../../images/logo.png"
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
@@ -98,13 +98,24 @@ const NavBar = () => {
       </>
     );
   }
+
+
+  const history = useHistory();
+  const routeChange = () =>{
+      console.log("onclick");
+      let path = `/`;
+      history.push(path);
+  }
+
+
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navbarUl}>
         <li>
-          <NavLink to="/" exact={true} activeClassName="active">
+          {/* <NavLink to="/" exact={true} activeClassName="active">
             Honeycomb Logo
-          </NavLink>
+          </NavLink> */}
+          <img class={styles.logo} src={logo}></img>
         </li>
         <div className={styles.loginSignupDiv}>
           {sessionLinks}

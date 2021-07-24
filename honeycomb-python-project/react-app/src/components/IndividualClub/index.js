@@ -68,6 +68,18 @@ const IndividualClub = () => {
     }
   };
 
+
+  const renderEventCard = ()=>{
+    if(events.length > 0){
+      return events.map((event, indx) => (
+        <EventsCard indx={indx} event={event} />
+      ))
+    }else{
+      return <div class={styles.outerContainer}>No Events for now...</div>
+    }
+
+  }
+
   // ---------------------------------------calender----------------------
   let [currentMonth, setCurrentMonth] = useState(new Date());
 
@@ -128,9 +140,12 @@ const IndividualClub = () => {
         </div>
         <div className={styles.eventsAndCalender}>
           <div className={styles.eventCardsContainer}>
-            {events.map((event, indx) => (
+            {/* {events.map((event, indx) => (
               <EventsCard indx={indx} event={event} />
-            ))}
+            ))} */}
+            {
+              renderEventCard()
+            }
           </div>
           <div className={styles.calenderContainer}>
             <MonthlyCalendar
