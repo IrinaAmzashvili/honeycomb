@@ -41,10 +41,23 @@
 
 .clubTitle{
     margin-bottom: 50px;
+}
+
+.title {
     font-family: "Playfair Display";
     font-weight: 600;
     font-size: 35px;
     color: #454545;
+    margin: 0;
+}
+
+.schoolName {
+    /* font-family: "Playfair Display"; */
+    font-weight: 600;
+    font-size: 27px;
+    color: #454545;
+    margin: 0;
+    padding-top: 10px;
 }
 
 .clubsFirstContainer{
@@ -59,10 +72,10 @@
 .homeBackground{
     position: fixed;
     top:0;
-    margin-top: 100px;
+    margin-top: 65px;
     overflow:hidden;
     z-index: -1000000000;
-    width: 98vw;
+    width: 100vw;
 }
 .clubsFirstContainerRight{
     display: flex;

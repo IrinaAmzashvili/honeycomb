@@ -47,7 +47,7 @@ const IndividualClub = () => {
     dispatch(getMemberships(sessionUser.id));
     dispatch(getEvents(id));
     dispatch(getClubs());
-  }, [dispatch]);
+  }, [dispatch, id, sessionUser.id]);
 
   // join/leave club
   const handleMembership = (e) => {
@@ -89,7 +89,7 @@ const IndividualClub = () => {
     <div>
       <div className={styles.clubInfoContainer}>
         <div className={styles.imageDiv}>
-          <img className={styles.clubImage} src={club?.img_url} />
+          <img className={styles.clubImage} src={club?.img_url} alt={`${club?.name} club`}/>
         </div>
 
         <div className={styles.clubinfo}>
@@ -130,9 +130,6 @@ const IndividualClub = () => {
         </div>
         <div className={styles.eventsAndCalender}>
           <div className={styles.eventCardsContainer}>
-            {/* {events.map((event, indx) => (
-              <EventsCard indx={indx} event={event} />
-            ))} */}
             {
               renderEventCard()
             }
