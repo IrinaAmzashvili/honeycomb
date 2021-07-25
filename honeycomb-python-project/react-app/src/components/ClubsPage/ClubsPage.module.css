@@ -119,9 +119,11 @@ a.club__name__link:hover {
 
     .clubCardContainer{
         width:800px;
-
     }
 
+    .homeBackground {
+        min-width: 1150px;
+    }
 }
 
 

@@ -86,7 +86,7 @@ const IndividualClub = () => {
   };
 
   return (
-    <div>
+    <div className={styles.individualClubPage}>
       <div className={styles.clubInfoContainer}>
         <div className={styles.imageDiv}>
           <img className={styles.clubImage} src={club?.img_url} alt={`${club?.name} club`}/>
