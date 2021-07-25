@@ -129,13 +129,24 @@ a.club__name__link:hover {
 
     .clubCardContainer{
         width:800px;
+        padding: 20px 30px;
+    }
 
+    .clubsTopTwoLine {
+        margin: 30px 50px;
+    }
+
+    .clubsFirstContainer {
+        flex-direction: column;
+    }
+
+    .clubsFirstContainerRight {
+        padding-top: 20px;
     }
 
     .categorySelect{
         border:none;
         border-bottom: 2px solid var(--tealTheme);
-        height: 48px;
         width: 150px;
         background-color: rgba(255, 255, 255, 0);
         font-family: "Lato";
@@ -146,7 +157,6 @@ a.club__name__link:hover {
 
     .clubPageSearch{
         width: 150px;
-        height: 45px;
         border-radius: 50px;
         padding: 0px 50px 0px 25px;
         font-size: 15px;

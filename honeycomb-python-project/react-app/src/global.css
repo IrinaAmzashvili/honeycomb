@@ -137,7 +137,7 @@ ul {
 }
 
 
-@media only screen and (max-width: 1150px) {
+/* @media only screen and (max-width: 1150px) {
 
     .cta_button{
     width: 80px;
@@ -154,4 +154,4 @@ ul {
         transition: all 0.3s ease 0s;
         background-color: var(--tealHover);
     }
-}
+} */
