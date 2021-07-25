@@ -59,3 +59,15 @@
 .name:hover {
     font-weight: 600;
 }
+
+@media screen and (max-width: 920px) {
+    .footer_container, .footer_container_active {
+        height: 246px;
+        flex-direction: column;
+    }
+
+    .github_links, .linkedin {
+        padding-top: 30px;
+        font-size: 15px
+    }
+}

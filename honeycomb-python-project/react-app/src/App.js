@@ -5,8 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm/index';
 import NavBar from './components/NavBar';
 import Home from './components/Home'
-import Home1 from './components/Home1'
-import Home2 from './components/Home2'
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList/UsersList';
 import User from './components/User';
@@ -58,12 +56,6 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <Home />
         </ProtectedRoute>
-        <Route path='/1' exact={true} >
-          <Home1/>
-        </Route>
-        <Route path='/2' exact={true} >
-          <Home2/>
-        </Route>
         <Route path='*'><NotFound /></Route>
       </Switch>
       </main>
