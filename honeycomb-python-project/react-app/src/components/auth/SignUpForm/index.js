@@ -85,39 +85,52 @@ const SignUpForm = () => {
   return (
 
     <div className={styles.signup__form__entire__container}>
-      <div className={styles.signup__errors__container}>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
       <form className={styles.signup__form__container} onSubmit={onSignUp}>
         <h1 className={styles.signup__heading}>Sign up</h1>
+        <div className={styles.signup__errors__container}>
+          {errors.map((error, ind) => (
+            <div className={styles.errors} key={ind}>{error}</div>
+          ))}
+        </div>
         <div className={styles.signup__username__container}>
-          <input placeholder="Username" className={styles.signup__username} type='text' name='username' onChange={updateUsername} value={username} />
+          <label htmlFor='username'>
+            <input id='username' placeholder="Username" className={styles.signup__username} type='text' name='username' onChange={updateUsername} value={username} />
+          </label>
         </div>
         <div className={styles.signup__email__container}>
-          <input placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={updateEmail} value={email} />
+          <label htmlFor='signupEmail'>
+            <input id='signupEmail' placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={updateEmail} value={email} />
+          </label>
         </div>
         <div className={styles.signup__email__container}>
-          <input placeholder="Profile Image Url" className={styles.signup__email} type='text' name='profile_img_url' onChange={updateProfileImageUrl} value={profile_img_url} />
+          <label htmlFor='signupImgUrl'>
+            <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='text' name='profile_img_url' onChange={updateProfileImageUrl} value={profile_img_url} />
+          </label>
         </div>
         <div className={styles.signup__password__container}>
-          <input placeholder="Password" className={styles.signup__password} type='password' name='password' onChange={updatePassword} value={password} />
+          <label htmlFor='signupPassword'>
+            <input id='signupPassword' placeholder="Password" className={styles.signup__password} type='password' name='password' onChange={updatePassword} value={password} />
+          </label>
         </div>
         <div className={styles.signup__confirm__password__container}>
-          <input placeholder="Confirm password" className={styles.signup__confirm__password} type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} />
+          <label htmlFor='signupPasswordConfirm'>
+            <input id='signupPasswordConfirm' placeholder="Confirm password" className={styles.signup__confirm__password} type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} />
+          </label>
         </div>
         <div className={styles.signup__school}>
-          <Select
-            className={styles.signup__selection}
-            placeholder="Select School"
-            options={schoolNames()}
-            onChange={setUserSchool}
-          />
+          <label htmlFor='schoolSelect'>
+            <Select
+              id='schoolSelect'
+              className={styles.signup__selection}
+              placeholder="Select School"
+              options={schoolNames()}
+              onChange={setUserSchool}
+              />
+            </label>
         </div>
-        <button className={styles.signup__submit} type='submit'>Sign Up</button>
+        <button className={`cta_button ${styles.signup__submit}`} type='submit'>Sign Up</button>
         <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
-        <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Sign up as a <span>Demo user</span></button>
+        <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Log in as a <span>Demo user</span></button>
       </form>
     </div>
 

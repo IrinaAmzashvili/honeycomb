@@ -113,8 +113,8 @@ const ClubsPage = () => {
           .filter((club)=>{
               return +club?.category_id === +selectedCategory || selectedCategory === "0"
             })
-          .map((club) => (
-            <ClubsCard club={club} />
+          .map((club, index) => (
+            <ClubsCard index={index} club={club} />
           ))}
         </div>
       </div>

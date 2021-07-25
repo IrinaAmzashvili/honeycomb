@@ -1,17 +1,18 @@
 /* Entire form container */
 @import url('../../../index.css');
 .signup__form__entire__container {
+    margin: 100px auto 0;
     display: flex;
-    justify-content: center;
     text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: white;
-    height: 560px;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;;
     border-radius: 12px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
+    width: 500px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .login__no__account__demo {
@@ -23,16 +24,22 @@
 }
 
 .signup__errors__container {
-    position: fixed;
+    /* position: fixed;
     margin-top: 100px;
     margin-right: 900px;
     height: 100px;
     width: 300px;
     font-size: 17px;
     font-weight: bold;
-    color: var(--coralTheme);
+    color: var(--coralTheme); */
+    padding-bottom: 15px;
 }
 
+.errors {
+    text-align: center;
+    color: var(--coralTheme);
+    font-weight: 400;
+}
 
 /* Signup heading */
 
@@ -66,19 +73,7 @@
 
 .signup__submit{
     margin-top: 10px;
-    width: 150px;
-    height: 45px;
-    border-radius: 12px;
-    border: none;
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    background-color: var(--tealTheme)
-}
 
-.signup__submit:hover {
-    cursor: pointer;
-    background-color: var(--tealHover)
 }
 
 /* Signup footer links */

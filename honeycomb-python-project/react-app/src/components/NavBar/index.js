@@ -103,7 +103,7 @@ const NavBar = () => {
       <ul className={styles.navbarUl}>
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
-            <img class={styles.logo} src={logo} alt='Honeycomb logo'></img>
+            <img className={styles.logo} src={logo} alt='Honeycomb logo'></img>
           </NavLink>
         </li>
         <div className={styles.loginSignupDiv}>
