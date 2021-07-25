@@ -110,10 +110,9 @@ const NavBar = () => {
     <nav className={styles.navbar}>
       <ul className={styles.navbarUl}>
         <li>
-          {/* <NavLink to="/" exact={true} activeClassName="active">
-            Honeycomb Logo
-          </NavLink> */}
-          <img class={styles.logo} src={logo}></img>
+          <NavLink to="/" exact={true} activeClassName="active">
+            <img class={styles.logo} src={logo}></img>
+          </NavLink>
         </li>
         <div className={styles.loginSignupDiv}>
           {sessionLinks}

@@ -2,7 +2,6 @@
 
 
 .clubsPageContainer {
-    /* margin: 100px; */
     margin-top: 50px;
 }
 
@@ -16,17 +15,16 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     align-items: space-between;
     z-index: 300000;
 }
 
 .clubPageSearch{
-    width: 350px;
-    height: 45px;
+    width: 225px;
+    height: 32px;
     border-radius: 50px;
     padding: 0px 50px 0px 25px;
-    font-size: 25px;
+    font-size: 16px;
     border: 0.5px solid #BDBDBD;
 }
 
@@ -41,37 +39,12 @@
     font-family: "Lato";
 }
 
-.topBar{
-    position: absolute;
-    width: 100%;
-    height: 120px;
-    background-color:#FA6666;
-}
-
 .clubTitle{
     margin-bottom: 50px;
     font-family: "Playfair Display";
     font-weight: 600;
     font-size: 35px;
     color: #454545;
-}
-
-.startButton{
-    border: none;
-    background-color: var(--tealTheme);
-    width: 173px;
-    height: 53px;
-    border-radius: 12px;
-    font-family: "Lato";
-    font-weight: 600;
-    color: white;
-    font-size: 25px;
-}
-
-.startButton:hover{
-    transition: all 0.4s ease 0s;
-    cursor: pointer;
-    background-color:var(--tealHover);
 }
 
 .clubsFirstContainer{
@@ -98,11 +71,11 @@
 .categorySelect{
     border:none;
     border-bottom: 2px solid var(--tealTheme);
-    height: 48px;
-    width: 250px;
+    height: 32px;
+    width: 200px;
     background-color: rgba(255, 255, 255, 0);
     font-family: "Lato";
-    font-size: 22px;
+    font-size: 16px;
     margin-right: 30px;
     color:#454545;
 }
@@ -113,7 +86,7 @@
     position:absolute;
     top:20%;
     right:5%;
-    font-size: 30px;
+    font-size: 16px;
     color:#3B2029;
 }
 
