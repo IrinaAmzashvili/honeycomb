@@ -67,9 +67,7 @@ function App() {
         <Route path='*'><NotFound /></Route>
       </Switch>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </BrowserRouter>
   );
 }

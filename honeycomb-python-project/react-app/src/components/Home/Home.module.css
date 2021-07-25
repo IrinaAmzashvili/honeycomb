@@ -21,7 +21,6 @@
     position: relative;
     z-index: 20000;
     overflow:hidden;
-
 }
 
 .title{
@@ -59,20 +58,15 @@
     font-size: 25px;
 }
 
-.startButton:hover{
-    transition: all 0.4s ease 0s;
-    cursor: pointer;
-    background-color: var(--tealHover);
-}
-
 .homeBackground{
     position: absolute;
+    padding: 0 14%;
+    right: 89;
     top:0;
-    margin-top: 150px;
+    height: 100%;
     overflow:hidden;
-
-
 }
+
 .topBar{
     position: absolute;
     width: 100%;
