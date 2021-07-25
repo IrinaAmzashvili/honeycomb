@@ -58,6 +58,10 @@
     font-size: 25px;
 }
 
+.homeImg {
+    width: 100%;
+}
+
 .homeBackground{
     position: absolute;
     padding: 0 14%;
@@ -78,4 +82,31 @@
     width: 100%;
     height: 180px;
     background-color:var(--coralTheme);
+}
+
+@media screen and (max-width: 1360px) {
+    .outerContainer {
+        padding-top: 50px
+    }
+
+    .text{
+        padding: 35px;
+    }
+
+    .title {
+        font-size: 73px;
+    }
+
+    .content{
+        font-size: 24px;
+        padding-bottom: 30px;
+        font-weight: 400;
+        width: inherit;
+    }
+
+    .startButton{
+        height: 55px;
+        width: 180px;
+        font-size: 21px;
+    }
 }

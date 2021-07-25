@@ -28,7 +28,7 @@ const Home = () => {
           </button>
         </div>
         <div className={styles.picture}>
-          <img src={homeImg} alt='Splash page illustration'></img>
+          <img className={styles.homeImg} src={homeImg} alt='Splash page illustration'></img>
         </div>
       </div>
       <img className={styles.homeBackground} src={homeBackground} alt=''></img>
