@@ -9,7 +9,8 @@ Honeycomb is a social based academic platform that allows users to easily see av
 
 ## Splash Page
 
-![home](https://user-images.githubusercontent.com/79103461/126882091-0b6fcdee-6863-4ba1-a81b-8f83b6230eb9.png)
+![home](https://user-images.githubusercontent.com/79552414/126921392-83dc609a-7a46-4791-991a-d15029d84f17.png)
+
 <br>
 # Technologies Used
 
@@ -24,7 +25,7 @@ The main logic of the backend of honeycomb was created using python and flask wi
 
 <br>
 
-![image](https://user-images.githubusercontent.com/79103461/126882520-9db923ef-a3f8-4a74-a38c-13977d4516cb.png)
+![image](https://user-images.githubusercontent.com/79552414/126921519-e841c431-daae-4d37-8df2-5093754cd510.png)
 
 <br>
 
