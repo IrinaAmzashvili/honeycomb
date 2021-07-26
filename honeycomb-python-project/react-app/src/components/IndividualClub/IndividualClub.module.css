@@ -99,13 +99,14 @@
 
 .eventCardsContainer{
     /* min-width: 900px; */
+    /* height:  */
     padding-top: 30px;
     padding-bottom: 30px;
     grid-area: events;
 }
 .eventsAndCalender{
     background-color:#EBEBEB ;
-    min-height: 1280px;
+    /* height: 1480px; */
     display: flex;
     /* grid-template-columns: 2fr 1fr;
     grid-template-areas:

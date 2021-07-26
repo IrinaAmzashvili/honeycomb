@@ -34,7 +34,7 @@ const NavBar = () => {
       sessionLinks = (
         <>
           <li>
-            <NavLink to='/clubs' exact={true} activeClassName='active'>
+            <NavLink to='/clubs/' exact={true} activeClassName='active'>
               Clubs
             </NavLink>
           </li>
@@ -58,7 +58,7 @@ const NavBar = () => {
       sessionLinks = (
         <>
           <li>
-            <NavLink to='/clubs' exact={true} activeClassName='active'>
+            <NavLink to='/clubs/' exact={true} activeClassName='active'>
               Clubs
             </NavLink>
           </li>
