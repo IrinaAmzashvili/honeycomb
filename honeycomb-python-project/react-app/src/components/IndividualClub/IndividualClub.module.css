@@ -9,16 +9,6 @@
     margin: 50px 80px 50px 200px;
 }
 
-/* .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    "image clubinfo";
-} */
-
 .calenderContainer button {
     background-color: var(--tealTheme);
     font-weight: bold;
@@ -151,7 +141,7 @@
     margin-right: 80px;
     margin-bottom: 80px;
     width: 809px;
-    height: 1030px;
+    /* height: 1030px; */
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
 }
 
@@ -168,19 +158,78 @@ div.rc-h-48.rc-p-2.rc-border-r-2 {
 
 @media only screen and (max-width: 1730px) {
     .eventsAndCalender{
-
         background-color:#EBEBEB ;
         min-height: 1280px;
         display: flex;
         flex-direction: column;
-        /* display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-areas:
-        "events calender"; */
-
     }
 
     .calenderContainer{
         margin-left: 200px;
     }
-  }
+}
+
+@media only screen and (max-width: 1260px) {
+    .clubInfoContainer > * {
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 1230px) {
+    .individualClubPage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .eventsSectionDiv {
+        width: 100%;
+    }
+
+    .clubInfoContainer {
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 500px;
+    }
+
+    .imageDiv {
+        width: 100%;
+    }
+
+    .clubinfo {
+        align-self: flex-start;
+        margin: 20px 20px;
+    }
+
+    .individualClubPage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .TitleAndEventModalContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .TitleAndEventModal{
+        width: 500px;
+    }
+
+    .title{
+        font-weight: 600;
+        font-size: 25px;
+        padding-bottom: 20px;
+    }
+
+    .eventsAndCalender{
+        align-items: center;
+    }
+
+    .calenderContainer {
+        margin: 80px auto;
+        min-width: 800px;
+    }
+}

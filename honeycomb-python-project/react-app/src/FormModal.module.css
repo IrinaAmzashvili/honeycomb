@@ -5,6 +5,7 @@
 .errors {
     text-align: center;
     color: var(--coralTheme);
+    font-weight: 400;
 }
 
 .club__form__div {

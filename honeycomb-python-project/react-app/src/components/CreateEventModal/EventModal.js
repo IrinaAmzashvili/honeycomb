@@ -58,10 +58,11 @@ function CreateEvent({ setShowModal }) {
           ))}
         </ul>
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Event Title</label>
+            <label htmlFor='name' className={styles.club__form__label}>Event Title</label>
           </div>
           <div>
             <input
+              id='name'
               className={styles.club__name}
               name="name"
               type="text"
@@ -71,11 +72,12 @@ function CreateEvent({ setShowModal }) {
           </div>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Location</label>
+            <label htmlFor='location' className={styles.club__form__label}>Location</label>
           </div>
 
           <div>
             <input
+              id='location'
               className={styles.club__name}
               name="location"
               type="text"
@@ -85,11 +87,12 @@ function CreateEvent({ setShowModal }) {
           </div>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Date and Time</label>
+            <label htmlFor='date' className={styles.club__form__label}>Date and Time</label>
           </div>
 
           <div className={eventStyles.calendar_div}>
             <DatePicker
+              id='date'
               className={eventStyles.calendar_input}
               showTimeSelect
               selected={startDate}
@@ -100,11 +103,12 @@ function CreateEvent({ setShowModal }) {
           </div>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Description</label>
+            <label htmlFor='description' className={styles.club__form__label}>Description</label>
           </div>
 
           <div>
             <textarea
+              id='description'
               className={styles.club__description}
               name="description"
               value={description}
