@@ -66,7 +66,7 @@ The main logic of the backend of honeycomb was created using python and flask wi
 
 <br>
 
-![image](https://user-images.githubusercontent.com/79103461/126882863-21e91924-1e7d-4cf5-9454-0621b1b2a242.png)
+![image](https://user-images.githubusercontent.com/79552414/126922228-2ca97759-e21d-4af1-a648-3adb41275a0a.png)
 
 ### Club Forms
 * All forms on the site from user sign up to club editing are protected from Cross-Site Request Forgery attacks using csrf tokens. In addition each  individual form contains a set of its own unique error handling. Routes on the backend that go through the  database are handled using flask wtfroms and queried using squalchemy to send the submit information into the database.
