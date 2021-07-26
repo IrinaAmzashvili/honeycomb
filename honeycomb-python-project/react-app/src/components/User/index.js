@@ -44,7 +44,7 @@ function User() {
           <p className={styles.profileUsername}>{user.username}</p>
           <p className={styles.profileEmail}>{user.email}</p>
           <p className={styles.profileSchool}>{userSchool[0]?.name}</p>
-          <button className={styles.profileEditButton}>Edit Profile</button>
+          {/* <button className={styles.profileEditButton}>Edit Profile</button> */}
         </div>
       </div>
       <div className={styles.profileMemberClubs}>
