@@ -22,7 +22,7 @@ main{
     width: 100%;
     min-height: 800px;
     z-index: -1000000;
-    padding-bottom: 166px;
+    /* padding-bottom: 166px; */
 }
 
 
