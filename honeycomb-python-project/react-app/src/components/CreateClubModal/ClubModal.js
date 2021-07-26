@@ -49,7 +49,7 @@ function CreateClub({ setShowModal }) {
             ))}
         </ul>
         <div className={styles.club__label__container}>
-          <label for="name" className={styles.club__form__label}>
+          <label htmlFor="name" className={styles.club__form__label}>
             Club Name
           </label>
         </div>
@@ -65,7 +65,7 @@ function CreateClub({ setShowModal }) {
         </div>
 
         <div className={styles.club__label__container}>
-          <label for="imgUrl" className={styles.club__form__label}>
+          <label htmlFor="imgUrl" className={styles.club__form__label}>
             Club Image URL
           </label>
         </div>
@@ -81,7 +81,7 @@ function CreateClub({ setShowModal }) {
         </div>
 
         <div className={styles.club__label__container}>
-          <label for="category" className={styles.club__form__label}>
+          <label htmlFor="category" className={styles.club__form__label}>
             Category
           </label>
         </div>
@@ -108,7 +108,7 @@ function CreateClub({ setShowModal }) {
         </div>
 
         <div className={styles.club__label__container}>
-          <label for="description" className={styles.club__form__label}>
+          <label htmlFor="description" className={styles.club__form__label}>
             Description
           </label>
         </div>

@@ -14,14 +14,14 @@ const ClubsPage = () => {
   //------------------------------------------------clubs---------------------------------------------
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    await dispatch(getClubs());
+  useEffect(() => {
+    dispatch(getClubs());
   }, [dispatch]);
 
   let clubs = useSelector((state) => Object.values(state.clubs));
   //---------------------------------------------School----------------------------------------------------
-  useEffect(async () => {
-    await dispatch(getSchool());
+  useEffect(() => {
+    dispatch(getSchool());
   }, [dispatch]);
 
   const school = useSelector((state) => Object.values(state?.school)[0]);
@@ -49,12 +49,15 @@ const ClubsPage = () => {
   return (
     <div className={styles.clubsPageContainer}>
       <div className={styles.backgroundImgDiv}>
-        <img className={styles.homeBackground} src={homeBackground}></img>
+        <img className={styles.homeBackground} src={homeBackground} alt=''></img>
       </div>
 
       <div className={styles.clubsOuterDiv}>
         <div className={styles.clubsTopTwoLine}>
-          <div className={styles.clubTitle}>CLUBS AT {school?.name}</div>
+          <div className={styles.clubTitle}>
+            <p className={styles.title}>Clubs At </p>
+            <p className={styles.schoolName}>{school?.name}</p>
+          </div>
           <div className={styles.clubsFirstContainer}>
             <ClubModal className={styles.startButton} />
             <div className={styles.clubsFirstContainerRight}>
@@ -108,10 +111,10 @@ const ClubsPage = () => {
         <div className={styles.clubCardContainer}>
           {clubs
           .filter((club)=>{
-              return club?.category_id === selectedCategory || selectedCategory === "0"
+              return +club?.category_id === +selectedCategory || selectedCategory === "0"
             })
-          .map((club) => (
-            <ClubsCard club={club} />
+          .map((club, index) => (
+            <ClubsCard key={index} index={index} club={club} />
           ))}
         </div>
       </div>

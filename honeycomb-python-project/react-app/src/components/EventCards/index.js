@@ -4,7 +4,7 @@ import { attendOneEvent, leaveOneEvent, getRsvps } from "../../store/rsvp";
 import styles from "../EventCards/EventCards.module.css";
 import EditEventModal from "../EditEventModal";
 
-const EventsCard = ({ event, indx }) => {
+const EventsCard = ({ event, index }) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const allRsvps = useSelector((state) => Object.values(state.rsvp));
@@ -30,7 +30,7 @@ const EventsCard = ({ event, indx }) => {
   };
 
   return (
-    <div key={indx} className={styles.outerContainer}>
+    <div key={index} className={styles.outerContainer}>
       <div className={styles.content}>
         <div className={styles.eventDate}>
           {newTime.toLocaleDateString()}{" "}

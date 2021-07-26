@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
 import { useSelector } from "react-redux";
-
+import logo from "../../images/logo.png"
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
@@ -39,7 +39,7 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-              <img   onClick={openMenu} className={styles.profileImg} src={sessionUser.profile_img_url}></img>
+              <img onClick={openMenu} className={styles.profileImg} src={sessionUser.profile_img_url} alt='user profile button'></img>
             {showMenu && (
               <ul className={styles.profile_dropdown}>
                 <li className={styles.user_info}>{sessionUser.username}</li>
@@ -96,12 +96,14 @@ const NavBar = () => {
       </>
     );
   }
+
+
   return (
     <nav className={styles.navbar}>
       <ul className={styles.navbarUl}>
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
-            Honeycomb Logo
+            <img className={styles.logo} src={logo} alt='Honeycomb logo'></img>
           </NavLink>
         </li>
         <div className={styles.loginSignupDiv}>

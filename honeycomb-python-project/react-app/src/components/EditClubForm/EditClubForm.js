@@ -57,12 +57,13 @@ const EditClubForm = ({ club, setShowModal }) => {
           ))}
         </ul>
         <div className={styles.club__label__container}>
-          <label for="name" className={styles.club__form__label}>
+          <label htmlFor="name" className={styles.club__form__label}>
             Club Name
           </label>
         </div>
         <div>
           <input
+            id='name'
             name="name"
             placeholder="Name"
             value={name}
@@ -72,12 +73,13 @@ const EditClubForm = ({ club, setShowModal }) => {
           />
         </div>
         <div className={styles.club__label__container}>
-          <label for="imgUrl" className={styles.club__form__label}>
+          <label htmlFor="imgUrl" className={styles.club__form__label}>
             Club Image URL
           </label>
         </div>
         <div>
           <input
+            id='imgUrl'
             name="img_url"
             placeholder="Image Url"
             value={imgUrl}
@@ -86,12 +88,13 @@ const EditClubForm = ({ club, setShowModal }) => {
           />
         </div>
         <div className={styles.club__label__container}>
-          <label for="category" className={styles.club__form__label}>
+          <label htmlFor="category" className={styles.club__form__label}>
             Category
           </label>
         </div>
         <div>
           <select
+            id='category'
             name="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
@@ -112,12 +115,13 @@ const EditClubForm = ({ club, setShowModal }) => {
           </select>
         </div>
         <div className={styles.club__label__container}>
-          <label for="description" className={styles.club__form__label}>
+          <label htmlFor="description" className={styles.club__form__label}>
             Description
           </label>
         </div>
         <div>
           <textarea
+            id='description'
             name="description"
             placeholder="Description"
             value={description}
