@@ -63,7 +63,7 @@ const IndividualClub = () => {
   const renderEventCard = ()=>{
     if(events.length > 0){
       return events.map((event, index) => (
-        <EventsCard index={index} event={event} />
+        <EventsCard key={index} index={index} event={event} />
       ))
     }else{
       return <div className={styles.outerContainer}>No Events for now...</div>
