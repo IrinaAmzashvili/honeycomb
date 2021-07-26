@@ -9,16 +9,6 @@
     margin: 50px 80px 50px 200px;
 }
 
-/* .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-    "image clubinfo";
-} */
-
 .calenderContainer button {
     background-color: var(--tealTheme);
     font-weight: bold;
@@ -194,9 +184,18 @@ div.rc-h-48.rc-p-2.rc-border-r-2 {
 }
 
 @media only screen and (max-width: 990px) {
+    .eventsSectionDiv {
+        width: 100%;
+    }
+
     .clubInfoContainer {
         flex-direction: column-reverse;
         align-items: center;
+        width: 500px;
+    }
+
+    .imageDiv {
+        width: 100%;
     }
 
     .clubinfo {
@@ -227,5 +226,10 @@ div.rc-h-48.rc-p-2.rc-border-r-2 {
 
     .eventsAndCalender{
         align-items: center;
+    }
+
+    .calenderContainer {
+        margin: 80px auto;
+        min-width: 800px;
     }
 }

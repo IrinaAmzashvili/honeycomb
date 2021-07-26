@@ -22,22 +22,22 @@ def seed_events():
                    date_and_time='2021-06-02 21:28:10.328-04', location="dorm room 302", host_id=1, club_id=7)
 
     event7 = Event(name='Meet and Greet', description='A get together to meet everyone in the club',
-                   date_and_time='2021-06-02 21:28:10.328-04', location="Quad", host_id=1, club_id=8)
+                   date_and_time='2021-06-02 21:28:10.328-04', location="Quad", host_id=2, club_id=8)
 
     event8 = Event(name='Meet', description='meet everyone in the club',
-                   date_and_time='2021-06-02 21:28:10.328-04', location="library", host_id=1, club_id=8)
+                   date_and_time='2021-06-02 21:28:10.328-04', location="library", host_id=2, club_id=8)
 
     event9 = Event(name='Greet', description='A greet everyone in the club',
-                   date_and_time='2021-06-02 21:28:10.328-04', location="dorm room 302", host_id=1, club_id=8)
+                   date_and_time='2021-06-02 21:28:10.328-04', location="dorm room 302", host_id=2, club_id=8)
 
     event10 = Event(name='Meet and Greet', description='A get together to meet everyone in the club',
-                   date_and_time='2021-06-02 21:28:10.328-04', location="Quad", host_id=1, club_id=9)
+                   date_and_time='2021-06-02 21:28:10.328-04', location="Quad", host_id=3, club_id=9)
 
     event11 = Event(name='Meet', description='meet everyone in the club',
-                   date_and_time='2021-06-02 21:28:10.328-04', location="library", host_id=1, club_id=9)
+                   date_and_time='2021-06-02 21:28:10.328-04', location="library", host_id=3, club_id=9)
 
     event12 = Event(name='Greet', description='A greet everyone in the club',
-                   date_and_time='2021-06-02 21:28:10.328-04', location="dorm room 302", host_id=1, club_id=9)
+                   date_and_time='2021-06-02 21:28:10.328-04', location="dorm room 302", host_id=3, club_id=9)
 
     event13 = Event(name='Meet and Greet', description='A get together to meet everyone in the club',
                    date_and_time='2021-06-02 21:28:10.328-04', location="Quad", host_id=1, club_id=10)
