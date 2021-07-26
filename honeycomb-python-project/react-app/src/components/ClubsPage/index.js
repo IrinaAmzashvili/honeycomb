@@ -114,7 +114,7 @@ const ClubsPage = () => {
               return +club?.category_id === +selectedCategory || selectedCategory === "0"
             })
           .map((club, index) => (
-            <ClubsCard index={index} club={club} />
+            <ClubsCard key={index} index={index} club={club} />
           ))}
         </div>
       </div>
