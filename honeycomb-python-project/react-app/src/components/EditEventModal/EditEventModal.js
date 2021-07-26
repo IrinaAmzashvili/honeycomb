@@ -64,10 +64,11 @@ function EditEvent({ setShowModal, eventId }) {
           </ul>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Event Title</label>
+            <label htmlFor='editEventName' className={styles.club__form__label}>Event Title</label>
           </div>
           <div>
             <input
+              id='editEventName'
               className={styles.club__name}
               name="name"
               type="text"
@@ -77,11 +78,12 @@ function EditEvent({ setShowModal, eventId }) {
           </div>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Location</label>
+            <label htmlFor='editLocation' className={styles.club__form__label}>Location</label>
           </div>
 
           <div>
             <input
+              id='editLocation'
               className={styles.club__name}
               name="location"
               type="text"
@@ -91,11 +93,12 @@ function EditEvent({ setShowModal, eventId }) {
           </div>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Date and Time</label>
+            <label htmlFor='editDate' className={styles.club__form__label}>Date and Time</label>
           </div>
 
           <div>
             <DatePicker
+              id='editDate'
               className={(styles.calender_input, styles.club__name)}
               showTimeSelect
               selected={startDate}
@@ -106,11 +109,12 @@ function EditEvent({ setShowModal, eventId }) {
           </div>
 
           <div className={styles.club__label__container}>
-            <label className={styles.club__form__label}>Description</label>
+            <label htmlFor='editDescription' className={styles.club__form__label}>Description</label>
           </div>
 
           <div>
             <textarea
+              id='editDescription'
               className={styles.club__description}
               name="description"
               value={description}

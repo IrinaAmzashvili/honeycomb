@@ -5,7 +5,6 @@ import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
 function User() {
-  const clubs = useSelector(state => state.clubs)
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
@@ -19,7 +18,7 @@ function User() {
 
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id))
-  }, [dispatch])
+  }, [dispatch, sessionUser.id])
 
   useEffect(() => {
     if (!userId) {
@@ -40,7 +39,7 @@ function User() {
     <div className={styles.entireProfileContainer}>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
       <div className={styles.profileUserInformation}>
-        <img className={styles.profileImage} src={user.profile_img_url}></img>
+        <img className={styles.profileImage} src={user.profile_img_url} alt='user profile'></img>
         <div className={styles.profileStuffContainer}>
           <p className={styles.profileUsername}>{user.username}</p>
           <p className={styles.profileEmail}>{user.email}</p>
@@ -52,7 +51,7 @@ function User() {
         <h2 className={styles.profileMemberClubsHeading}>Member</h2>
         {memberships.map(member => (
           <div className={styles.profileMemberContainer}>
-            <img className={styles.profileMemberImg} src={member.img_url}></img>
+            <img className={styles.profileMemberImg} src={member.img_url} alt='user membership clubs'></img>
             <div>
               <Link to={`/clubs/${member.id}`}>
                 <p className={styles.profileMemberName}>{member.name}</p>
