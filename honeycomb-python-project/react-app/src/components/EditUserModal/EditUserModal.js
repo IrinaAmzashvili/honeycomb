@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllSchools } from '../../store/schools'
 import Select from 'react-select';
 import styles from './EditUserModal.module.css';
-
+import { putUser } from '../../store/session'
 
 
 
@@ -49,8 +49,21 @@ const EditUser = ({ setShowModal }) => {
         return obj
     }
 
-    const handleSubmit = () => {
-
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        let school_id = userSchool.value
+        const user = {
+            username,
+            email,
+            profile_img_url,
+            school_id
+        }
+        const data = await dispatch(putUser(user))
+        if (data.errors) {
+            setErrors(data.errors);
+            return
+        }
+        setShowModal(false);
     }
 
     if (user.username === "Demo") {
