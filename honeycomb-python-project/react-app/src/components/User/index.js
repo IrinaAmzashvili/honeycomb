@@ -4,11 +4,12 @@ import styles from './User.module.css';
 import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
+import UserModal from '../EditUserModal'
 function User() {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const { userId } = useParams();
   const userSchool = useSelector(state => Object.values(state.school))
   const memberships = useSelector((state) => Object.values(state.memberships));
 
@@ -44,7 +45,7 @@ function User() {
           <p className={styles.profileUsername}>{user.username}</p>
           <p className={styles.profileEmail}>{user.email}</p>
           <p className={styles.profileSchool}>{userSchool[0]?.name}</p>
-          {/* <button className={styles.profileEditButton}>Edit Profile</button> */}
+          <UserModal />
         </div>
       </div>
       <div className={styles.profileMemberClubs}>
