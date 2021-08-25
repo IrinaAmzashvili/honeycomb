@@ -53,9 +53,7 @@ function App() {
         <ProtectedRoute path='/clubs/:id' exact={true}>
           <IndividualClub/>
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
           <Home />
-        </ProtectedRoute>
         <Route path='*'><NotFound /></Route>
       </Switch>
       </main>
