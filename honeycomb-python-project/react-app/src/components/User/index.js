@@ -5,6 +5,7 @@ import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
 import UserModal from '../EditUserModal'
+import logo from "../../images/honey-bee-large.png"
 
 
 function User() {
@@ -46,7 +47,7 @@ function User() {
     <div className={styles.entireProfileContainer}>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
       <div className={styles.profileUserInformation}>
-        <img className={styles.profileImage} src={user.profile_img_url} alt='user profile'></img>
+        <img className={styles.profileImage} src={user.profile_img_url ? user.profile_img_url : logo} alt='user profile'></img>
         <div className={styles.profileStuffContainer}>
           <p className={styles.profileUsername}>{user.username}</p>
           <p className={styles.profileEmail}>{user.email}</p>
