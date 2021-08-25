@@ -13,7 +13,6 @@ const EditUser = ({ setShowModal }) => {
     const schools = useSelector(state => Object.values(state.school))
     const user = useSelector(state => state.session.user)
     const usersSchool = schools.filter((school) => school.id === user.school_id)[0]
-    console.log(usersSchool)
     const dispatch = useDispatch()
 
 
@@ -54,7 +53,13 @@ const EditUser = ({ setShowModal }) => {
 
     }
 
-
+    if (user.username === "Demo") {
+        return (
+            <div className={styles.user__heading_container}>
+                <h2 className={styles.user__form__heading}>Demo can not be edited</h2>
+            </div>
+        )
+    }
     return (
         <div className={styles.user_form_div}>
             <form onSubmit={handleSubmit} className={styles.user_form}>
@@ -96,14 +101,14 @@ const EditUser = ({ setShowModal }) => {
                         />
                     </label>
                 </div>
-                <button className={`cta_button ${styles.signup__submit}`} type='submit'>Sign Up</button>
+                <button className={`cta_button ${styles.signup__submit}`} type='submit'>Submit
+
+                </button>
             </form>
 
         </div>
 
     )
-
-
 }
 
 export default EditUser

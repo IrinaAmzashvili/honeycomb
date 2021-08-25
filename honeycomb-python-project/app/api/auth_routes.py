@@ -15,7 +15,8 @@ def validation_errors_to_error_messages(validation_errors):
     for field in validation_errors:
         for error in validation_errors[field]:
             formattedErr = error[10:]
-            formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
+            formattedField = field.replace(
+                '_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return errorMessages
 
@@ -77,6 +78,10 @@ def sign_up():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+
+@auth_routes.route('/edit', methods=['POST'])
+def edit_user():
+    
 
 @auth_routes.route('/unauthorized')
 def unauthorized():
