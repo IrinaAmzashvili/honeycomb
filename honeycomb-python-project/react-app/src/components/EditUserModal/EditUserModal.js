@@ -9,7 +9,7 @@ import { putUser } from '../../store/session'
 
 
 
-const EditUser = ({ setShowModal }) => {
+const EditUser = ({ setShowModal, setUser }) => {
     const schools = useSelector(state => Object.values(state.school))
     const user = useSelector(state => state.session.user)
     const usersSchool = schools.filter((school) => school.id === user.school_id)[0]
@@ -57,7 +57,6 @@ const EditUser = ({ setShowModal }) => {
         } else {
             school_id = userSchool
         }
-        console.log('========================>', userSchool)
         const user = {
             username,
             email,
@@ -65,11 +64,11 @@ const EditUser = ({ setShowModal }) => {
             school_id
         }
         const data = await dispatch(putUser(user))
-        console.log('========================>', user)
         if (data.errors) {
             setErrors(data.errors);
             return
         }
+        setUser(user)
         setShowModal(false);
     }
 

@@ -5,14 +5,17 @@ import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
 import UserModal from '../EditUserModal'
+import authenticate from '../../store/session'
 function User() {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
   const [user, setUser] = useState({});
   const { userId } = useParams();
   const userSchool = useSelector(state => Object.values(state.school))
+  const school = userSchool.filter((school) => school.id === user.school_id)[0]
   const memberships = useSelector((state) => Object.values(state.memberships));
 
+  console.log(school)
   useEffect(() => {
     dispatch(getSchool())
   }, [dispatch])
@@ -20,6 +23,8 @@ function User() {
   useEffect(() => {
     dispatch(getMemberships(sessionUser.id))
   }, [dispatch, sessionUser.id])
+
+
 
   useEffect(() => {
     if (!userId) {
@@ -44,8 +49,8 @@ function User() {
         <div className={styles.profileStuffContainer}>
           <p className={styles.profileUsername}>{user.username}</p>
           <p className={styles.profileEmail}>{user.email}</p>
-          <p className={styles.profileSchool}>{userSchool[0]?.name}</p>
-          <UserModal />
+          <p className={styles.profileSchool}>{school?.name}</p>
+          <UserModal setUser={setUser} />
         </div>
       </div>
       <div className={styles.profileMemberClubs}>
