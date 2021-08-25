@@ -33,6 +33,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(["Passwords Do not match"])
     }
   };
 
@@ -125,8 +127,8 @@ const SignUpForm = () => {
               placeholder="Select School"
               options={schoolNames()}
               onChange={setUserSchool}
-              />
-            </label>
+            />
+          </label>
         </div>
         <button className={`cta_button ${styles.signup__submit}`} type='submit'>Sign Up</button>
         <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
