@@ -5,7 +5,8 @@ import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
 import { useDispatch, useSelector } from 'react-redux';
 import UserModal from '../EditUserModal'
-import authenticate from '../../store/session'
+
+
 function User() {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
