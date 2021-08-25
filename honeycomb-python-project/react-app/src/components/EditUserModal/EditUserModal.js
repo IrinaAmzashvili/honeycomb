@@ -19,7 +19,7 @@ const EditUser = ({ setShowModal }) => {
     const [errors, setErrors] = useState([]);
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
-    const [userSchool, setUserSchool] = useState(usersSchool.name);
+    const [userSchool, setUserSchool] = useState(user.school_id);
     const [profile_img_url, setProfile_img_url] = useState(user.profile_img_url);
 
     useEffect(() => {
@@ -51,7 +51,13 @@ const EditUser = ({ setShowModal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        let school_id = userSchool.value
+        let school_id;
+        if (userSchool.value) {
+            school_id = userSchool.value
+        } else {
+            school_id = userSchool
+        }
+        console.log('========================>', userSchool)
         const user = {
             username,
             email,
@@ -59,6 +65,7 @@ const EditUser = ({ setShowModal }) => {
             school_id
         }
         const data = await dispatch(putUser(user))
+        console.log('========================>', user)
         if (data.errors) {
             setErrors(data.errors);
             return

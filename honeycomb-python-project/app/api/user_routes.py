@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, User, School
-from .auth_routes import validation_errors_to_error_messages
 from app.forms import EditForm
 user_routes = Blueprint('users', __name__)
 
@@ -28,16 +27,24 @@ def user_school():
     return userSchool.to_dict()
 
 
-@user_routes.route('/edit', methods=['POST'])
+@user_routes.route('/edit', methods=['PUT'])
 def edit_user():
     form = EditForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        editUser = User.query.filter(User.id == current_user.id)
+        editUser = User.query.filter(User.id == current_user.id).first()
         editUser.username = form.username.data,
         editUser.email = form.email.data,
         editUser.profile_img_url = form.profile_img_url.data,
         editUser.school_id = form.school_id.data,
         db.session.commit()
         return editUser.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+    errorMessages = []
+    for field in form.errors:
+        for error in form.errors[field]:
+            formattedErr = error[10:]
+            formattedField = field.replace(
+                '_', ' ').replace(' id', '').capitalize()
+            errorMessages.append(f'{formattedField} {formattedErr}')
+    return {'errors': errorMessages}
