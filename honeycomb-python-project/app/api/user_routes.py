@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, User, School
+from app.models import db, User, School, Club
 from app.forms import EditForm
 user_routes = Blueprint('users', __name__)
 
@@ -48,3 +48,14 @@ def edit_user():
                 '_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return {'errors': errorMessages}
+
+
+@user_routes.route('/delete', methods=['DELETE'])
+def delete_user():
+    user = User.query.get(current_user.id)
+    usersClubs = Club.query.filter(Club.host_id == current_user.id)
+    for club in usersClubs:
+        db.session.delete(club)
+    db.session.delete(user)
+    db.session.commit()
+    return {'message': True}

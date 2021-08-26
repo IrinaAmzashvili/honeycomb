@@ -3,6 +3,7 @@ const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const EDIT_USER = 'session/EDIT_USER';
 
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
@@ -16,6 +17,8 @@ const editUser = (user) => ({
   type: EDIT_USER,
   user
 })
+
+
 
 const initialState = { user: null };
 
@@ -119,7 +122,17 @@ export const putUser = (user) => async (dispatch) => {
     dispatch(editUser(user));
     return data
   }
+}
 
+export const deleteUser = () => async (dispatch)=>{
+  const res = await fetch('/api/users/delete', {
+    method: "DELETE"
+  })
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(removeUser())
+    return data;
+  }
 
 }
 
