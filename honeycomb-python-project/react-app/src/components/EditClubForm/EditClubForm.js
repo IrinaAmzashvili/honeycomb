@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { editClub } from "../../store/clubs";
 import { deleteClub } from "../../store/clubs";
+import { leaveClub } from '../../store/membership'
 
 import styles from "../../FormModal.module.css";
 
@@ -36,7 +37,8 @@ const EditClubForm = ({ club, setShowModal }) => {
   // delete club
   const handleDelete = async (e) => {
     e.preventDefault();
-    const res = await dispatch(deleteClub(club.id));
+    await dispatch(leaveClub(club?.id));
+    const res = await dispatch(deleteClub(club?.id));
     // if successfully deleted, redirect
     if (res["message"]) {
       history.push("/clubs/");
