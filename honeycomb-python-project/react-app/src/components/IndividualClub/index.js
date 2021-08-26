@@ -39,6 +39,7 @@ const IndividualClub = () => {
 
   const club = clubs.find((club) => club?.id === +id);
   const member = memberships.find((joinedClub) => joinedClub?.id === +id);
+  const [attending, setAttending] = useState(club?.members.length);
   const clubHost = club?.members.find(
     (member) => +member[0] === +club?.host_id
   );
@@ -62,13 +63,14 @@ const IndividualClub = () => {
     // if user is a member, leave club on click, else join club on click
     if (member) {
       dispatch(leaveClub(id));
+      setAttending((club.members.length -= 1));
     } else {
       dispatch(joinClub(id));
+      setAttending((club.members.length += 1));
     }
   };
 
 
-  console.log("newEvents", newEvents);
 
   const renderEventCard = ()=>{
     if(newEvents.length > 0){
@@ -76,7 +78,7 @@ const IndividualClub = () => {
       return newEvents.map((event, index) => (
         <EventsCard key={index} index={index} event={event} />
       ))
-    }else{
+    } else {
       return <div className={styles.outerContainer}>No Events for now...</div>
     }
 
@@ -100,16 +102,19 @@ const IndividualClub = () => {
     <div className={styles.individualClubPage}>
       <div className={styles.clubInfoContainer}>
         <div className={styles.imageDiv}>
-          <img className={styles.clubImage} src={club?.img_url} alt={`${club?.name} club`}/>
+          <img className={styles.clubImage} src={club?.img_url} alt={`${club?.name} club`} />
         </div>
 
         <div className={styles.clubinfo}>
           <p className={styles.clubName}>{club?.name}</p>
           <p>
-            Organized by
-            <Link to={`/users/${sessionUser.id}`}>
+            {`Organized by ${clubHost ? clubHost[1] : undefined}`}
+            {/* <Link to={`/users/${sessionUser.id}`}>
               <span className={styles.hostName}> {clubHost ? clubHost[1] : undefined}</span>
-            </Link>
+            </Link> */}
+          </p>
+          <p>
+            {`Number of Members ${attending}`}
           </p>
           <p className={styles.clubDescription}>{club?.description}</p>
           {/* if user is not host, display "join/leave club" button */}

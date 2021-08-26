@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getAllSchools } from '../../store/schools'
 import Select from 'react-select';
 import styles from './EditUserModal.module.css';
-import { putUser } from '../../store/session'
+import { putUser, deleteUser } from '../../store/session'
 
 
 
 
 
 const EditUser = ({ setShowModal, setUser }) => {
+    const history = useHistory();
     const schools = useSelector(state => Object.values(state.school))
     const user = useSelector(state => state.session.user)
     const usersSchool = schools.filter((school) => school.id === user.school_id)[0]
@@ -72,6 +74,18 @@ const EditUser = ({ setShowModal, setUser }) => {
         setShowModal(false);
     }
 
+
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        const res =await dispatch(deleteUser())
+        if (res["message"]) {
+            history.push("/");
+        }else{
+            setErrors("Something went wrong, please try again")
+        }
+    }
+
+
     if (user.username === "Demo") {
         return (
             <div className={styles.user__heading_container}>
@@ -120,9 +134,15 @@ const EditUser = ({ setShowModal, setUser }) => {
                         />
                     </label>
                 </div>
-                <button className={`cta_button ${styles.signup__submit}`} type='submit'>Submit
-
-                </button>
+                <div className={styles.button__div}>
+                    <button className={`cta_button ${styles.signup__submit}`} type='submit'>Submit </button>
+                    <button
+                        className={`${styles.deleteButton} cta_button_danger`}
+                        onClick={handleDelete}
+                    >
+                        Delete Account
+                    </button>
+                </div>
             </form>
 
         </div>
