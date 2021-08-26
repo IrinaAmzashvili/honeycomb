@@ -48,3 +48,11 @@ def edit_user():
                 '_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return {'errors': errorMessages}
+
+
+@user_routes.route('/delete', methods=['DELETE'])
+def delete_user():
+    user = User.query.get(current_user.id)
+    db.session.delete(user)
+    db.session.commit()
+    return {'message': True}
