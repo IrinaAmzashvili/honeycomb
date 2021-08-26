@@ -3,6 +3,7 @@ from flask import Blueprint
 from ..models import db, Event, Club
 from flask_login import current_user
 from app.forms import EventForm
+from datetime import date
 
 
 event_route = Blueprint('events', __name__, url_prefix='')
@@ -69,3 +70,5 @@ def delete_event(id):
     db.session.delete(event)
     db.session.commit()
     return {"id": event.id}
+
+

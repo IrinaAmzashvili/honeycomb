@@ -8,6 +8,8 @@ import styles from '../../FormModal.module.css'
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import moment from 'moment';
+
 function CreateEvent({ setShowModal }) {
   const dispatch = useDispatch();
 
@@ -97,6 +99,7 @@ function CreateEvent({ setShowModal }) {
               showTimeSelect
               selected={startDate}
               onChange={(date) => setStartDate(date)}
+              minDate={moment().toDate()}
               timeClassName={handleColor}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
