@@ -13,12 +13,12 @@ def edit_one_club(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         clubToEdit = Club.query.filter(Club.id == id).one()
-        clubToEdit.name=form.name.data,
-        clubToEdit.description=form.description.data,
-        clubToEdit.img_url=form.img_url.data,
-        clubToEdit.category_id=form.category_id.data,
-        clubToEdit.host_id=current_user.id,
-        clubToEdit.school_id=current_user.school_id
+        clubToEdit.name = form.name.data,
+        clubToEdit.description = form.description.data,
+        clubToEdit.img_url = form.img_url.data,
+        clubToEdit.category_id = form.category_id.data,
+        clubToEdit.host_id = current_user.id,
+        clubToEdit.school_id = current_user.school_id
         db.session.commit()
         return clubToEdit.to_dict()
 
@@ -26,15 +26,16 @@ def edit_one_club(id):
     for field in form.errors:
         for error in form.errors[field]:
             formattedErr = error[10:]
-            formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
+            formattedField = field.replace(
+                '_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return{'errors': errorMessages}
 
 
-
 @club_route.route('/api/clubs/')
 def get_clubs():
-    allClubs = Club.query.filter(current_user.school_id == Club.school_id).all()
+    allClubs = Club.query.filter(
+        current_user.school_id == Club.school_id).all()
     return {'clubs': [club.to_dict() for club in allClubs]}
 
 
@@ -59,7 +60,8 @@ def post_club():
     for field in form.errors:
         for error in form.errors[field]:
             formattedErr = error[10:]
-            formattedField = field.replace('_', ' ').replace(' id', '').capitalize()
+            formattedField = field.replace(
+                '_', ' ').replace(' id', '').capitalize()
             errorMessages.append(f'{formattedField} {formattedErr}')
     return {'errors': errorMessages}
 
@@ -73,6 +75,7 @@ def get_one_club(id):
 @club_route.route('/api/clubs/<int:id>', methods=['DELETE'])
 def delete_club(id):
     club = Club.query.get_or_404(id)
+
     db.session.delete(club)
     db.session.commit()
     return {'message': True}

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import styles from './User.module.css';
 import { getSchool } from '../../store/schools';
 import { getMemberships } from '../../store/membership';
+import { getClubs } from '../../store/clubs'
 import { useDispatch, useSelector } from 'react-redux';
 import UserModal from '../EditUserModal'
 import logo from "../../images/honey-bee-large.png"
@@ -17,13 +18,14 @@ function User() {
   const school = userSchool.filter((school) => school.id === user.school_id)[0]
   const memberships = useSelector((state) => Object.values(state.memberships));
 
-  console.log(school)
+
+
   useEffect(() => {
     dispatch(getSchool())
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(getMemberships(sessionUser.id))
+    dispatch(getMemberships(sessionUser?.id))
   }, [dispatch, sessionUser.id])
 
 
