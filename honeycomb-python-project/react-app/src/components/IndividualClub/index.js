@@ -98,10 +98,10 @@ const IndividualClub = () => {
         <div className={styles.clubinfo}>
           <p className={styles.clubName}>{club?.name}</p>
           <p>
-            Organized by
-            <Link to={`/users/${sessionUser.id}`}>
+            {`Organized by ${clubHost ? clubHost[1] : undefined}`}
+            {/* <Link to={`/users/${sessionUser.id}`}>
               <span className={styles.hostName}> {clubHost ? clubHost[1] : undefined}</span>
-            </Link>
+            </Link> */}
           </p>
           <p>
             {`Number of Members ${attending}`}
