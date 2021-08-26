@@ -22,11 +22,17 @@ body {
     box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.253);
 }
 
+.profileImageDiv {
+    height: 200px;
+    width: 200px;
+}
+
 .profileImage {
     border: 3px solid var(--tealTheme);
     box-shadow:2px 2px 5px 1px rgba(0, 0, 0, 0.26);
-    height: 200px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
     border-radius: 100px;
 }
 .profileStuffContainer {

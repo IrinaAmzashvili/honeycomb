@@ -49,7 +49,9 @@ function User() {
     <div className={styles.entireProfileContainer}>
       <h1 className={styles.profileUsernameHeading}>{user.username}'s profile</h1>
       <div className={styles.profileUserInformation}>
-        <img className={styles.profileImage} src={user.profile_img_url ? user.profile_img_url : logo} alt='user profile'></img>
+        <div className={styles.profileImageDiv}>
+          <img className={styles.profileImage} src={user.profile_img_url ? user.profile_img_url : logo} alt='user profile'></img>
+        </div>
         <div className={styles.profileStuffContainer}>
           <p className={styles.profileUsername}>{user.username}</p>
           <p className={styles.profileEmail}>{user.email}</p>
@@ -59,8 +61,8 @@ function User() {
       </div>
       <div className={styles.profileMemberClubs}>
         <h2 className={styles.profileMemberClubsHeading}>Member</h2>
-        {memberships.map(member => (
-          <div className={styles.profileMemberContainer}>
+        {memberships.map((member, idx) => (
+          <div key={idx} className={styles.profileMemberContainer}>
             <img className={styles.profileMemberImg} src={member.img_url} alt='user membership clubs'></img>
             <div>
               <Link to={`/clubs/${member.id}`}>
