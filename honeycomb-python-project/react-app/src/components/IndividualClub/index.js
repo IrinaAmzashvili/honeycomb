@@ -27,6 +27,14 @@ const IndividualClub = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const memberships = useSelector((state) => Object.values(state.memberships));
   const events = useSelector((state) => Object.values(state.events));
+  const newEvents = events.filter((event)=>{
+      let today = new Date()
+      console.log("today", today);
+
+      console.log("event.date_and_time", new Date(event.date_and_time));
+
+      return new Date(event.date_and_time) > today
+  })
   const clubs = useSelector((state) => Object.values(state.clubs));
 
   const club = clubs.find((club) => club?.id === +id);
@@ -60,9 +68,12 @@ const IndividualClub = () => {
   };
 
 
+  console.log("newEvents", newEvents);
+
   const renderEventCard = ()=>{
-    if(events.length > 0){
-      return events.map((event, index) => (
+    if(newEvents.length > 0){
+
+      return newEvents.map((event, index) => (
         <EventsCard key={index} index={index} event={event} />
       ))
     }else{

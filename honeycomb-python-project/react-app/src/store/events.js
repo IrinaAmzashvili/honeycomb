@@ -3,6 +3,7 @@ const POST_EVENT = 'events/POST_EVENT';
 const EDIT_EVENT = 'events/EDIT_EVENT';
 const DELETE_EVENT = 'events/DELETE_EVENT';
 
+
 const loadEvents = (events) => ({
     type: GET_EVENTS,
     events
@@ -22,6 +23,11 @@ const removeEvent = (event) => ({
     type: DELETE_EVENT,
     event
 })
+
+// const removePastEvent = (event) => ({
+//     type: DELETE_PASTEVENT,
+//     event
+// })
 
 //thunk
 export const getEvents = (id) => async (dispatch) => {
@@ -108,6 +114,7 @@ const eventsReducer = (state = initialState, action) => {
             const newObj = { ...state };
             delete newObj[action.event.id];
             return newObj;
+
         default:
             return state
     }

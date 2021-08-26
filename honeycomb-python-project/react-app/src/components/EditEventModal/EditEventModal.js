@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { editEvent, deleteEvent } from "../../store/events";
 import DatePicker from "react-datepicker";
 import styles from "../../FormModal.module.css";
+import moment from 'moment';
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -16,6 +17,7 @@ function EditEvent({ setShowModal, eventId }) {
   const [description, setDescription] = useState(event.description);
   const [location, setLocation] = useState(event.location);
   const [startDate, setStartDate] = useState(new Date(event.date_and_time));
+  console.log("startDate_________", startDate)
 
   const user = useSelector((state) => state.session.user);
 
@@ -103,6 +105,7 @@ function EditEvent({ setShowModal, eventId }) {
               showTimeSelect
               selected={startDate}
               onChange={(date) => setStartDate(date)}
+              minDate={moment().toDate()}
               timeClassName={handleColor}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
