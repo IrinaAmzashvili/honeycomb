@@ -80,6 +80,8 @@ const EditUser = ({ setShowModal, setUser }) => {
         const res =await dispatch(deleteUser())
         if (res["message"]) {
             history.push("/");
+        }else{
+            setErrors("Something went wrong, please try again")
         }
     }
 
