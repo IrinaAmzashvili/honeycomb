@@ -11,7 +11,7 @@ body {
 
 .profileUsernameHeading {
     width: 1200px;
-        margin: 22px auto;
+    margin: 22px auto;
 }
 
 .profileUserInformation {
@@ -82,8 +82,17 @@ body {
     margin-bottom: 20px;
     justify-content: flex-start;
 }
+
+.clubImgDiv {
+    height: 100%;
+    width: 180px;
+    margin-right: 20px;
+}
+
 .profileMemberImg {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
     margin-right: 20px;
 }
 

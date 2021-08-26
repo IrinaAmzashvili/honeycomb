@@ -76,11 +76,13 @@ function User() {
           <h2 className={styles.profileMemberClubsHeading}>Host</h2>
           {hosted.map((club, idx) => (
             <div key={idx} className={styles.profileMemberContainer}>
-              <img
-                className={styles.profileMemberImg}
-                src={club.img_url}
-                alt="user hosted clubs"
-              ></img>
+              <div className={styles.clubImgDiv}>
+                <img
+                  className={styles.profileMemberImg}
+                  src={club.img_url}
+                  alt="user hosted clubs"
+                ></img>
+              </div>
               <div>
                 <Link to={`/clubs/${club.id}`}>
                   <p className={styles.profileMemberName}>{club.name}</p>
@@ -95,11 +97,13 @@ function User() {
           <h2 className={styles.profileMemberClubsHeading}>Member</h2>
           {memberships.map((member, idx) => (
             <div key={idx} className={styles.profileMemberContainer}>
-              <img
-                className={styles.profileMemberImg}
-                src={member.img_url}
-                alt="user membership clubs"
-              ></img>
+              <div className={styles.clubImgDiv}>
+                <img
+                  className={styles.profileMemberImg}
+                  src={member.img_url}
+                  alt="user membership clubs"
+                ></img>
+              </div>
               <div>
                 <Link to={`/clubs/${member.id}`}>
                   <p className={styles.profileMemberName}>{member.name}</p>
