@@ -17,7 +17,7 @@ function CreateEvent({ setShowModal }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [location, setLocation] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState();
 
   const { id } = useParams();
   const user = useSelector((state) => state.session.user);
@@ -45,6 +45,13 @@ function CreateEvent({ setShowModal }) {
     setShowModal(false);
   };
 
+  const filterPassedTime = (time) => {
+    const currentDate = new Date();
+    const selectedDate = new Date(time);
+
+    return currentDate.getTime() < selectedDate.getTime();
+  };
+
   return (
     <>
       <div className={styles.club__form__div}>
@@ -53,12 +60,12 @@ function CreateEvent({ setShowModal }) {
             <h1 className={styles.club__form__heading}>Create An Event</h1>
           </div>
           <ul className={styles.errors__container}>
-          {errors.map((error, i) => (
-            <li className={styles.errors} key={i}>
-              {error}
-            </li>
-          ))}
-        </ul>
+            {errors.map((error, i) => (
+              <li className={styles.errors} key={i}>
+                {error}
+              </li>
+            ))}
+          </ul>
           <div className={styles.club__label__container}>
             <label htmlFor='name' className={styles.club__form__label}>Event Title</label>
           </div>
@@ -101,6 +108,7 @@ function CreateEvent({ setShowModal }) {
               onChange={(date) => setStartDate(date)}
               minDate={moment().toDate()}
               timeClassName={handleColor}
+              filterTime={filterPassedTime}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
           </div>

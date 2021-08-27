@@ -4,6 +4,7 @@ import LogoutButton from "../auth/LogoutButton";
 import styles from "./NavBar.module.css";
 import { useSelector } from "react-redux";
 import logo from "../../images/logo.png"
+import bee from "../../images/honey-bee.png"
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
@@ -30,56 +31,37 @@ const NavBar = () => {
 
   let sessionLinks;
   if (sessionUser) {
-    if (sessionUser.profile_img_url) {
-      sessionLinks = (
-        <>
-          <li>
-            <NavLink to='/clubs/' exact={true} activeClassName='active'>
-              Clubs
-            </NavLink>
-          </li>
-          <li>
-              <img onClick={openMenu} className={styles.profileImg} src={sessionUser.profile_img_url} alt='user profile button'></img>
-            {showMenu && (
-              <ul className={styles.profile_dropdown}>
-                <li className={styles.user_info}>{sessionUser.username}</li>
-                <li className={styles.user_info}>
-                  <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
-                </li>
-                <li>
-                  <LogoutButton />
-                </li>
-              </ul>
-            )}
-          </li>
-        </>
-      );
-    } else {
-      sessionLinks = (
-        <>
-          <li>
-            <NavLink to='/clubs/' exact={true} activeClassName='active'>
-              Clubs
-            </NavLink>
-          </li>
-          <li>
-            <button onClick={openMenu} className={styles.profile_btn}>
-            </button>
-            {showMenu && (
-              <ul className={styles.profile_dropdown}>
-                <li className={styles.user_info}>{sessionUser.username}</li>
-                <li className={styles.user_info}>
-                  <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
-                </li>
-                <li>
-                  <LogoutButton />
-                </li>
-              </ul>
-            )}
-          </li>
-        </>
-      );
-    }
+
+    sessionLinks = (
+      <>
+        <div className={styles.link_container}>
+          <div>
+            <li>
+              <NavLink to='/clubs/' exact={true} activeClassName='active'>
+                Clubs
+              </NavLink>
+            </li>
+          </div>
+          <div>
+            <li>
+              <img onClick={openMenu} className={styles.profileImg} src={sessionUser.profile_img_url ? sessionUser.profile_img_url : bee} alt='user profile button'></img>
+              {showMenu && (
+                <ul className={styles.profile_dropdown}>
+                  <li className={styles.user_info}>{sessionUser.username}</li>
+                  <li className={styles.user_info}>
+                    <NavLink exact to={`/users/${sessionUser.id}`}>My Profile</NavLink>
+                  </li>
+                  <li>
+                    <LogoutButton />
+                  </li>
+                </ul>
+              )}
+            </li>
+          </div>
+        </div>
+      </>
+    );
+
   } else {
     sessionLinks = (
       <>
@@ -107,7 +89,9 @@ const NavBar = () => {
           </NavLink>
         </li>
         <div className={styles.loginSignupDiv}>
+
           {sessionLinks}
+
         </div>
       </ul>
     </nav>
