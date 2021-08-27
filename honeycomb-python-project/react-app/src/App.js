@@ -34,28 +34,28 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <main>
-      <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/signup' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/clubs/' exact={true} >
-          <ClubsPage />
-        </ProtectedRoute>
-        <ProtectedRoute path='/clubs/:id' exact={true}>
-          <IndividualClub/>
-        </ProtectedRoute>
-          <Home />
-        <Route path='*'><NotFound /></Route>
-      </Switch>
+        <Switch>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/signup' exact={true}>
+            <SignUpForm />
+          </Route>
+          <ProtectedRoute path='/users' exact={true} >
+            <UsersList />
+          </ProtectedRoute>
+          <ProtectedRoute path='/users/:userId' exact={true} >
+            <User />
+          </ProtectedRoute>
+          <ProtectedRoute path='/clubs/' exact={true} >
+            <ClubsPage />
+          </ProtectedRoute>
+          <ProtectedRoute path='/clubs/:id' exact={true}>
+            <IndividualClub />
+          </ProtectedRoute>
+          <Home path='/' exact={true} />
+          <Route path='*'><NotFound /></Route>
+        </Switch>
       </main>
       <Footer />
     </BrowserRouter>
