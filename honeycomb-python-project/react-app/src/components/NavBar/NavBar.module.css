@@ -25,24 +25,9 @@
     justify-content: space-between;
 }
 
-.profile_btn{
-position: absolute;
-margin-left:20px;
-background-color:white;
-background: url('../../images/honey-bee.png') no-repeat center;
-background-size: cover;
-border-radius: 20px;
-border:1px solid lightgrey;
-box-shadow: 0 20px 48px rgb(0 0 0 / 20%);
-height:45px;
-width:45px;
-right:5em;
-top:1em;
-}
+
 
 .profileImg {
-    position: absolute;
-    /* margin-left:20px; */
     background-size: cover;
     border-radius: 20px;
     border:1px solid lightgrey;
@@ -53,10 +38,6 @@ top:1em;
 }
 
 .profileImg:hover{
-    cursor:pointer;
-}
-
-.profile_btn:hover{
     cursor:pointer;
 }
 
@@ -85,4 +66,12 @@ top:1em;
 
 .logo{
     height: 40px;
+}
+
+.link_container{
+    display:flex;
+    width:100%;
+    justify-content: space-around;
+    align-items: center;
+
 }
