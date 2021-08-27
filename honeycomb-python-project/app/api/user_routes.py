@@ -2,6 +2,10 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, User, School, Club
 from app.forms import EditForm
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename, delete_from_s3)
+
+
 user_routes = Blueprint('users', __name__)
 
 
@@ -33,9 +37,25 @@ def edit_user():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         editUser = User.query.filter(User.id == current_user.id).first()
+
+        if form.profile_img_url.data != editUser.profile_img_url:
+            url = ""
+            original_url = editUser.profile_img_url
+
+            if "profile_img_url" in request.files:
+                image = request.files['profile_img_url']
+                if not allowed_file(image.filename):
+                    return {"errors": "file type not permitted"}, 400
+                image.filename = get_unique_filename(image.filename)
+                upload = upload_file_to_s3(image)
+                if "url" not in upload:
+                    return upload, 400
+                url = upload["url"]
+                delete = delete_from_s3(original_url)
+            editUser.profile_img_url = url
+            
         editUser.username = form.username.data,
         editUser.email = form.email.data,
-        editUser.profile_img_url = form.profile_img_url.data,
         editUser.school_id = form.school_id.data,
         db.session.commit()
         return editUser.to_dict()

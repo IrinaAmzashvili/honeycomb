@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, FileField
 from wtforms.validators import DataRequired, ValidationError
 from flask_login import current_user
 from app.models import User
@@ -26,4 +26,4 @@ class EditForm(FlaskForm):
         'username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists])
     school_id = StringField('school_id', validators=[DataRequired()])
-    profile_img_url = StringField('profile_img_url')
+    profile_img_url = FileField('profile_img_url')
