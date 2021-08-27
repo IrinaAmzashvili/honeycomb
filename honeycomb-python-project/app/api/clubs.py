@@ -32,7 +32,6 @@ def edit_one_club(id):
                 url = upload["url"]
                 delete = delete_from_s3(original_url)
             clubToEdit.img_url = url
-
             # Delete
             # elif form.deleted.data:
                 # delete in amazon

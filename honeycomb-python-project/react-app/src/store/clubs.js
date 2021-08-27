@@ -46,9 +46,6 @@ export const postClub = (club) => async (dispatch) => {
 
 export const editClub = (id, club) => async (dispatch) => {
     const response = await fetch(`/api/clubs/${id}`, {
-        // method: 'PUT',
-        // headers: {'Content-Type': 'application/json'},
-        // body: JSON.stringify(club)
         method: "PUT",
         body: club
     })

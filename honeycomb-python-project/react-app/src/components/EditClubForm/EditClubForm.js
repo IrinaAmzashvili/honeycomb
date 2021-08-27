@@ -31,7 +31,6 @@ const EditClubForm = ({ club, setShowModal }) => {
     } else {
       img_url = image;
     }
-    console.log(img_url)
 
     const form_data = new FormData();
     const editedFormInfo = {
@@ -98,14 +97,6 @@ const EditClubForm = ({ club, setShowModal }) => {
           </label>
         </div>
         <div>
-          {/* <input
-            id='imgUrl'
-            name="img_url"
-            placeholder="Image Url"
-            value={imgUrl}
-            onChange={(e) => setImgUrl(e.target.value)}
-            className={styles.club__name}
-          /> */}
           <input
             id="imgUrl"
             className={styles.club__name}

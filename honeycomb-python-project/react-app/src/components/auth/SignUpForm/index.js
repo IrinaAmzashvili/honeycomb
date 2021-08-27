@@ -1,50 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom';
-import { signUp, login } from '../../../store/session';
-import { getAllSchools } from '../../../store/schools'
-import Select from 'react-select';
-import styles from './SignUp.module.css'
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
+import { signUp, login } from "../../../store/session";
+import { getAllSchools } from "../../../store/schools";
+import Select from "react-select";
+import styles from "./SignUp.module.css";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
-  const [userSchool, setUserSchool] = useState('');
-  const [profile_img_url, setProfile_img_url] = useState('');
-  const user = useSelector(state => state.session.user);
-  const schools = useSelector(state => Object.values(state.school))
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [userSchool, setUserSchool] = useState("");
+  // const [profile_img_url, setProfile_img_url] = useState('');
+  const [image, setImage] = useState(null);
+  const user = useSelector((state) => state.session.user);
+  const schools = useSelector((state) => Object.values(state.school));
   const dispatch = useDispatch();
-
-
 
   useEffect(() => {
     dispatch(getAllSchools());
   }, [dispatch]);
 
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
+
   const onSignUp = async (e) => {
     e.preventDefault();
-    let school_id = userSchool.value
+    let school_id = userSchool.value;
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, school_id, profile_img_url, password));
+      const form_data = new FormData();
+      const newUser = {
+        username,
+        email,
+        school_id,
+        profile_img_url: image,
+        password,
+      };
+      for (let key in newUser) {
+        form_data.append(key, newUser[key]);
+      }
+      const data = await dispatch(signUp(form_data));
       if (data) {
-        setErrors(data)
+        setErrors(data);
       }
     } else {
-      setErrors(["Passwords Do not match"])
+      setErrors(["Passwords Do not match"]);
     }
   };
 
   const demoLogin = async (e) => {
     e.preventDefault();
-    const demoUser = await dispatch(login('demo@aa.io', 'password'))
+    const demoUser = await dispatch(login("demo@aa.io", "password"));
     if (demoUser) {
       setErrors(demoUser);
     }
-  }
+  };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -62,67 +76,113 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  const updateProfileImageUrl = (e) => {
-    setProfile_img_url(e.target.value);
-  };
+  // const updateProfileImageUrl = (e) => {
+  //   setProfile_img_url(e.target.value);
+  // };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to="/" />;
   }
-
-
 
   const schoolNames = () => {
-    let list = []
+    let list = [];
     for (const school of schools) {
-      let obj = {}
-      obj["label"] = school.name
-      obj["value"] = school.id
-      list.push(obj)
+      let obj = {};
+      obj["label"] = school.name;
+      obj["value"] = school.id;
+      list.push(obj);
     }
-    return list
-
-  }
+    return list;
+  };
 
   return (
-
     <div className={styles.signup__form__entire__container}>
       <form className={styles.signup__form__container} onSubmit={onSignUp}>
         <h1 className={styles.signup__heading}>Sign up</h1>
         <div className={styles.signup__errors__container}>
           {errors.map((error, ind) => (
-            <div className={styles.errors} key={ind}>{error}</div>
+            <div className={styles.errors} key={ind}>
+              {error}
+            </div>
           ))}
         </div>
         <div className={styles.signup__username__container}>
-          <label htmlFor='username'>
-            <input id='username' placeholder="Username" className={styles.signup__username} type='text' name='username' onChange={updateUsername} value={username} />
+          <label htmlFor="username">
+            <input
+              id="username"
+              placeholder="Username"
+              className={styles.signup__username}
+              type="text"
+              name="username"
+              onChange={updateUsername}
+              value={username}
+            />
           </label>
         </div>
         <div className={styles.signup__email__container}>
-          <label htmlFor='signupEmail'>
-            <input id='signupEmail' placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={updateEmail} value={email} />
+          <label htmlFor="signupEmail">
+            <input
+              id="signupEmail"
+              placeholder="Email"
+              className={styles.signup__email}
+              type="text"
+              name="email"
+              onChange={updateEmail}
+              value={email}
+            />
           </label>
         </div>
         <div className={styles.signup__email__container}>
-          <label htmlFor='signupImgUrl'>
-            <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='text' name='profile_img_url' onChange={updateProfileImageUrl} value={profile_img_url} />
+          <label htmlFor="signupImgUrl">
+            <input
+              id="signupImgUrl"
+              placeholder="Profile Image Url"
+              className={styles.signup__email}
+              type="file"
+              name="profile_img_url"
+              accept="image/*"
+              onChange={updateImage}
+              // value={profile_img_url}
+            />
+            {/* <input
+              id="imgUrl"
+              className={styles.club__name}
+              name="imgUrl"
+              type="file"
+              onChange={updateImage}
+            /> */}
           </label>
         </div>
         <div className={styles.signup__password__container}>
-          <label htmlFor='signupPassword'>
-            <input id='signupPassword' placeholder="Password" className={styles.signup__password} type='password' name='password' onChange={updatePassword} value={password} />
+          <label htmlFor="signupPassword">
+            <input
+              id="signupPassword"
+              placeholder="Password"
+              className={styles.signup__password}
+              type="password"
+              name="password"
+              onChange={updatePassword}
+              value={password}
+            />
           </label>
         </div>
         <div className={styles.signup__confirm__password__container}>
-          <label htmlFor='signupPasswordConfirm'>
-            <input id='signupPasswordConfirm' placeholder="Confirm password" className={styles.signup__confirm__password} type='password' name='repeat_password' onChange={updateRepeatPassword} value={repeatPassword} />
+          <label htmlFor="signupPasswordConfirm">
+            <input
+              id="signupPasswordConfirm"
+              placeholder="Confirm password"
+              className={styles.signup__confirm__password}
+              type="password"
+              name="repeat_password"
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+            />
           </label>
         </div>
         <div className={styles.signup__school}>
-          <label htmlFor='schoolSelect'>
+          <label htmlFor="schoolSelect">
             <Select
-              id='schoolSelect'
+              id="schoolSelect"
               className={styles.signup__selection}
               placeholder="Select School"
               options={schoolNames()}
@@ -130,12 +190,25 @@ const SignUpForm = () => {
             />
           </label>
         </div>
-        <button className={`cta_button ${styles.signup__submit}`} type='submit'>Sign Up</button>
-        <p className={styles.signup__already__have__account}>Already have an account? <span><Link to="/login" className={styles.signup__login}>Log In</Link></span></p>
-        <button onClick={demoLogin} className={`${styles.login__no__account__demo} link-button`}>Log in as a <span>Demo user</span></button>
+        <button className={`cta_button ${styles.signup__submit}`} type="submit">
+          Sign Up
+        </button>
+        <p className={styles.signup__already__have__account}>
+          Already have an account?{" "}
+          <span>
+            <Link to="/login" className={styles.signup__login}>
+              Log In
+            </Link>
+          </span>
+        </p>
+        <button
+          onClick={demoLogin}
+          className={`${styles.login__no__account__demo} link-button`}
+        >
+          Log in as a <span>Demo user</span>
+        </button>
       </form>
     </div>
-
   );
 };
 
