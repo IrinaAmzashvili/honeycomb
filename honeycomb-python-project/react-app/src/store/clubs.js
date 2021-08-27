@@ -32,8 +32,7 @@ export const getClubs = () => async (dispatch) => {
 export const postClub = (club) => async (dispatch) => {
     const res = await fetch("/api/clubs/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(club)
+        body: club
     });
     if (res.ok) {
         const data = await res.json();
