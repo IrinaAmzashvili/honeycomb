@@ -14,8 +14,13 @@ def edit_one_club(id):
     form = ClubForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        if form.img_url.data is True:
+        clubToEdit = Club.query.filter(Club.id == id).one()
+
+        if form.img_url.data != clubToEdit.img_url:
             url = ""
+            original_url = clubToEdit.img_url
+            # form.deleted.data
+
             if "img_url" in request.files:
                 image = request.files['img_url']
                 if not allowed_file(image.filename):
@@ -25,8 +30,18 @@ def edit_one_club(id):
                 if "url" not in upload:
                     return upload, 400
                 url = upload["url"]
-            clubToEdit.img_url = url,
-        clubToEdit = Club.query.filter(Club.id == id).one()
+                delete = delete_from_s3(original_url)
+            clubToEdit.img_url = url
+
+            # Delete
+            # elif form.deleted.data:
+                # delete in amazon
+                # print(“is deleted? ======“, delete)
+                # url = ""
+            # use original
+            # else:
+                # url = original_url
+
         clubToEdit.name = form.name.data,
         clubToEdit.description = form.description.data,
         clubToEdit.category_id = form.category_id.data,
@@ -98,8 +113,6 @@ def get_one_club(id):
 @club_route.route('/api/clubs/<int:id>', methods=['DELETE'])
 def delete_club(id):
     club = Club.query.get_or_404(id)
-    # original_url = club.img_url
-    # url = ""
     # delete in amazon
     delete = delete_from_s3(club.img_url)
 
@@ -107,7 +120,3 @@ def delete_club(id):
     db.session.commit()
 
     return {'message': True}
-    # url = “”
-    # # use original
-    # else:
-    #     url = original_url

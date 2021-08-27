@@ -25,18 +25,19 @@ const EditClubForm = ({ club, setShowModal }) => {
   const editForm = async (event) => {
     event.preventDefault();
 
-    // let img_url;
-    // if (!image) {
-    //   img_url = null;
-    // } else {
-    //   img_url = image;
-    // }
+    let img_url;
+    if (!image) {
+      img_url = club.img_url;
+    } else {
+      img_url = image;
+    }
+    console.log(img_url)
 
     const form_data = new FormData();
     const editedFormInfo = {
       name,
       description,
-      img_url: image,
+      img_url,
       category_id: category,
     };
     for (let key in editedFormInfo) {
