@@ -17,7 +17,7 @@ function EditEvent({ setShowModal, eventId }) {
   const [description, setDescription] = useState(event.description);
   const [location, setLocation] = useState(event.location);
   const [startDate, setStartDate] = useState(new Date(event.date_and_time));
-  console.log("startDate_________", startDate)
+
 
   const user = useSelector((state) => state.session.user);
 
@@ -47,6 +47,13 @@ function EditEvent({ setShowModal, eventId }) {
     e.preventDefault();
     dispatch(deleteEvent(eventId));
     setShowModal(false);
+  };
+
+  const filterPassedTime = (time) => {
+    const currentDate = new Date();
+    const selectedDate = new Date(time);
+
+    return currentDate.getTime() < selectedDate.getTime();
   };
 
   return (
@@ -98,7 +105,7 @@ function EditEvent({ setShowModal, eventId }) {
             <label htmlFor='editDate' className={styles.club__form__label}>Date and Time</label>
           </div>
 
-          <div>
+          <div className={styles.club__name}>
             <DatePicker
               id='editDate'
               className={(styles.calender_input, styles.club__name)}
@@ -107,6 +114,7 @@ function EditEvent({ setShowModal, eventId }) {
               onChange={(date) => setStartDate(date)}
               minDate={moment().toDate()}
               timeClassName={handleColor}
+              filterTime={filterPassedTime}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
           </div>
