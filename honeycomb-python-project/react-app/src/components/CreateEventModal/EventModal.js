@@ -129,7 +129,7 @@ function CreateEvent({ setShowModal }) {
 
           <div className={styles.button__div}>
             <button className='cta_button' type="submit">
-              Submit Event
+              Save
             </button>
           </div>
         </form>

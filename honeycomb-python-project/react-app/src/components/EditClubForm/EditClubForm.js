@@ -151,7 +151,7 @@ const EditClubForm = ({ club, setShowModal }) => {
         </div>
         <div className={styles.button__div}>
           <button className={`${styles.editButton} cta_button`}>
-            Edit Club
+            Save
           </button>
           <button
             className={`${styles.deleteButton} cta_button_danger`}

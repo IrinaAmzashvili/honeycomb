@@ -138,7 +138,7 @@ function EditEvent({ setShowModal, eventId }) {
               className={`${styles.submit_button} cta_button`}
               type="submit"
             >
-              Submit Event
+              Save
             </button>
             <button
               className={`${styles.deleteButton} cta_button_danger`}

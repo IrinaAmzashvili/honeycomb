@@ -134,7 +134,7 @@ function CreateClub({ setShowModal }) {
 
         <div className={styles.button__div}>
           <button className="cta_button" type="submit">
-            Submit Club
+            Save
           </button>
         </div>
       </form>

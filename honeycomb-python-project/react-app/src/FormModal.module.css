@@ -15,6 +15,7 @@
 .club__form__heading {
     color: var(--tealTheme);
     text-align: center;
+    margin-top: 0;
 }
 
 .club__heading_container{
