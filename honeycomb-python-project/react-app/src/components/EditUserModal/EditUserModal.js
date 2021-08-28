@@ -19,7 +19,6 @@ const EditUser = ({ setShowModal, setUser }) => {
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [userSchool, setUserSchool] = useState(user.school_id);
-    // const [profile_img_url, setProfile_img_url] = useState(user.profile_img_url);
     const [image, setImage] = useState(null);
 
 
@@ -72,14 +71,14 @@ const EditUser = ({ setShowModal, setUser }) => {
         }
 
         const form_data = new FormData();
-        const user = {
+        const editedUser = {
             username,
             email,
             profile_img_url,
             school_id
         }
-        for (let key in user) {
-            form_data.append(key, user[key]);
+        for (let key in editedUser) {
+            form_data.append(key, editedUser[key]);
         }
 
         const data = await dispatch(putUser(form_data))

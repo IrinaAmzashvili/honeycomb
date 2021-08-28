@@ -9,6 +9,15 @@
     margin: 50px 80px 50px 200px;
 }
 
+.clubSubInfo {
+    margin: 0;
+    font-weight: 400;
+}
+
+.clubDescription {
+    margin-bottom: 30px;
+}
+
 .calenderContainer > *:first-child {
     color: white;
     font-weight: 600;
@@ -73,7 +82,7 @@
     background-color: #d65858;
 }
 .clubName {
-    font-weight: 1000;
+    font-weight: 600;
     font-size: 40px;
     margin-bottom: 0;
 }
@@ -123,8 +132,8 @@
 }
 
 .title{
-    font-weight: 600;
-    font-size: 25px;
+    font-weight: 400;
+    font-size: 27px;
 }
 .calenderContainer{
     grid-area: calender;
@@ -214,7 +223,7 @@ div.rc-h-48.rc-p-2.rc-border-r-2 {
 
     .title{
         font-weight: 600;
-        font-size: 25px;
+        font-size: 27px;
         padding-bottom: 20px;
     }
 

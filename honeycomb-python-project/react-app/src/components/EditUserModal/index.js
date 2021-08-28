@@ -9,7 +9,7 @@ function UserModal({ setUser }) {
 
     return (
         <>
-            <button className={styles.profileEditButton} onClick={() => setShowModal(true)} >Edit Profile </button>
+            <button className='cta_button_coral_empty' onClick={() => setShowModal(true)} >Edit Profile </button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditUser setUser={setUser} setShowModal={setShowModal} />

@@ -40,24 +40,28 @@
 }
 
 .clubTitle{
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    font-size: 40px;
+    font-weight: 600;
 }
 
 .title {
-    font-family: "Playfair Display";
-    font-weight: 600;
-    font-size: 35px;
+    /* font-family: "Playfair Display"; */
+    /* font-weight: 600; */
+    /* font-size: 27px; */
     color: #454545;
     margin: 0;
+    display: inline
 }
 
 .schoolName {
     /* font-family: "Playfair Display"; */
-    font-weight: 600;
-    font-size: 27px;
+    /* font-weight: 600; */
+    /* font-size: 27px; */
     color: #454545;
     margin: 0;
     padding-top: 10px;
+    display: inline;
 }
 
 .clubsFirstContainer{

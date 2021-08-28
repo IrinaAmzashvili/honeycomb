@@ -104,13 +104,13 @@ const IndividualClub = () => {
 
         <div className={styles.clubinfo}>
           <p className={styles.clubName}>{club?.name}</p>
-          <p>
+          <p className={styles.clubSubInfo}>
             {`Organized by ${clubHost ? clubHost[1] : undefined}`}
             {/* <Link to={`/users/${sessionUser.id}`}>
               <span className={styles.hostName}> {clubHost ? clubHost[1] : undefined}</span>
             </Link> */}
           </p>
-          <p>{`Number of Members ${attending}`}</p>
+          <p className={styles.clubSubInfo}>{`Number of members ${attending}`}</p>
           <p className={styles.clubDescription}>{club?.description}</p>
           {/* if user is not host, display "join/leave club" button */}
           {sessionUser.id !== club?.host_id && (

@@ -51,9 +51,9 @@ function User() {
 
   return (
     <div className={styles.entireProfileContainer}>
-      <h1 className={styles.profileUsernameHeading}>
+      {/* <h1 className={styles.profileUsernameHeading}>
         {user.username}'s profile
-      </h1>
+      </h1> */}
       <div className={styles.profileUserInformation}>
         <div className={styles.profileImageDiv}>
           <img
@@ -64,8 +64,8 @@ function User() {
         </div>
         <div className={styles.profileStuffContainer}>
           <p className={styles.profileUsername}>{user.username}</p>
-          <p className={styles.profileEmail}>{user.email}</p>
           <p className={styles.profileSchool}>{school?.name}</p>
+          <p className={styles.profileEmail}>{user.email}</p>
           <UserModal setUser={setUser} />
         </div>
       </div>

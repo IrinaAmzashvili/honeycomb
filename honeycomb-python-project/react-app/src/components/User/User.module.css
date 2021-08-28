@@ -9,10 +9,10 @@ body {
     overflow-x: hidden;
 }
 
-.profileUsernameHeading {
+/* .profileUsernameHeading {
     width: 1200px;
     margin: 22px auto;
-}
+} */
 
 .profileUserInformation {
     padding-top: 20px;
@@ -44,19 +44,20 @@ body {
     margin-left: 40px;
 }
 .profileUsername {
-    margin-bottom: 0;
-    font-size: 35px;
-    font-weight: bold;
-    /* margin-left: 60px; */
+    margin: 0;
+    font-size: 27px;
+    font-weight: 600;
 }
 .profileEmail {
-    font-weight: lighter;
-    /* margin-left: 40px; */
-    font-size: 20px;
+    font-weight: 100;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 20px
 }
 .profileSchool {
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 100;
+    margin-bottom: 0;
 }
 
 
@@ -68,7 +69,8 @@ body {
 }
 
 .profileMemberClubsHeading {
-    font-size: 40px;
+    font-size: 27px;
+    font-weight: 400;
 }
 
 .profileMemberContainer {
@@ -97,12 +99,14 @@ body {
 }
 
 .profileMemberName {
-    font-weight: bold;
+    font-weight: 400;
     font-size: 20px;
     color: black;
+    margin-bottom: 0;
 }
 
 .profileMemberDesc {
     color: black;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 0;
 }
