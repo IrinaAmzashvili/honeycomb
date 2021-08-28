@@ -1,75 +1,105 @@
-.profileEditButton {
-    border: 2px solid var(--coralTheme);
-    color: var(--coralTheme);
-    background-color: white;
-    height: 45px;
-    border-radius: 20px;
-    width: 200px;
-    font-weight: bold;
-    font-size: 20px;
-}
-.profileEditButton:hover {
-    /* font-weight: bold; */
-    transition: all 0.4s ease 0s;
-    cursor: pointer;
-    color: white;
-    background-color: var(--coralTheme);
+.user_form_div {
+  width: 80%;
 }
 
-.user__form__heading{
-    margin-left: 40px;
-    color: var(--tealTheme);
+.user_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user__form__heading {
+  margin-left: 0px;
+}
+
+.profileEditButton {
+  border: 2px solid var(--coralTheme);
+  color: var(--coralTheme);
+  background-color: white;
+  height: 45px;
+  border-radius: 20px;
+  width: 200px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.profileEditButton:hover {
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  color: white;
+  background-color: var(--coralTheme);
+}
+
+.user__form__heading {
+  color: var(--tealTheme);
+  margin-top: 0;
 }
 
 .signup__errors__container {
-
-    padding-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .errors {
-    text-align: center;
-    color: var(--coralTheme);
-    font-weight: 400;
+  text-align: center;
+  color: var(--coralTheme);
+  font-weight: 400;
 }
 
 /* Signup heading */
 
-
+.errors__container {
+  padding-bottom: 10px;
+}
 
 /* Signup inputs */
 
-.signup__username, .signup__email, .signup__password, .signup__confirm__password {
-    border-radius: 2px;
-    text-indent: 5px;
-    width: 250px;
-    height: 45px;
-    margin-bottom: 10px;
-    border: none;
-    background-color: rgb(241, 241, 241);
+.signup__username,
+.signup__email,
+.signup__password,
+.signup__confirm__password {
+  border-radius: 2px;
+  text-indent: 5px;
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  border: none;
+  background-color: rgb(241, 241, 241);
 }
 
-.signup__school{
-    border-radius: 2px;
-    text-indent: 5px;
-    width: 250px;
-    height: 45px;
-    margin-bottom: 10px;
-    border: none;
+.signup__username__container,
+.signup__email__container,
+.signup__school,
+.signup__image__container {
+  width: 100%;
+}
 
+.signup__school {
+  border-radius: 2px;
+  text-indent: 5px;
+  height: 45px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.profileImageLabel {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.signup__image__container {
+  margin-bottom: 20px;
 }
 
 /* Signup submit button */
 
-.signup__submit{
-    margin-top: 10px;
+.button__div {
+    width: 100%;
+    text-align: right;
 }
 
-.user_form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.signup__submit {
+  margin-top: 10px;
 }
 
-.user__form__heading{
-    margin-left:0px;
+.deleteButton {
+    margin-left: 10px;
 }

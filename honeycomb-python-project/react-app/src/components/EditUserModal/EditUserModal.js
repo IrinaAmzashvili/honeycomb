@@ -133,19 +133,6 @@ const EditUser = ({ setShowModal, setUser }) => {
                         <input id='signupEmail' placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
                     </label>
                 </div>
-                <div className={styles.signup__email__container}>
-                    <label htmlFor='signupImgUrl'>
-                        <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='file' name='profile_img_url' accept="image/*" onChange={updateImage} />
-                        {/* <input
-                            id="imgUrl"
-                            className={styles.club__name}
-                            name="imgUrl"
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                        /> */}
-                    </label>
-                </div>
                 <div className={styles.signup__school}>
                     <label htmlFor='schoolSelect'>
                         <Select
@@ -154,13 +141,18 @@ const EditUser = ({ setShowModal, setUser }) => {
                             className={styles.signup__selection}
                             placeholder="Select School"
                             options={schoolNames()}
-
                             onChange={setUserSchool}
                         />
                     </label>
                 </div>
+                <div className={styles.signup__image__container}>
+                    <label htmlFor='signupImgUrl'>
+                        <p className={styles.profileImageLabel}>Profile Image:</p>
+                        <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__imgUrl} type='file' name='profile_img_url' accept="image/*" onChange={updateImage} />
+                    </label>
+                </div>
                 <div className={styles.button__div}>
-                    <button className={`cta_button ${styles.signup__submit}`} type='submit'>Submit </button>
+                    <button className={`cta_button ${styles.signup__submit}`} type='submit'>Save</button>
                     <button
                         className={`${styles.deleteButton} cta_button_danger`}
                         onClick={handleDelete}

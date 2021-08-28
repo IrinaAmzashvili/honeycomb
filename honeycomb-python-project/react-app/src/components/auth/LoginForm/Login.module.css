@@ -16,7 +16,7 @@ body {
     border-radius: 12px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
     width: 500px;
-    padding-bottom: 50px;
+    padding: 25px 0;
 }
 
 .login__form {
@@ -30,7 +30,7 @@ body {
 .login__form__heading {
     color: var(--tealTheme);
     text-align: center;
-
+    margin-top: 0;
 }
 
 .login__errors__container {

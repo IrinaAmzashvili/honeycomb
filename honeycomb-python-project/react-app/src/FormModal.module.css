@@ -18,10 +18,6 @@
     margin-top: 0;
 }
 
-.club__heading_container{
-margin-left:25px;
-}
-
 .club__name{
     border-radius: 2px;
     text-indent: 5px;
@@ -30,6 +26,13 @@ margin-left:25px;
     margin-bottom: 10px;
     border: none;
     background-color: rgb(241, 241, 241);
+}
+
+.club__imgUrl {
+    background-color: inherit;
+    height: inherit;
+    width: inherit;
+    margin-bottom: 13px;
 }
 
 .club__description{
@@ -49,7 +52,6 @@ margin-left:25px;
 
 .club__label__container{
     padding-bottom: 5px;
-    margin-left:5px;
 }
 
 .button__div {
