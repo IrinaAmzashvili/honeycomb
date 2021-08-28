@@ -1,7 +1,7 @@
 /* Entire form container */
 @import url('../../../index.css');
 .signup__form__entire__container {
-    margin: 100px auto 0;
+    margin: 50px auto 0;
     display: flex;
     text-align: center;
     flex-direction: column;
