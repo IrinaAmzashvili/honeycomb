@@ -72,14 +72,14 @@ const EditUser = ({ setShowModal, setUser }) => {
         }
 
         const form_data = new FormData();
-        const user = {
+        const editedUser = {
             username,
             email,
             profile_img_url,
             school_id
         }
-        for (let key in user) {
-            form_data.append(key, user[key]);
+        for (let key in editedUser) {
+            form_data.append(key, editedUser[key]);
         }
 
         const data = await dispatch(putUser(form_data))
@@ -136,14 +136,6 @@ const EditUser = ({ setShowModal, setUser }) => {
                 <div className={styles.signup__email__container}>
                     <label htmlFor='signupImgUrl'>
                         <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='file' name='profile_img_url' accept="image/*" onChange={updateImage} />
-                        {/* <input
-                            id="imgUrl"
-                            className={styles.club__name}
-                            name="imgUrl"
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                        /> */}
                     </label>
                 </div>
                 <div className={styles.signup__school}>
@@ -160,7 +152,7 @@ const EditUser = ({ setShowModal, setUser }) => {
                     </label>
                 </div>
                 <div className={styles.button__div}>
-                    <button className={`cta_button ${styles.signup__submit}`} type='submit'>Submit </button>
+                    <button className={`cta_button ${styles.signup__submit}`} type='submit'>Save</button>
                     <button
                         className={`${styles.deleteButton} cta_button_danger`}
                         onClick={handleDelete}

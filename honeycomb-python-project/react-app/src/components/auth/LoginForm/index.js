@@ -16,7 +16,11 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      if (data.errors) {
+        setErrors(data.errors);
+      } else {
+        return <Redirect to="/clubs" />;
+      }
     }
   };
 
@@ -24,7 +28,11 @@ const LoginForm = () => {
     e.preventDefault();
     const demoUser = await dispatch(login("demo@aa.io", "password"));
     if (demoUser) {
-      setErrors(demoUser);
+      if (demoUser.errors) {
+        setErrors(demoUser.errors);
+      } else {
+        return <Redirect to="/clubs" />;
+      }
     }
   };
 

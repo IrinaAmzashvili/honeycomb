@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { attendOneEvent, leaveOneEvent, getRsvps } from "../../store/rsvp";
-import { deletePastEvent } from "../../store/events";
 import styles from "../EventCards/EventCards.module.css";
 import EditEventModal from "../EditEventModal";
 

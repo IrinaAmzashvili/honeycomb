@@ -13,7 +13,6 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [userSchool, setUserSchool] = useState("");
-  // const [profile_img_url, setProfile_img_url] = useState('');
   const [image, setImage] = useState(null);
   const user = useSelector((state) => state.session.user);
   const schools = useSelector((state) => Object.values(state.school));
@@ -45,7 +44,11 @@ const SignUpForm = () => {
       }
       const data = await dispatch(signUp(form_data));
       if (data) {
-        setErrors(data);
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          return <Redirect to="/clubs" />;
+        }
       }
     } else {
       setErrors(["Passwords Do not match"]);
@@ -56,7 +59,11 @@ const SignUpForm = () => {
     e.preventDefault();
     const demoUser = await dispatch(login("demo@aa.io", "password"));
     if (demoUser) {
-      setErrors(demoUser);
+      if (demoUser.errors) {
+        setErrors(demoUser.errors);
+      } else {
+        return <Redirect to="/clubs" />;
+      }
     }
   };
 

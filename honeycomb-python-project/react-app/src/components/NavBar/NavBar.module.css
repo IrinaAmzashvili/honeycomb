@@ -51,7 +51,7 @@
     font-family: 'Lato';
     z-index:999999;
     font-weight: 100;
-    width: 120px;
+    min-width: 120px;
     text-align: right;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .profile_dropdown > li:first-child {
-   padding-bottom: 10px;
+   padding-bottom: 5px;
    border-bottom: 1px solid grey;
 }
 

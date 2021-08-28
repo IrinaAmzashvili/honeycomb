@@ -11,6 +11,11 @@ import styles from "../ClubsPage/ClubsPage.module.css";
 
 const ClubsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("0");
+
+  // scroll to top of page when navigating to it
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   //------------------------------------------------clubs---------------------------------------------
   const dispatch = useDispatch();
 

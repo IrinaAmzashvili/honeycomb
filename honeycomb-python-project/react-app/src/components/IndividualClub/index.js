@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getClubs } from "../../store/clubs";
 import { getMemberships, joinClub, leaveClub } from "../../store/membership";
@@ -43,6 +43,11 @@ const IndividualClub = () => {
   const clubHost = club?.members.find(
     (member) => +member[0] === +club?.host_id
   );
+
+  // scroll to top of page when navigating to it
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   // if no club show 404 not found
   if (clubs.length > 0) {
