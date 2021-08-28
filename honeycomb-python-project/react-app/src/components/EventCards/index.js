@@ -13,7 +13,6 @@ const EventsCard = ({ event, index }) => {
   const [attending, setAttending] = useState(event.rsvps.length);
   const newTime = new Date(event.date_and_time);
 
-
   useEffect(() => {
     dispatch(getRsvps());
   }, [dispatch]);
@@ -33,20 +32,29 @@ const EventsCard = ({ event, index }) => {
   return (
     <div key={index} className={styles.outerContainer}>
       <div className={styles.content}>
-        <div className={styles.eventDate}>
-          {newTime.toLocaleDateString()}{" "}
-          <span className={styles.timeStampMiddle}>at</span>{" "}
-          {newTime.toLocaleTimeString()}
-        </div>
-        <div className={styles.eventRsvps}>
-          There are{" "}
-          {attending
-            ? ` ${attending} members attending`
-            : " no members attending"}
-        </div>
-        <div className={styles.eventLocation}>Location: {event.location}</div>
         <div className={styles.eventName}>{event.name}</div>
-        <div className={styles.eventDescription}>{event.description}</div>
+
+        <div className={styles.eventInfoContainer}>
+          <div className={styles.eventCardBlockLeft}>
+            <div className={styles.eventDate}>
+              {newTime.toLocaleDateString()}{" "}
+              <span className={styles.timeStampMiddle}>at</span>{" "}
+              {newTime.toLocaleTimeString()}
+            </div>
+            <div className={styles.eventLocation}>
+              Location: {event.location}
+            </div>
+          </div>
+          <div className={styles.eventCardBlockRight}>
+            <div className={styles.eventDescription}>{event.description}</div>
+            <div className={styles.eventRsvps}>
+              There are{" "}
+              {attending
+                ? ` ${attending} members attending`
+                : " no members attending"}
+            </div>
+          </div>
+        </div>
       </div>
       <div className={styles.buttonGroup}>
         {/* if user is host, display "edit event" button */}
