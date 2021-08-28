@@ -43,7 +43,9 @@ def upload_file_to_s3(file, acl="public-read"):
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
 
-def delete_from_s3(url, key):
+def delete_from_s3(url):
+    key = url[43:]
+
     try:
         if url.startswith(S3_LOCATION):
             s3.delete_object(Bucket='honeycomb-project', Key=key)

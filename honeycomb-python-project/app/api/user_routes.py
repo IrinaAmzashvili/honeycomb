@@ -53,7 +53,7 @@ def edit_user():
                 url = upload["url"]
                 delete = delete_from_s3(original_url)
             editUser.profile_img_url = url
-            
+
         editUser.username = form.username.data,
         editUser.email = form.email.data,
         editUser.school_id = form.school_id.data,
@@ -76,6 +76,9 @@ def delete_user():
     usersClubs = Club.query.filter(Club.host_id == current_user.id)
     for club in usersClubs:
         db.session.delete(club)
+
+    delete_from_s3(user.profile_img_url)
+
     db.session.delete(user)
     db.session.commit()
     return {'message': True}
