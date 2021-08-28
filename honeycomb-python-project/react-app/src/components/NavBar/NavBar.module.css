@@ -17,7 +17,8 @@
 
 .navbarUl > * {
     margin: 0 30px;
-    width: 180px;
+    /* width: 180px; */
+    width: 140px;
 }
 
 .loginSignupDiv {
@@ -75,4 +76,3 @@
     align-items: center;
 
 }
-
