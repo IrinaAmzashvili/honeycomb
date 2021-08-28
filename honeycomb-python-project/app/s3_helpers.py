@@ -24,7 +24,7 @@ def get_unique_filename(filename):
 
 
 BUCKET_NAME = os.environ.get("S3_BUCKET")
-S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
+S3_LOCATION = f"https://honeycomb-project.s3.amazonaws.com/"
 
 def upload_file_to_s3(file, acl="public-read"):
     try:
@@ -38,17 +38,16 @@ def upload_file_to_s3(file, acl="public-read"):
             }
         )
     except Exception as e:
-        # in case the our s3 upload fails
+        # in case the s3 upload fails
         return {"errors": str(e)}
 
     return {"url": f"{S3_LOCATION}{file.filename}"}
 
-def delete_from_s3(file):
-    print('----> before try <-----')
+def delete_from_s3(url, key):
     try:
-        s3.delete_object(Bucket=BUCKET_NAME, Key=file)
-        print('----> after try<----------')
-        return True
+        if url.startswith(S3_LOCATION):
+            s3.delete_object(Bucket='honeycomb-project', Key=key)
+            return True
     except Exception as ex:
         print(str(ex))
         return False

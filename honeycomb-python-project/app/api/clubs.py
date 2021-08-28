@@ -19,7 +19,7 @@ def edit_one_club(id):
         if form.img_url.data != clubToEdit.img_url:
             url = ""
             original_url = clubToEdit.img_url
-            # form.deleted.data
+            key = original_url[43:]
 
             if "img_url" in request.files:
                 image = request.files['img_url']
@@ -30,16 +30,9 @@ def edit_one_club(id):
                 if "url" not in upload:
                     return upload, 400
                 url = upload["url"]
-                delete = delete_from_s3(original_url)
+
+                delete = delete_from_s3(original_url, key)
             clubToEdit.img_url = url
-            # Delete
-            # elif form.deleted.data:
-                # delete in amazon
-                # print(“is deleted? ======“, delete)
-                # url = ""
-            # use original
-            # else:
-                # url = original_url
 
         clubToEdit.name = form.name.data,
         clubToEdit.description = form.description.data,
@@ -111,11 +104,14 @@ def get_one_club(id):
 
 @club_route.route('/api/clubs/<int:id>', methods=['DELETE'])
 def delete_club(id):
-    club = Club.query.get_or_404(id)
-    # delete in amazon
-    delete = delete_from_s3(club.img_url)
+    club_url = Club.query.get(id).img_url
+    key = club_url[43:]
 
-    db.session.delete(club)
+    # delete in amazon
+    delete = delete_from_s3(club_url, key)
+    club = Club.query.filter_by(id = id).delete()
+
+    # db.session.delete(club)
     db.session.commit()
 
     return {'message': True}
