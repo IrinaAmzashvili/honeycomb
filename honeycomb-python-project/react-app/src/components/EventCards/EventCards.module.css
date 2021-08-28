@@ -52,6 +52,12 @@
     margin-left: 10px;
 }
 
+@media only screen and (max-width: 1730px) {
+    .outerContainer {
+        margin: 50px auto;
+    }
+}
+
 @media only screen and (max-width: 990px) {
     .outerContainer {
         margin: 50px auto;
@@ -60,7 +66,7 @@
     .buttonGroup {
         align-self: flex-end;
     }
-    
+
     .outerContainer {
         padding: 40px;
         display: flex;

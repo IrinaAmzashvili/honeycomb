@@ -20,21 +20,18 @@ import {
 } from "@zach.codes/react-calendar";
 
 const IndividualClub = () => {
-  const history = useHistory()
+  const history = useHistory();
   const { id } = useParams();
   const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
   const memberships = useSelector((state) => Object.values(state.memberships));
   const events = useSelector((state) => Object.values(state.events));
-  const newEvents = events.filter((event)=>{
-      let today = new Date()
-      console.log("today", today);
+  const newEvents = events.filter((event) => {
+    let today = new Date();
 
-      console.log("event.date_and_time", new Date(event.date_and_time));
-
-      return new Date(event.date_and_time) > today
-  })
+    return new Date(event.date_and_time) > today;
+  });
   const clubs = useSelector((state) => Object.values(state.clubs));
 
   const club = clubs.find((club) => club?.id === +id);
@@ -70,19 +67,15 @@ const IndividualClub = () => {
     }
   };
 
-
-
-  const renderEventCard = ()=>{
-    if(newEvents.length > 0){
-
+  const renderEventCard = () => {
+    if (newEvents.length > 0) {
       return newEvents.map((event, index) => (
         <EventsCard key={index} index={index} event={event} />
-      ))
+      ));
     } else {
-      return <div className={styles.outerContainer}>No Events for now...</div>
+      return <div className={styles.outerContainer}>No Events for now...</div>;
     }
-
-  }
+  };
 
   // ---------------------------------------calender----------------------
   let [currentMonth, setCurrentMonth] = useState(new Date());
@@ -102,7 +95,11 @@ const IndividualClub = () => {
     <div className={styles.individualClubPage}>
       <div className={styles.clubInfoContainer}>
         <div className={styles.imageDiv}>
-          <img className={styles.clubImage} src={club?.img_url} alt={`${club?.name} club`} />
+          <img
+            className={styles.clubImage}
+            src={club?.img_url}
+            alt={`${club?.name} club`}
+          />
         </div>
 
         <div className={styles.clubinfo}>
@@ -113,9 +110,7 @@ const IndividualClub = () => {
               <span className={styles.hostName}> {clubHost ? clubHost[1] : undefined}</span>
             </Link> */}
           </p>
-          <p>
-            {`Number of Members ${attending}`}
-          </p>
+          <p>{`Number of Members ${attending}`}</p>
           <p className={styles.clubDescription}>{club?.description}</p>
           {/* if user is not host, display "join/leave club" button */}
           {sessionUser.id !== club?.host_id && (
@@ -135,20 +130,14 @@ const IndividualClub = () => {
         </div>
       </div>
       <div className={styles.eventsSectionDiv}>
-        <div className={styles.TitleAndEventModalContainer}>
-          <div className={styles.TitleAndEventModal}>
-            <div className={styles.title}>Upcoming Events</div>
-            {/* if user is host, display "create event" button */}
-            {sessionUser.id === club?.host_id && (
-              <EventModal />
-            )}
-          </div>
-        </div>
         <div className={styles.eventsAndCalender}>
           <div className={styles.eventCardsContainer}>
-            {
-              renderEventCard()
-            }
+            <div className={styles.TitleAndEventModal}>
+              <div className={styles.title}>Upcoming Events</div>
+              {/* if user is host, display "create event" button */}
+              {sessionUser.id === club?.host_id && <EventModal />}
+            </div>
+            {renderEventCard()}
           </div>
           <div className={styles.calenderContainer}>
             <MonthlyCalendar
