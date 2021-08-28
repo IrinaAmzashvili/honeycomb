@@ -14,19 +14,36 @@ const EditClubForm = ({ club, setShowModal }) => {
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState(club.name);
   const [description, setDescription] = useState(club.description);
-  const [imgUrl, setImgUrl] = useState(club.img_url);
+  const [image, setImage] = useState(null);
   const [category, setCategory] = useState(club.category_id);
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
 
   const editForm = async (event) => {
     event.preventDefault();
 
+    let img_url;
+    if (!image) {
+      img_url = club.img_url;
+    } else {
+      img_url = image;
+    }
+
+    const form_data = new FormData();
     const editedFormInfo = {
       name,
       description,
-      img_url: imgUrl,
+      img_url,
       category_id: category,
     };
-    const data = await dispatch(editClub(club.id, editedFormInfo));
+    for (let key in editedFormInfo) {
+      form_data.append(key, editedFormInfo[key]);
+    }
+
+    const data = await dispatch(editClub(club.id, form_data));
     if (data.errors) {
       setErrors(data.errors);
       return;
@@ -81,12 +98,12 @@ const EditClubForm = ({ club, setShowModal }) => {
         </div>
         <div>
           <input
-            id='imgUrl'
-            name="img_url"
-            placeholder="Image Url"
-            value={imgUrl}
-            onChange={(e) => setImgUrl(e.target.value)}
+            id="imgUrl"
             className={styles.club__name}
+            name="imgUrl"
+            type="file"
+            accept="image/*"
+            onChange={updateImage}
           />
         </div>
         <div className={styles.club__label__container}>

@@ -79,19 +79,10 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, email, school_id, profile_img_url, password) => async (dispatch) => {
+export const signUp = (user) => async (dispatch) => {
   const response = await fetch('/api/auth/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      username,
-      email,
-      school_id,
-      profile_img_url,
-      password,
-    }),
+    method: "POST",
+    body: user
   });
 
   if (response.ok) {
@@ -111,15 +102,14 @@ export const signUp = (username, email, school_id, profile_img_url, password) =>
 export const putUser = (user) => async (dispatch) => {
   const res = await fetch('/api/users/edit', {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user)
+    body: user
   })
   if (res.ok) {
     const data = await res.json();
     if (data.errors) {
       return data
     }
-    dispatch(editUser(user));
+    dispatch(editUser(data));
     return data
   }
 }

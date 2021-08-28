@@ -7,9 +7,6 @@ import styles from './EditUserModal.module.css';
 import { putUser, deleteUser } from '../../store/session'
 
 
-
-
-
 const EditUser = ({ setShowModal, setUser }) => {
     const history = useHistory();
     const schools = useSelector(state => Object.values(state.school))
@@ -22,7 +19,14 @@ const EditUser = ({ setShowModal, setUser }) => {
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [userSchool, setUserSchool] = useState(user.school_id);
-    const [profile_img_url, setProfile_img_url] = useState(user.profile_img_url);
+    // const [profile_img_url, setProfile_img_url] = useState(user.profile_img_url);
+    const [image, setImage] = useState(null);
+
+
+    const updateImage = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+    };
 
     useEffect(() => {
         dispatch(getAllSchools());
@@ -33,8 +37,8 @@ const EditUser = ({ setShowModal, setUser }) => {
         let list = []
         for (const school of schools) {
             let obj = {}
-            obj["label"] = school.name
-            obj["value"] = school.id
+            obj["label"] = school?.name
+            obj["value"] = school?.id
             list.push(obj)
         }
         return list
@@ -44,8 +48,8 @@ const EditUser = ({ setShowModal, setUser }) => {
     const startingSchool = () => {
 
         let obj = {}
-        obj["label"] = usersSchool.name
-        obj["value"] = usersSchool.id
+        obj["label"] = usersSchool?.name
+        obj["value"] = usersSchool?.id
 
 
         return obj
@@ -54,23 +58,36 @@ const EditUser = ({ setShowModal, setUser }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         let school_id;
-        if (userSchool.value) {
-            school_id = userSchool.value
+        if (userSchool?.value) {
+            school_id = userSchool?.value
         } else {
             school_id = userSchool
         }
+
+        let profile_img_url;
+        if (!image) {
+          profile_img_url = user.profile_img_url;
+        } else {
+          profile_img_url = image;
+        }
+
+        const form_data = new FormData();
         const user = {
             username,
             email,
             profile_img_url,
             school_id
         }
-        const data = await dispatch(putUser(user))
+        for (let key in user) {
+            form_data.append(key, user[key]);
+        }
+
+        const data = await dispatch(putUser(form_data))
         if (data.errors) {
             setErrors(data.errors);
             return
         }
-        setUser(user)
+        setUser(data)
         setShowModal(false);
     }
 
@@ -118,7 +135,15 @@ const EditUser = ({ setShowModal, setUser }) => {
                 </div>
                 <div className={styles.signup__email__container}>
                     <label htmlFor='signupImgUrl'>
-                        <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='text' name='profile_img_url' onChange={(e) => setProfile_img_url(e.target.value)} value={profile_img_url} />
+                        <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='file' name='profile_img_url' accept="image/*" onChange={updateImage} />
+                        {/* <input
+                            id="imgUrl"
+                            className={styles.club__name}
+                            name="imgUrl"
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                        /> */}
                     </label>
                 </div>
                 <div className={styles.signup__school}>

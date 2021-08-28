@@ -12,24 +12,34 @@ function CreateClub({ setShowModal }) {
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
   const [category, setCategory] = useState("");
+  const [image, setImage] = useState(null);
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const form_data = new FormData();
     const newClub = {
       name,
       description,
-      img_url: imgUrl,
+      img_url: image,
       category_id: category,
     };
-    const data = await dispatch(postClub(newClub));
+    for (let key in newClub) {
+        form_data.append(key, newClub[key]);
+    }
+
+    const data = await dispatch(postClub(form_data));
     if (data.errors) {
       setErrors(data.errors);
       return;
     }
-    dispatch(joinClub(data.id))
+    dispatch(joinClub(data.id));
     setShowModal(false);
     history.push(`/clubs/${data.id}`);
   };
@@ -74,9 +84,9 @@ function CreateClub({ setShowModal }) {
             id="imgUrl"
             className={styles.club__name}
             name="imgUrl"
-            type="text"
-            value={imgUrl}
-            onChange={(e) => setImgUrl(e.target.value)}
+            type="file"
+            accept="image/*"
+            onChange={updateImage}
           />
         </div>
 

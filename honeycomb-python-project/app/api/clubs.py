@@ -1,6 +1,8 @@
 from flask import Blueprint, request
+from flask_login import current_user, login_required
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename, delete_from_s3)
 from ..models import db, Club
-from flask_login import current_user
 from app.forms import ClubForm
 
 
@@ -13,9 +15,25 @@ def edit_one_club(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         clubToEdit = Club.query.filter(Club.id == id).one()
+
+        if form.img_url.data != clubToEdit.img_url:
+            url = ""
+            original_url = clubToEdit.img_url
+
+            if "img_url" in request.files:
+                image = request.files['img_url']
+                if not allowed_file(image.filename):
+                    return {"errors": "file type not permitted"}, 400
+                image.filename = get_unique_filename(image.filename)
+                upload = upload_file_to_s3(image)
+                if "url" not in upload:
+                    return upload, 400
+                url = upload["url"]
+                delete = delete_from_s3(original_url)
+            clubToEdit.img_url = url
+
         clubToEdit.name = form.name.data,
         clubToEdit.description = form.description.data,
-        clubToEdit.img_url = form.img_url.data,
         clubToEdit.category_id = form.category_id.data,
         clubToEdit.host_id = current_user.id,
         clubToEdit.school_id = current_user.school_id
@@ -44,10 +62,20 @@ def post_club():
     form = ClubForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        url = ""
+        if "img_url" in request.files:
+            image = request.files['img_url']
+            if not allowed_file(image.filename):
+                return {"errors": "file type not permitted"}, 400
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+            if "url" not in upload:
+                return upload, 400
+            url = upload["url"]
         club = Club(
             name=form.name.data,
             description=form.description.data,
-            img_url=form.img_url.data,
+            img_url=url,
             category_id=form.category_id.data,
             host_id=current_user.id,
             school_id=current_user.school_id
@@ -74,8 +102,13 @@ def get_one_club(id):
 
 @club_route.route('/api/clubs/<int:id>', methods=['DELETE'])
 def delete_club(id):
-    club = Club.query.get_or_404(id)
+    club_url = Club.query.get(id).img_url
 
-    db.session.delete(club)
+    # delete in amazon
+    delete_from_s3(club_url)
+    club = Club.query.filter_by(id = id).delete()
+
+    # db.session.delete(club)
     db.session.commit()
+
     return {'message': True}
