@@ -29,6 +29,10 @@ const EventsCard = ({ event, index }) => {
     }
   };
 
+  const eventTime = () => {
+    return newTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
   return (
     <div key={index} className={styles.outerContainer}>
       <div className={styles.content}>
@@ -39,7 +43,7 @@ const EventsCard = ({ event, index }) => {
             <div className={styles.eventDate}>
               {newTime.toLocaleDateString()}{" "}
               <span className={styles.timeStampMiddle}>at</span>{" "}
-              {newTime.toLocaleTimeString()}
+              {newTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </div>
             <div className={styles.eventLocation}>
               Location: {event.location}
