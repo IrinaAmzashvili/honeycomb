@@ -129,6 +129,8 @@
     align-items: center;
     justify-content: space-between;
     grid-area: titleAndModal;
+    width: 794px;
+    margin-left: 200px; 
 }
 
 .title{
