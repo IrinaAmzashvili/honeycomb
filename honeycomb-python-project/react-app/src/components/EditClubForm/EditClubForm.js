@@ -92,21 +92,6 @@ const EditClubForm = ({ club, setShowModal }) => {
           />
         </div>
         <div className={styles.club__label__container}>
-          <label htmlFor="imgUrl" className={styles.club__form__label}>
-            Club Image URL
-          </label>
-        </div>
-        <div>
-          <input
-            id="imgUrl"
-            className={styles.club__name}
-            name="imgUrl"
-            type="file"
-            accept="image/*"
-            onChange={updateImage}
-          />
-        </div>
-        <div className={styles.club__label__container}>
           <label htmlFor="category" className={styles.club__form__label}>
             Category
           </label>
@@ -149,9 +134,24 @@ const EditClubForm = ({ club, setShowModal }) => {
             className={styles.club__description}
           ></textarea>
         </div>
+        <div className={styles.club__label__container}>
+          <label htmlFor="imgUrl" className={styles.club__form__label}>
+            Club Image
+          </label>
+        </div>
+        <div>
+          <input
+            id="imgUrl"
+            className={styles.club__imgUrl}
+            name="imgUrl"
+            type="file"
+            accept="image/*"
+            onChange={updateImage}
+          />
+        </div>
         <div className={styles.button__div}>
           <button className={`${styles.editButton} cta_button`}>
-            Edit Club
+            Save
           </button>
           <button
             className={`${styles.deleteButton} cta_button_danger`}

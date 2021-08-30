@@ -55,7 +55,7 @@ const ClubsPage = () => {
       <div className={styles.clubsOuterDiv}>
         <div className={styles.clubsTopTwoLine}>
           <div className={styles.clubTitle}>
-            <p className={styles.title}>Clubs At </p>
+            <p className={styles.title}>Clubs at </p>
             <p className={styles.schoolName}>{school?.name}</p>
           </div>
           <div className={styles.clubsFirstContainer}>

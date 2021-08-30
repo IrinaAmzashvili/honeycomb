@@ -13,7 +13,6 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [userSchool, setUserSchool] = useState("");
-  // const [profile_img_url, setProfile_img_url] = useState('');
   const [image, setImage] = useState(null);
   const user = useSelector((state) => state.session.user);
   const schools = useSelector((state) => Object.values(state.school));
@@ -76,10 +75,6 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  // const updateProfileImageUrl = (e) => {
-  //   setProfile_img_url(e.target.value);
-  // };
-
   if (user) {
     return <Redirect to="/" />;
   }
@@ -132,27 +127,6 @@ const SignUpForm = () => {
             />
           </label>
         </div>
-        <div className={styles.signup__email__container}>
-          <label htmlFor="signupImgUrl">
-            <input
-              id="signupImgUrl"
-              placeholder="Profile Image Url"
-              className={styles.signup__email}
-              type="file"
-              name="profile_img_url"
-              accept="image/*"
-              onChange={updateImage}
-              // value={profile_img_url}
-            />
-            {/* <input
-              id="imgUrl"
-              className={styles.club__name}
-              name="imgUrl"
-              type="file"
-              onChange={updateImage}
-            /> */}
-          </label>
-        </div>
         <div className={styles.signup__password__container}>
           <label htmlFor="signupPassword">
             <input
@@ -187,6 +161,20 @@ const SignUpForm = () => {
               placeholder="Select School"
               options={schoolNames()}
               onChange={setUserSchool}
+            />
+          </label>
+        </div>
+        <div className={styles.signup__image__container}>
+          <label htmlFor="signupImgUrl">
+            <p className={styles.profileImgLabel}>Profile image:</p>
+            <input
+              id="signupImgUrl"
+              placeholder="Profile Image Url"
+              className={styles.signup__image}
+              type="file"
+              name="profile_img_url"
+              accept="image/*"
+              onChange={updateImage}
             />
           </label>
         </div>

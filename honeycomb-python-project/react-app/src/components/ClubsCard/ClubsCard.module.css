@@ -42,7 +42,13 @@
 
 .clubDescription {
     font-family:"Lato";
-    font-size: 20px;
+    font-size: 16px;
     color: #454545;
-    /* margin: 22px 30px 30px 30px; */
+    font-weight: 100;
+}
+
+.clubName {
+    font-size: 27px;
+    font-weight: 400;
+    margin-bottom: 3px;
 }

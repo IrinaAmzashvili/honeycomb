@@ -1,6 +1,6 @@
 @import url('../../index.css');
 
-.outerContainer{
+.outerContainer {
     width:794px;
     height: 383px;
     background-color: white;
@@ -9,20 +9,36 @@
     margin: 50px 80px 50px 200px;
 }
 
-.calenderContainer button {
-    background-color: var(--tealTheme);
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    height: 40px;
-    width: 150px;
-    margin-right: 15px;
+.clubSubInfo {
+    margin: 0;
+    font-weight: 400;
 }
 
+.clubDescription {
+    margin-bottom: 30px;
+}
+
+.calenderContainer > *:first-child {
+    color: white;
+    font-weight: 600;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.calenderContainer > *:first-child > div {
+    width: 300px;
+    font-size: 24px;
+}
+
+.calenderContainer button {
+    background-color: inherit;
+    font-weight: 100;
+    color: white;
+    border: none;
+}
 
 .calenderContainer button:hover {
-    background-color: var(--tealHover);
+    text-decoration: underline;
 }
 
 .imageDiv {
@@ -55,7 +71,6 @@
     height: 40px;
     width: 150px;
     border: none;
-    /* margin-bottom: 10px; */
     border-radius: 20px;
     background-color: var(--coralTheme);
     font-size: 17px;
@@ -67,7 +82,7 @@
     background-color: #d65858;
 }
 .clubName {
-    font-weight: 1000;
+    font-weight: 600;
     font-size: 40px;
     margin-bottom: 0;
 }
@@ -99,29 +114,14 @@
 }
 
 .eventCardsContainer{
-    /* min-width: 900px; */
-    /* height:  */
     padding-top: 30px;
     padding-bottom: 30px;
     grid-area: events;
 }
 .eventsAndCalender{
     background-color:#EBEBEB ;
-    /* height: 1480px; */
     display: flex;
-    /* grid-template-columns: 2fr 1fr;
-    grid-template-areas:
-    "events calender"; */
-}
-.TitleAndEventModalContainer{
-    padding-top:50px ;
-    padding-right: 200px;
-    padding-left:200px;
-    background-color:#EBEBEB ;
-    display: grid;
-    grid-template-columns: 800px auto;
-    grid-template-areas: "titleAndModal";
-
+    padding-top: 50px;
 }
 
 .TitleAndEventModal{
@@ -132,8 +132,8 @@
 }
 
 .title{
-    font-weight: 600;
-    font-size: 25px;
+    font-weight: 400;
+    font-size: 27px;
 }
 .calenderContainer{
     grid-area: calender;
@@ -142,7 +142,7 @@
     margin-top: 80px;
     margin-right: 80px;
     margin-bottom: 80px;
-    width: 809px;
+    width: 794px;
     height: 1030px;
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
     background-color:var(--coralTheme);
@@ -155,9 +155,8 @@
     box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.233);
 }
 
-
 div.rc-h-48.rc-p-2.rc-border-r-2 {
-        height: 5rem;
+    height: 5rem;
 }
 
 @media only screen and (max-width: 1730px) {
@@ -166,10 +165,15 @@ div.rc-h-48.rc-p-2.rc-border-r-2 {
         min-height: 1280px;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .calenderContainer{
-        margin-left: 200px;
+        margin: 80px auto;
+    }
+
+    .outerContainer {
+        margin: 50px auto;
     }
 }
 
@@ -213,18 +217,13 @@ div.rc-h-48.rc-p-2.rc-border-r-2 {
         align-items: center;
     }
 
-    .TitleAndEventModalContainer {
-        display: flex;
-        justify-content: center;
-    }
-
     .TitleAndEventModal{
         width: 500px;
     }
 
     .title{
         font-weight: 600;
-        font-size: 25px;
+        font-size: 27px;
         padding-bottom: 20px;
     }
 

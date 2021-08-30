@@ -17,7 +17,7 @@
 
 .navbarUl > * {
     margin: 0 30px;
-    width: 180px;
+    width: 140px;
 }
 
 .loginSignupDiv {
@@ -25,11 +25,9 @@
     justify-content: space-between;
 }
 
-
-
 .profileImg {
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 30px;
     border:1px solid lightgrey;
     height:45px;
     width:45px;
@@ -43,22 +41,47 @@
 
 .profile_dropdown{
     position: absolute;
-    right:4.5em;
+    right: 30px;
     top:3.75em;
     border:1px solid lightgrey;
     box-shadow: 0px 5px 6px rgb(0 0 0 / 23%);
     background-color: white;
     border-radius: 8px;
-    padding:15px;
+    padding: 15px 0;
     font-family: 'Lato';
     z-index:999999;
+    font-weight: 100;
+    width: 120px;
+    text-align: right;
 }
 
+.profile_dropdown > li {
+    padding: 0 15px;
+}
+
+.profile_dropdown > li:first-child {
+   padding-bottom: 10px;
+   border-bottom: 1px solid grey;
+}
+
+.profile_dropdown > li:not(:first-child) {
+    padding-top: 10px
+}
+
+.profile_dropdown > li:not(:first-child) > *:hover {
+    color: var(--tealTheme);
+    font-weight: 400;
+}
 
 .user_info{
     padding-bottom: 7px;
     color:black;
 }
+/*
+.username:hover {
+    color: black;
+    font-weight: 100;
+} */
 
 .bee{
     height:40px;
@@ -71,8 +94,6 @@
 .link_container{
     display:flex;
     width:100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-
 }
-

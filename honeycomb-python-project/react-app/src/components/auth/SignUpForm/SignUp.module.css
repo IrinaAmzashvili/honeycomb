@@ -1,7 +1,9 @@
 /* Entire form container */
 @import url('../../../index.css');
+
+
 .signup__form__entire__container {
-    margin: 100px auto 0;
+    margin: 50px auto 0;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -11,8 +13,7 @@
     border-radius: 12px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.233);
     width: 500px;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
+    padding: 25px 0;
 }
 
 .login__no__account__demo {
@@ -44,7 +45,8 @@
 /* Signup heading */
 
 .signup__heading {
-    color: var(--tealTheme)
+    color: var(--tealTheme);
+    margin-top: 0;
 }
 
 /* Signup inputs */
@@ -66,7 +68,19 @@
     height: 45px;
     margin-bottom: 10px;
     border: none;
+}
 
+.signup__image {
+    background-color: inherit;
+    height: inherit;
+    width: inherit;
+    margin-bottom: 13px;
+}
+
+.profileImgLabel {
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 /* Signup submit button */
