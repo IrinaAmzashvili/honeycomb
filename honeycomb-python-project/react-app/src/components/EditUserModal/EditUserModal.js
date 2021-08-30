@@ -19,7 +19,6 @@ const EditUser = ({ setShowModal, setUser }) => {
     const [username, setUsername] = useState(user.username);
     const [email, setEmail] = useState(user.email);
     const [userSchool, setUserSchool] = useState(user.school_id);
-    // const [profile_img_url, setProfile_img_url] = useState(user.profile_img_url);
     const [image, setImage] = useState(null);
 
 
@@ -133,11 +132,6 @@ const EditUser = ({ setShowModal, setUser }) => {
                         <input id='signupEmail' placeholder="Email" className={styles.signup__email} type='text' name='email' onChange={(e) => setEmail(e.target.value)} value={email} />
                     </label>
                 </div>
-                <div className={styles.signup__email__container}>
-                    <label htmlFor='signupImgUrl'>
-                        <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__email} type='file' name='profile_img_url' accept="image/*" onChange={updateImage} />
-                    </label>
-                </div>
                 <div className={styles.signup__school}>
                     <label htmlFor='schoolSelect'>
                         <Select
@@ -146,9 +140,14 @@ const EditUser = ({ setShowModal, setUser }) => {
                             className={styles.signup__selection}
                             placeholder="Select School"
                             options={schoolNames()}
-
                             onChange={setUserSchool}
                         />
+                    </label>
+                </div>
+                <div className={styles.signup__image__container}>
+                    <label htmlFor='signupImgUrl'>
+                        <p className={styles.profileImageLabel}>Profile Image:</p>
+                        <input id='signupImgUrl' placeholder="Profile Image Url" className={styles.signup__imgUrl} type='file' name='profile_img_url' accept="image/*" onChange={updateImage} />
                     </label>
                 </div>
                 <div className={styles.button__div}>

@@ -61,8 +61,8 @@ function User() {
         </div>
         <div className={styles.profileStuffContainer}>
           <p className={styles.profileUsername}>{user.username}</p>
-          <p className={styles.profileEmail}>{user.email}</p>
           <p className={styles.profileSchool}>{school?.name}</p>
+          <p className={styles.profileEmail}>{user.email}</p>
           <UserModal setUser={setUser} />
         </div>
       </div>

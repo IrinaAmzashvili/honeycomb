@@ -11,7 +11,7 @@ const ClubsCard = ({ club, index }) => {
             <img className={styles.ClubsCardImg} src={club.img_url} alt={`${club?.name} club`}></img>
           </div>
           <div className={styles.ClubsCardContent}>
-            <div>{club.name}</div>
+            <div className={styles.clubName}>{club.name}</div>
             <div className={styles.clubDescription}>{club.description}</div>
           </div>
         </div>
