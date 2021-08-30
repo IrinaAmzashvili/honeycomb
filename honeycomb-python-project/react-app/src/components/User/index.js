@@ -51,9 +51,6 @@ function User() {
 
   return (
     <div className={styles.entireProfileContainer}>
-      {/* <h1 className={styles.profileUsernameHeading}>
-        {user.username}'s profile
-      </h1> */}
       <div className={styles.profileUserInformation}>
         <div className={styles.profileImageDiv}>
           <img
@@ -75,42 +72,44 @@ function User() {
         <div>
           <h2 className={styles.profileMemberClubsHeading}>Host</h2>
           {hosted.map((club, idx) => (
-            <div key={idx} className={styles.profileMemberContainer}>
-              <div className={styles.clubImgDiv}>
-                <img
-                  className={styles.profileMemberImg}
-                  src={club.img_url}
-                  alt="user hosted clubs"
-                ></img>
-              </div>
-              <div>
-                <Link to={`/clubs/${club.id}`}>
+            <Link key={idx} to={`/clubs/${club.id}`}>
+              <div className={styles.profileMemberContainer}>
+                <div className={styles.clubImgDiv}>
+                  <img
+                    className={styles.profileMemberImg}
+                    src={club.img_url}
+                    alt="user hosted clubs"
+                  ></img>
+                </div>
+                <div>
                   <p className={styles.profileMemberName}>{club.name}</p>
-                </Link>
-                <p className={styles.profileMemberDesc}>{club.description}</p>
+                  <p className={styles.profileMemberDesc}>{club.description}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
         <div>
           <h2 className={styles.profileMemberClubsHeading}>Member</h2>
           {memberships.map((member, idx) => (
-            <div key={idx} className={styles.profileMemberContainer}>
-              <div className={styles.clubImgDiv}>
-                <img
-                  className={styles.profileMemberImg}
-                  src={member.img_url}
-                  alt="user membership clubs"
-                ></img>
-              </div>
-              <div>
-                <Link to={`/clubs/${member.id}`}>
+            <Link key={idx} to={`/clubs/${member.id}`}>
+              <div className={styles.profileMemberContainer}>
+                <div className={styles.clubImgDiv}>
+                  <img
+                    className={styles.profileMemberImg}
+                    src={member.img_url}
+                    alt="user membership clubs"
+                  ></img>
+                </div>
+                <div>
                   <p className={styles.profileMemberName}>{member.name}</p>
-                </Link>
-                <p className={styles.profileMemberDesc}>{member.description}</p>
+                  <p className={styles.profileMemberDesc}>
+                    {member.description}
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

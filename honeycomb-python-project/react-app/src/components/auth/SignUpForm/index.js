@@ -44,7 +44,9 @@ const SignUpForm = () => {
       }
       const data = await dispatch(signUp(form_data));
       if (data) {
-        setErrors(data);
+        if (data.errors) {
+          setErrors(data.errors);
+        }
       }
     } else {
       setErrors(["Passwords Do not match"]);
@@ -55,7 +57,9 @@ const SignUpForm = () => {
     e.preventDefault();
     const demoUser = await dispatch(login("demo@aa.io", "password"));
     if (demoUser) {
-      setErrors(demoUser);
+      if (demoUser.errors) {
+        setErrors(demoUser.errors);
+      }
     }
   };
 
@@ -76,7 +80,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/clubs" />;
   }
 
   const schoolNames = () => {

@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom"
 function Footer() {
   const sessionUser = useSelector((state) => state.session.user);
 

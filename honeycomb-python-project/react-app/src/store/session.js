@@ -57,9 +57,10 @@ export const login = (email, password) => async (dispatch) => {
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
+    // if (data.errors) {
+    //   return data.errors;
+    // }
+    return data
   } else {
     return ['An error occurred. Please try again.']
   }
@@ -91,9 +92,10 @@ export const signUp = (user) => async (dispatch) => {
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
-    if (data.errors) {
-      return data.errors;
-    }
+    // if (data.errors) {
+    //   return data.errors;
+    // }
+    return data;
   } else {
     return ['An error occurred. Please try again.']
   }
