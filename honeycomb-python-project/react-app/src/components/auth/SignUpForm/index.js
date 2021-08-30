@@ -46,8 +46,6 @@ const SignUpForm = () => {
       if (data) {
         if (data.errors) {
           setErrors(data.errors);
-        } else {
-          return <Redirect to="/clubs" />;
         }
       }
     } else {
@@ -61,8 +59,6 @@ const SignUpForm = () => {
     if (demoUser) {
       if (demoUser.errors) {
         setErrors(demoUser.errors);
-      } else {
-        return <Redirect to="/clubs" />;
       }
     }
   };
@@ -83,12 +79,8 @@ const SignUpForm = () => {
     setRepeatPassword(e.target.value);
   };
 
-  // const updateProfileImageUrl = (e) => {
-  //   setProfile_img_url(e.target.value);
-  // };
-
   if (user) {
-    return <Redirect to="/" />;
+    return <Redirect to="/clubs" />;
   }
 
   const schoolNames = () => {

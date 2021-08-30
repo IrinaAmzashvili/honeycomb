@@ -18,8 +18,6 @@ const LoginForm = () => {
     if (data) {
       if (data.errors) {
         setErrors(data.errors);
-      } else {
-        return <Redirect to="/clubs" />;
       }
     }
   };
@@ -30,8 +28,6 @@ const LoginForm = () => {
     if (demoUser) {
       if (demoUser.errors) {
         setErrors(demoUser.errors);
-      } else {
-        return <Redirect to="/clubs" />;
       }
     }
   };
