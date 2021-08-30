@@ -27,10 +27,7 @@ const EventsCard = ({ event, index }) => {
       setAttending((event.rsvps.length += 1));
     }
   };
-
-  const eventTime = () => {
-    return newTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  }
+  
 
   return (
     <div key={index} className={styles.outerContainer}>
